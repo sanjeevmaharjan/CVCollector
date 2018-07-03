@@ -1,0 +1,49 @@
+Personal Details
+	Name
+	DOB
+	Father
+	Mother
+	Nationality
+	Marital Status
+	Career Title
+	Personal Summary
+Contact Details
+	Phone (Mul.)
+	email (Mul.)
+	address (Country, State, City, Street)
+	profile links
+    		Name
+    		Url
+Education Details
+	List of Institutions
+		Institute
+		Degree
+		Start Date - End Date
+		Group Summary
+    Education Summary
+Professional Details
+    Professional Skills
+	List of Workplaces
+		Name of Workplace
+		Designation
+		Start Date - End Date
+		Workplace Summary
+    Professional Summary
+Project
+	List of Projects
+		Project title
+		Organizer
+		Start Date - End Date
+		Project Summary
+    Summary on Projects
+Additional Info
+	Languages and Skills
+		Name
+		Proficiency
+	Hobbies and Sports
+
+Awards
+	Title
+	Year
+	For
+Refs

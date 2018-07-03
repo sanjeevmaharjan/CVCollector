@@ -1,6 +1,6 @@
 package cvc.api.controller;
 
-import cvc.domain.User;
+import cvc.domain.Users;
 import cvc.logic.IUserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +16,7 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public List<User> getUsers() {
+    public List<Users> getUsers() {
         return userRepository.findAll();
     }
 }

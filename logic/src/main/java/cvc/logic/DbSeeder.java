@@ -1,6 +1,6 @@
 package cvc.logic;
 
-import cvc.domain.User;
+import cvc.domain.Users;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,11 +17,13 @@ public class DbSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        User sanjeev = new User("Sanjeev Maharjan", "dgheet1z");
-        User prazeen = new User("Prazeen Shrestha", "2018");
-        User prakash = new User("Prakash Aryal", "prakash111");
+        if (userRepository.count() > 0)
+            return;
+        Users sanjeev = new Users("Sanjeev Maharjan", "sanjeev", "password");
+        Users prazeen = new Users("Prazeen Shrestha", "prazeen","2018");
+        Users prakash = new Users("Prakash Aryal", "prakash","prakash111");
 
-        List<User> usersList = new ArrayList<>();
+        List<Users> usersList = new ArrayList<>();
 
         usersList.add(sanjeev);
         usersList.add(prazeen);
