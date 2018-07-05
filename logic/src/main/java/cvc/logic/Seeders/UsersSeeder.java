@@ -1,6 +1,7 @@
-package cvc.logic;
+package cvc.logic.Seeders;
 
 import cvc.domain.Users;
+import cvc.logic.IUserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -8,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class DbSeeder implements CommandLineRunner {
+public class UsersSeeder implements CommandLineRunner {
     private IUserRepository userRepository;
 
-    public DbSeeder(IUserRepository userRepository) {
+    public UsersSeeder(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

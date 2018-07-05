@@ -7,7 +7,7 @@ import java.util.List;
 public class ProfessionalDetails extends PersistentObject  {
     private String ProfessionalSkills;
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<WorkPlace> WorkPlaces;
 
     private String Summary;

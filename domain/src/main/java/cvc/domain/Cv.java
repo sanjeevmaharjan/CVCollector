@@ -1,26 +1,35 @@
 package cvc.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Cv extends PersistentObject {
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private PersonalDetails Personal;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private ContactDetails Contact;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private EducationDetails Education;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private ProfessionalDetails Professional;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private ProjectDetails Project;
 
     public Cv() {}
+
+    public Cv(PersonalDetails personal, ContactDetails contact, EducationDetails education, ProfessionalDetails professional, ProjectDetails project) {
+        Personal = personal;
+        Contact = contact;
+        Education = education;
+        Professional = professional;
+        Project = project;
+    }
 
     //region getters and setters
 

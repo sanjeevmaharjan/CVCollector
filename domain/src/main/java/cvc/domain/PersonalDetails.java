@@ -22,12 +22,12 @@ public class PersonalDetails extends PersistentObject  {
 
     private String CareerTitle;
 
-    private String PersonalSummary;
+    private String summary;
 
 
     public PersonalDetails() {}
 
-    public PersonalDetails(String name, Date dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String personalSummary) {
+    public PersonalDetails(String name, Date dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String summary) {
         this.Name = name;
         this.DateOfBirth = dateOfBirth;
         this.Father = father;
@@ -35,7 +35,7 @@ public class PersonalDetails extends PersistentObject  {
         this.Nationality = nationality;
         this.MaritalStatus = maritalStatus;
         this.CareerTitle = careerTitle;
-        this.PersonalSummary = personalSummary;
+        this.summary = summary;
     }
 
     //region getters and setters
@@ -68,8 +68,8 @@ public class PersonalDetails extends PersistentObject  {
         return CareerTitle;
     }
 
-    public String getPersonalSummary() {
-        return PersonalSummary;
+    public String getSummary() {
+        return summary;
     }
 
     //endregion getters and setters

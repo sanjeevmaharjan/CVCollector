@@ -1,5 +1,7 @@
+# dependencies
 target/
 !.mvn/wrapper/maven-wrapper.jar
+web/node_modules
 
 ### STS ###
 .apt_generated
@@ -9,6 +11,11 @@ target/
 .settings
 .springBeans
 .sts4-cache
+
+# compiled output
+web/dist
+web/tmp
+web/out-tsc
 
 ### IntelliJ IDEA ###
 .idea
@@ -23,3 +30,30 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Sensitive Files
+api/src/main/resources/application.properties
+
+# misc
+/web/.sass-cache
+/web/connect.lock
+/web/coverage
+/web/libpeerconnection.log
+/web/npm-debug.log
+/web/testem.log
+/web/typings
+
+# e2e
+web/e2e/*.js
+web/e2e/*.map
+
+# System Files
+web/.DS_Store
+web/Thumbs.db
