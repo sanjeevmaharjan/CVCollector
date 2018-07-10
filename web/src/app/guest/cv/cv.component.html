@@ -1,3 +1,43 @@
-<p>
-  cv works!
-</p>
+<div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Fill Your Cv</h3>
+        <h6 class="card-subtitle">* marked fields are required</h6>
+        <ngb-tabset #t="ngbTabset">
+          <ngb-tab id="tab-PersonalDetails">
+            <ng-template ngbTabTitle>
+              Personal Details
+            </ng-template>
+            <ng-template ngbTabContent>
+              <p class="p-t-20">
+                Personal Details Here!
+              </p>
+
+              <p>
+                <button class="btn btn-outline-primary pull-right" (click)="t.select('tab-ContactDetails')">
+                  Next<span class="mdi mdi-arrow-right"></span>
+                </button>
+              </p>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab id="tab-ContactDetails">
+            <ng-template ngbTabTitle>
+              Contact Details
+            </ng-template>
+            <ng-template ngbTabContent>
+              <p class="p-t-20">Contact Details Here!</p>
+
+              <p>
+                <button class="btn btn-outline-primary pull-left" (click)="t.select('tab-PersonalDetails')">
+                  <span class="mdi mdi-arrow-left"></span>Previous
+                </button>
+                <button class="btn btn-outline-primary pull-right" (click)="t.select('tab-EducationDetails')">
+                  Next<span class="mdi mdi-arrow-right"></span>
+                </button>
+              </p>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+
+
+      </div>
+    </div>
