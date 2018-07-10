@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
+import {RouterModule} from "@angular/router";
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { CvComponent } from './cv/cv.component';
+import {GuestRoutes} from "./guest.routing";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(GuestRoutes),
+    NgbModule
   ],
-  declarations: [HomeComponent]
+  declarations: [LoginComponent, SignupComponent, CvComponent]
 })
 export class GuestModule { }

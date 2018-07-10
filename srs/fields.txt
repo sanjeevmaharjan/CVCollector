@@ -11,6 +11,7 @@ Contact Details
 	Phone (Mul.)
 	email (Mul.)
 	address (Country, State, City, Street)
+	+ Agree to Relocate?
 	profile links
     		Name
     		Url
@@ -18,6 +19,8 @@ Education Details
 	List of Institutions
 		Institute
 		Degree
+		+ Level
+		+ Percentage
 		Start Date - End Date
 		Group Summary
     Education Summary

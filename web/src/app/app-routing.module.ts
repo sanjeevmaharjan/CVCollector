@@ -3,8 +3,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FullComponent } from './layouts/full/full.component';
+import {FrontComponent} from "./layouts/front/front.component";
+import {ErrorComponent} from "./error/error.component";
 
 export const Approutes: Routes = [
+/*
+* Match for the root for frontend
+* */
+{
+  path: '',
+  component: FrontComponent,
+  children: [
+    { path: '', loadChildren: './guest/guest.module#GuestModule' },
+    { path: 'error', loadChildren: './error/error.module#ErrorModule'}
+  ]
+},
+
+  /*
+  * Match for the root for backend
+  * */
 {
     path: '',
     component: FullComponent,
@@ -14,9 +31,13 @@ export const Approutes: Routes = [
         { path: 'component', loadChildren: './component/component.module#ComponentsModule' },
     ]
 },
+
+  /*
+  * Everything else
+  * */
 {
     path: '**',
-    redirectTo: '/starter' 
+    redirectTo: '/error'
 }];
 
 

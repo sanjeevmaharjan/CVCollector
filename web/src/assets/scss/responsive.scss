@@ -4,38 +4,38 @@ Author: Themedesigner
 Email: niravjoshi87@gmail.com
 File: scss
 */
-/*============================================================== 
- For Laptop & above all (1650px) 
+/*==============================================================
+ For Laptop & above all (1650px)
  ============================================================== */
 
 @media(min-width:1650px) {
     .widget-app-columns {
-      column-count:3; 
-    } 
-    
+      column-count:3;
+    }
+
 }
-/*============================================================== 
- For Laptop & above all (1370px) 
+/*==============================================================
+ For Laptop & above all (1370px)
  ============================================================== */
 
 @media(max-width:1370px) {
     .widget-app-columns {
       column-count:2;
-    }  
+    }
 }
 
 
-/*-- ============================================================== 
- Small Desktop & above all (1024px) 
+/*-- ==============================================================
+ Small Desktop & above all (1024px)
  ============================================================== */
 
 @media(min-width:1024px) {
     .page-wrapper{
-        margin-left:240px;    
-    }  
+        margin-left:240px;
+    }
     .footer{
         left: 240px;
-    }     
+    }
 }
 
 @media(max-width:1023px) {
@@ -45,8 +45,8 @@ File: scss
 }
 
 
-/*-- ============================================================== 
- Ipad & above all(768px) 
+/*-- ==============================================================
+ Ipad & above all(768px)
  ============================================================== */
 
 @media(min-width:768px) {
@@ -60,7 +60,7 @@ File: scss
     /*This is for the breeadcrumd*/
     .card-group .card:first-child, .card-group .card:not(:first-child):not(:last-child){
         border-right:1px solid rgba(0, 0, 0, 0.03);
-        
+
     }
     .material-icon-list-demo .icons div {
         width: 33%;
@@ -87,15 +87,15 @@ File: scss
 }
 
 
-/*-- ============================================================== 
- Phone and below ipad(767px) 
+/*-- ==============================================================
+ Phone and below ipad(767px)
  ============================================================== */
 
 @media(max-width:767px) {
-    
+
     /*Header*/
     .topbar {
-        
+
         width: 100%;
         .top-navbar {
             padding-right: 15px;
@@ -108,7 +108,7 @@ File: scss
                 display: flex;
                 width: 100%;
             }
-            .navbar-header{ 
+            .navbar-header{
                 width: 70px;
             }
             .navbar-brand span{
@@ -145,17 +145,17 @@ File: scss
     /*Sidebar and wrapper*/
     .mini-sidebar .page-wrapper{
         margin-left:0px;
-        
+
     }
     .comment-text{
         .comment-footer{
             .action-icons {
                 display: block;
                 padding: 10px 0;
-            } 
+            }
         }
     }
-    
+
     /*Footer*/
     .footer{
             left: 0px;
@@ -188,7 +188,7 @@ File: scss
     }
     .login-box{
         width: 90%;
-        
+
     }
     .login-sidebar{
         padding: 10% 0;
@@ -196,8 +196,8 @@ File: scss
             position: relative;
         }
     }
-    
-    
+
+
     /*Timeline*/
     ul.timeline:before {
         left: 40px;
@@ -225,6 +225,6 @@ File: scss
         border-right-width: 14px;
         border-left-width: 0;
     }
-    
-    
+
+
 }

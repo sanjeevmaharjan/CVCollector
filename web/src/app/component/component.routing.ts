@@ -26,7 +26,7 @@ export const ComponentsRoutes: Routes = [
         component: CvComponent,
         data: {
           title: 'CV',
-          urls: [{title: 'Dashboard',url: '/cv'},{title: 'CV'}]
+          urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'CV'}]
         }
       },
       {
