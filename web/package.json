@@ -39,7 +39,7 @@
     "ng2-toastr": "^4.1.2",
     "ngx-perfect-scrollbar": "^6.2.0",
     "ngx-quill": "^3.1.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.2",
     "pace-js": "^1.0.2",
     "popper.js": "^1.12.5",
     "rxjs": "^6.2.0",

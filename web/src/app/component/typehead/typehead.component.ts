@@ -1,6 +1,6 @@
 import { Component, Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {Jsonp, URLSearchParams} from '@angular/Http';
+import {Jsonp, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';

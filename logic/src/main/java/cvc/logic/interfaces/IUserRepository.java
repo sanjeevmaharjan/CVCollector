@@ -1,4 +1,4 @@
-package cvc.logic;
+package cvc.logic.interfaces;
 
 import cvc.domain.Users;
 import org.springframework.data.jpa.repository.JpaRepository;

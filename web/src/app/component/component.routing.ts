@@ -15,7 +15,7 @@ import { NgbdtimepickerBasic } from './timepicker/timepicker.component';
 import { NgbdtypeheadBasic } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
-import {CvComponent} from "./cv/cv.component";
+import {CvComponent} from './cv/cv.component';
 
 export const ComponentsRoutes: Routes = [
   {
@@ -26,7 +26,7 @@ export const ComponentsRoutes: Routes = [
         component: CvComponent,
         data: {
           title: 'CV',
-          urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'CV'}]
+          urls: [{title: 'Dashboard', url: '/dashboard'},{title: 'CV'}]
         }
       },
       {
@@ -90,7 +90,7 @@ export const ComponentsRoutes: Routes = [
       component: NgbdModalBasic,
       data: {
         title: 'Modal',
-        urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Modal'}]
+        urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'ngComponent'}, {title: 'Modal'}]
       }
     },
     {
@@ -98,7 +98,7 @@ export const ComponentsRoutes: Routes = [
       component: NgbdPopTooltip,
       data: {
         title: 'Popover & Tooltip',
-        urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Popover & Tooltip'}]
+        urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'ngComponent'}, {title: 'Popover & Tooltip'}]
       }
     },
     {
@@ -106,7 +106,7 @@ export const ComponentsRoutes: Routes = [
       component: NgbdratingBasic,
       data: {
         title: 'Rating',
-        urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Rating'}]
+        urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'ngComponent'}, {title: 'Rating'}]
       }
     },
     {
@@ -114,7 +114,7 @@ export const ComponentsRoutes: Routes = [
       component: NgbdtabsBasic,
       data: {
         title: 'Tabs',
-        urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Tabs'}]
+        urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'ngComponent'}, {title: 'Tabs'}]
       }
     },
     {
@@ -122,7 +122,7 @@ export const ComponentsRoutes: Routes = [
       component: NgbdtimepickerBasic,
       data: {
         title: 'Timepicker',
-        urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Timepicker'}]
+        urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'ngComponent'}, {title: 'Timepicker'}]
       }
     },
     {
@@ -130,7 +130,7 @@ export const ComponentsRoutes: Routes = [
       component: NgbdtypeheadBasic,
       data: {
         title: 'Typehead',
-        urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Typehead'}]
+        urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'ngComponent'}, {title: 'Typehead'}]
       }
     },
     {
@@ -138,7 +138,7 @@ export const ComponentsRoutes: Routes = [
       component: ButtonsComponent,
       data: {
         title: 'Button',
-        urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Button'}]
+        urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'ngComponent'}, {title: 'Button'}]
       }
     },
     {
@@ -146,7 +146,7 @@ export const ComponentsRoutes: Routes = [
       component: CardsComponent,
       data: {
         title: 'Card',
-        urls: [{title: 'Dashboard',url: '/dashboard'},{title: 'ngComponent'},{title: 'Card'}]
+        urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'ngComponent'}, {title: 'Card'}]
       }
     }]
   }

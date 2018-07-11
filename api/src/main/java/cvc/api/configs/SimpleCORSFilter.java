@@ -1,4 +1,4 @@
-package cvc.api;
+package cvc.api.configs;
 
 import org.springframework.stereotype.Component;
 

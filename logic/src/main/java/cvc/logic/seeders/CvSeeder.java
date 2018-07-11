@@ -1,12 +1,11 @@
-package cvc.logic.Seeders;
+package cvc.logic.seeders;
 
 import cvc.domain.*;
-import cvc.logic.ICvRepository;
+import cvc.logic.interfaces.ICvRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -60,6 +59,29 @@ public class CvSeeder implements CommandLineRunner {
                     )
             );
 
+            List<LanguageProficiency> languageProficiencyList = new ArrayList<>();
+            languageProficiencyList.add(
+                    new LanguageProficiency(
+                            "Nepali",
+                            "Reading and Writing"
+                    )
+            );
+            languageProficiencyList.add(
+                    new LanguageProficiency(
+                            "English",
+                            "Reading and Writing"
+                    )
+            );
+
+            List<Award> awardList = new ArrayList<>();
+            awardList.add(
+                    new Award(
+                            "Best Actor Award",
+                            (short)2018,
+                            "Acting"
+                    )
+            );
+
             Cv cv = new Cv(
                     new PersonalDetails(
                             "TestFirstName TestLastName",
@@ -91,7 +113,12 @@ public class CvSeeder implements CommandLineRunner {
                     new ProjectDetails(
                             projectList,
                             "Test Project Summary"
-                    )
+                    ),
+                    new AdditionalInfo(
+                            languageProficiencyList,
+                            "Singing, Dancing"
+                    ),
+                    awardList
             );
 
             cvs.add(cv);

@@ -38,9 +38,6 @@ nbdist/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# Sensitive Files
-api/src/main/resources/application.properties
-
 # misc
 /web/.sass-cache
 /web/connect.lock
