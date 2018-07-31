@@ -22,6 +22,7 @@ import { AppComponent } from './app.component';
 import { SpinnerComponent } from './shared/spinner.component';
 import { FrontComponent } from './layouts/front/front.component';
 import { ErrorComponent } from './error/error.component';
+import { TextDirective } from './shared/form-elements/text.directive';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,

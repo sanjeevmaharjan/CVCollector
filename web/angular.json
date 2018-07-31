@@ -26,7 +26,8 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/pace-js/pace.min.js"
+              "node_modules/pace-js/pace.min.js",
+              "src/assets/scripts/googleMaps.js"
             ]
           },
           "configurations": {

@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card cv-form-container">
       <div class="card-body">
         <h3 class="card-title">Fill Your Cv</h3>
         <h6 class="card-subtitle">* marked fields are required</h6>
@@ -8,30 +8,133 @@
               Personal Details
             </ng-template>
             <ng-template ngbTabContent>
-              <p class="p-t-20">
-                Personal Details Here!
-              </p>
+              <form class="cv-form-personal">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                    <small id="firstNameHelp" class="form-text text-muted">* Your First Name</small>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                    <small id="lastNameHelp" class="form-text text-muted">* Your Last Name</small>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label for="gender">Gender</label>
+                    <select class="form-control" id="gender">
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
+                  </div>
+
+                  <!-- Datepicker for dob -->
+                  <div class="form-group col-md-3">
+                    <label for="dob">Date of Birth</label>
+                    <form class="form-inline">
+                      <div class="input-group full-width">
+                        <input class="form-control" placeholder="yyyy-mm-dd"
+                               name="dp" id="dob" readonly="readonly" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append" (click)="d.toggle()" >
+                          <i class="fa fa-calendar input-group-text"></i>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- Datepicker for dob -->
+
+                  <div class="form-group col-md-3">
+                    <label for="nationality">Nationality</label>
+                    <input type="text" class="form-control" id="nationality" placeholder="">
+                  </div>
+
+
+                  <div class="form-group col-md-3">
+                    <label for="maritalStatus">Marital Status</label>
+                    <select class="form-control" id="maritalStatus">
+                      <option>Married</option>
+                      <option>Unmarried</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="fatherName">Father's Name</label>
+                    <input type="text" class="form-control" id="fatherName" placeholder="Father's Name">
+                    <small id="fatherNameHelp" class="form-text text-muted">* Your Father's Name</small>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="lastName">Mother's Name</label>
+                    <input type="text" class="form-control" id="motherName" placeholder="Mother's Name">
+                    <small id="motherNameHelp" class="form-text text-muted">* Your Last Name</small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="careerTitle">Career Title</label>
+                  <input type="text" class="form-control" id="careerTitle" placeholder="">
+                </div>
+
+                <div class="form-group">
+                  <label for="personalSummary">Personal Details Summary</label>
+                  <textarea class="form-control" rows="5" id="personalSummary"></textarea>
+                </div>
+              </form>
 
               <p>
                 <button class="btn btn-outline-primary pull-right" (click)="t.select('tab-ContactDetails')">
-                  Next<span class="mdi mdi-arrow-right"></span>
+                  Next <span class="mdi mdi-arrow-right"></span>
                 </button>
               </p>
             </ng-template>
           </ngb-tab>
+
+
+
           <ngb-tab id="tab-ContactDetails">
             <ng-template ngbTabTitle>
               Contact Details
             </ng-template>
             <ng-template ngbTabContent>
-              <p class="p-t-20">Contact Details Here!</p>
+              <form class="cv-form-personal">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <select id="inputState" class="form-control">
+                      <option selected>Choose...</option>
+                      <option>...</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                  </div>
+                </div>
+
+                <h1>Angular 2 + Google Maps Places Autocomplete</h1>
+                <div class="form-group">
+                  <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+                </div>
+                <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                </agm-map>
+              </form>
 
               <p>
                 <button class="btn btn-outline-primary pull-left" (click)="t.select('tab-PersonalDetails')">
-                  <span class="mdi mdi-arrow-left"></span>Previous
+                  <span class="mdi mdi-arrow-left"></span> Previous
                 </button>
                 <button class="btn btn-outline-primary pull-right" (click)="t.select('tab-EducationDetails')">
-                  Next<span class="mdi mdi-arrow-right"></span>
+                  Next <span class="mdi mdi-arrow-right"></span>
                 </button>
               </p>
             </ng-template>

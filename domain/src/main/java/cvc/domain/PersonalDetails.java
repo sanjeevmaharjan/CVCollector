@@ -7,7 +7,11 @@ import java.util.Date;
 @Entity
 public class PersonalDetails extends PersistentObject  {
 
-    private String Name;
+    private String FirstName;
+
+    private String LastName;
+
+    private String Gender;
 
     @Column(name = "dob")
     private Date DateOfBirth;
@@ -27,8 +31,9 @@ public class PersonalDetails extends PersistentObject  {
 
     public PersonalDetails() {}
 
-    public PersonalDetails(String name, Date dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String summary) {
-        this.Name = name;
+    public PersonalDetails(String FirstName, String LastName, Date dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String summary) {
+        this.FirstName = FirstName;
+        this.LastName = LastName;
         this.DateOfBirth = dateOfBirth;
         this.Father = father;
         this.Mother = mother;
@@ -40,8 +45,13 @@ public class PersonalDetails extends PersistentObject  {
 
     //region getters and setters
 
-    public String getName() {
-        return Name;
+
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public String getLastName() {
+        return LastName;
     }
 
     public Date getDateOfBirth() {

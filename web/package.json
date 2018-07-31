@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.3",
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
     "@angular/compiler": "^6.0.3",
@@ -23,6 +24,7 @@
     "@angular/router": "^6.0.3",
     "@ng-bootstrap/ng-bootstrap": "^2.2.0",
     "@swimlane/ngx-datatable": "^13.0.0",
+    "@types/googlemaps": "^3.30.11",
     "angular-calendar": "^0.25.2",
     "bootstrap": "^4.1.1",
     "chart.js": "^2.7.1",
