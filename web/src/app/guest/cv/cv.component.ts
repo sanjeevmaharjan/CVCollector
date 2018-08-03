@@ -1,8 +1,20 @@
 import {Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
-import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+import {NgbAccordion, NgbAccordionConfig, NgbPanelChangeEvent, NgbTabChangeEvent} from '@ng-bootstrap/ng-bootstrap';
 import {AgmCoreModule, MapsAPILoader} from "@agm/core";
 import { } from 'googlemaps';
 import {FormControl} from "@angular/forms";
+import { CvModel } from '../../models/cv/cv.model';
+import {PersonalDetailsModel} from "../../models/cv/personal-details.model";
+import {ContactDetailsModel} from "../../models/cv/contact-details.model";
+import {EducationDetailsModel} from "../../models/cv/education-details.model";
+import {ProfessionalDetailsModel} from "../../models/cv/professional-details.model";
+import {ProjectModel} from "../../models/cv/project.model";
+import {AdditionalInfoModel} from "../../models/cv/additional-info.model";
+import {InstitutionModel} from "../../models/cv/institution.model";
+import {WorkplaceModel} from "../../models/cv/workplace.model";
+import {ProjectDetailsModel} from "../../models/cv/project-details.model";
+import {AwardsModel} from "../../models/cv/awards.model";
+import {LanguageProficiencyModel} from "../../models/cv/language-proficiency.model";
 
 @Component({
   selector: 'app-cv',
@@ -10,68 +22,64 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./cv.component.css']
 })
 export class CvComponent implements OnInit {
-  public latitude: number;
-  public longitude: number;
-  public searchControl: FormControl;
-  public zoom: number;
+  cv: CvModel;
 
-  @ViewChild("search")
-  public searchElementRef: ElementRef;
+  minDate: Date = new Date(1);
+
+  currentDate: Date = new Date(Date.now());
 
   constructor(
-    private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone
-  ) { }
+  ) {
+    this.cv = new CvModel();
+    this.cv.Personal = new PersonalDetailsModel();
+    this.cv.Contact = new ContactDetailsModel();
+    this.cv.Education = new EducationDetailsModel();
+    this.cv.Professional = new ProfessionalDetailsModel();
+    this.cv.Project = new ProjectDetailsModel();
+    this.cv.AdditionalInfo = new AdditionalInfoModel();
 
-  ngOnInit() {
-    //set google maps defaults
-    this.zoom = 4;
-    this.latitude = 39.8282;
-    this.longitude = -98.5795;
-
-    //create search FormControl
-    this.searchControl = new FormControl();
-
-    //set current position
-    this.setCurrentPosition();
-
-    //load Places Autocomplete
-    this.mapsAPILoader.load().then(() => {
-      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-        types: ["address"]
-      });
-      autocomplete.addListener("place_changed", () => {
-        this.ngZone.run(() => {
-          //get the place result
-          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
-          //verify result
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-
-          //set latitude, longitude and zoom
-          this.latitude = place.geometry.location.lat();
-          this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
-        });
-      });
-    });
+    // initialize arrays
+    this.cv.Awards.push(new AwardsModel());
+    this.cv.Contact.Phone.push('');
+    this.cv.Contact.Email.push('');
+    this.cv.Education.Institutions.push(new InstitutionModel());
+    this.cv.Professional.WorkPlaces.push(new WorkplaceModel());
+    this.cv.Project.Projects.push(new ProjectModel());
+    this.cv.AdditionalInfo.LanguageProficiencyList.push(new LanguageProficiencyModel());
   }
 
-  private setCurrentPosition() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 12;
-      });
-    }
+  ngOnInit() {
   }
 
   public beforeChange($event: NgbTabChangeEvent) {
-    if ($event.nextId === 'tab-preventchange2') {
-      $event.preventDefault();
-    }
   };
+
+  public addPhone() {
+    this.cv.Contact.Phone.push('');
+  }
+
+  public addEmail() {
+    this.cv.Contact.Email.push('');
+  }
+
+  public addInstitution() {
+    this.cv.Education.Institutions.push(new InstitutionModel());
+  }
+
+  public addWorkplace() {
+    this.cv.Professional.WorkPlaces.push(new WorkplaceModel());
+  }
+
+  public addProject() {
+    this.cv.Project.Projects.push(new ProjectModel());
+  }
+
+  public addLanguageProficiency() {
+    this.cv.AdditionalInfo.LanguageProficiencyList.push(new LanguageProficiencyModel());
+  }
+
+  public save() {
+    console.log(this.cv);
+  }
 }

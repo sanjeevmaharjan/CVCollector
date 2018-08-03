@@ -12,52 +12,44 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="firstName">First Name</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                    <input type="text" [(ngModel)]="cv.Personal.FirstName" class="form-control" id="firstName" name="firstName" placeholder="First Name">
                     <small id="firstNameHelp" class="form-text text-muted">* Your First Name</small>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                    <input type="text" [(ngModel)]="cv.Personal.LastName" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
                     <small id="lastNameHelp" class="form-text text-muted">* Your Last Name</small>
                   </div>
                 </div>
 
                 <div class="form-row">
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-4">
                     <label for="gender">Gender</label>
-                    <select class="form-control" id="gender">
-                      <option>Male</option>
-                      <option>Female</option>
+                    <select [(ngModel)]="cv.Personal.Gender" class="form-control custom-select" id="gender" name="gender">
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                      <option value="3">Other</option>
                     </select>
                   </div>
 
-                  <!-- Datepicker for dob -->
-                  <div class="form-group col-md-3">
+                  <!-- Datepicker for DateOfBirth -->
+                  <div class="form-group col-md-4">
                     <label for="dob">Date of Birth</label>
                     <form class="form-inline">
                       <div class="input-group full-width">
                         <input class="form-control" placeholder="yyyy-mm-dd"
-                               name="dp" id="dob" readonly="readonly" ngbDatepicker #d="ngbDatepicker">
+                               [(ngModel)]="cv.Personal.DateOfBirth" [minDate]="minDate" [maxDate]="currentDate" name="dob" id="dob" readonly="readonly" ngbDatepicker #d="ngbDatepicker">
                         <div class="input-group-append" (click)="d.toggle()" >
                           <i class="fa fa-calendar input-group-text"></i>
                         </div>
                       </div>
                     </form>
                   </div>
-                  <!-- Datepicker for dob -->
+                  <!-- Datepicker for DateOfBirth -->
 
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-4">
                     <label for="nationality">Nationality</label>
-                    <input type="text" class="form-control" id="nationality" placeholder="">
-                  </div>
-
-
-                  <div class="form-group col-md-3">
-                    <label for="maritalStatus">Marital Status</label>
-                    <select class="form-control" id="maritalStatus">
-                      <option>Married</option>
-                      <option>Unmarried</option>
-                    </select>
+                    <input type="text" [(ngModel)]="cv.Personal.Nationality" class="form-control" id="nationality" name="nationality" placeholder="">
                   </div>
 
                 </div>
@@ -65,24 +57,35 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="fatherName">Father's Name</label>
-                    <input type="text" class="form-control" id="fatherName" placeholder="Father's Name">
+                    <input type="text" [(ngModel)]="cv.Personal.Father" class="form-control" id="fatherName" name="fatherName" placeholder="Father's Name">
                     <small id="fatherNameHelp" class="form-text text-muted">* Your Father's Name</small>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="lastName">Mother's Name</label>
-                    <input type="text" class="form-control" id="motherName" placeholder="Mother's Name">
+                    <input type="text" [(ngModel)]="cv.Personal.Mother" class="form-control" id="motherName" name="motherName" placeholder="Mother's Name">
                     <small id="motherNameHelp" class="form-text text-muted">* Your Last Name</small>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="careerTitle">Career Title</label>
-                  <input type="text" class="form-control" id="careerTitle" placeholder="">
+                <div class="form-row">
+                  <div class="form-group col-md-8">
+                    <label for="careerTitle">Career Title</label>
+                    <input type="text" [(ngModel)]="cv.Personal.CareerTitle" class="form-control" id="careerTitle" name="careerTitle" placeholder="Career Title">
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="maritalStatus">Marital Status</label>
+                    <select [(ngModel)]="cv.Personal.MaritalStatus" class="form-control custom-select" id="maritalStatus" name="maritalStatus">
+                      <option value="1">Married</option>
+                      <option value="2">Unmarried</option>
+                    </select>
+                  </div>
                 </div>
 
+
                 <div class="form-group">
-                  <label for="personalSummary">Personal Details Summary</label>
-                  <textarea class="form-control" rows="5" id="personalSummary"></textarea>
+                  <label for="personalAdditional">Personal Details Additional</label>
+                  <textarea [(ngModel)]="cv.Personal.AdditionalDetails" class="form-control" rows="5" id="personalAdditional" name="personalAdditional"></textarea>
                 </div>
               </form>
 
@@ -94,39 +97,69 @@
             </ng-template>
           </ngb-tab>
 
-
-
           <ngb-tab id="tab-ContactDetails">
             <ng-template ngbTabTitle>
               Contact Details
             </ng-template>
             <ng-template ngbTabContent>
-              <form class="cv-form-personal">
+              <form class="cv-form-contact">
                 <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                  <div class="form-group col-md-8">
+                    <label for="inputCity">Address</label>
+                    <input type="text" [(ngModel)]="cv.Contact.Address" name="inputCity" class="form-control" id="inputCity">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                      <option selected>Choose...</option>
-                      <option>...</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <input type="text" [(ngModel)]="cv.Contact.Zip" name="inputZip" class="form-control" id="inputZip">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6 float-left row">
+                    <div class="col-12">
+                      <label>Phone Numbers</label>
+                    </div>
+                    <div class="form-list form-inline col-sm-8" *ngFor="let phone of cv.Contact.Phone; let i = index">
+                      <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <span class="fa fa-phone"></span>
+                          </div>
+                        </div>
+                        <input type="text" [(ngModel)]="cv.Contact.Phone[i]" name="inputPhone{{i}}" class="form-control" id="inputPhone{{i}}" placeholder="Phone Number">
+                      </div>
+                    </div>
+                    <button class="btn btn-success btn-circle align-middle"
+                            (click)="addPhone()" ngbTooltip="Add Phone" placement="right">
+                      <span class="fa fa-plus"></span>
+                    </button>
+                  </div>
+
+
+                  <div class="form-group col-md-6 float-left row">
+                    <div class="col-12">
+                      <label>Email Addresses</label>
+                    </div>
+                    <div class="form-list form-inline col-sm-8" *ngFor="let email of cv.Contact.Email; let i = index">
+                      <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <span class="fa fa-envelope"></span>
+                          </div>
+                        </div>
+                        <input type="text" [(ngModel)]="cv.Contact.Email[i]" name="inputEmail{{i}}" class="form-control" id="inputEmail{{i}}" placeholder="Email Address">
+                      </div>
+                    </div>
+                    <button class="btn btn-success btn-circle align-middle"
+                            (click)="addEmail()" ngbTooltip="Add Email" placement="right">
+                      <span class="fa fa-plus"></span>
+                    </button>
                   </div>
                 </div>
 
-                <h1>Angular 2 + Google Maps Places Autocomplete</h1>
                 <div class="form-group">
-                  <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+                  <label for="contactDetailsAdditional">Contact Details Additional</label>
+                  <textarea [(ngModel)]="cv.Contact.AdditionalDetails" name="contactDetailsAdditional" class="form-control" rows="5" id="contactDetailsAdditional"></textarea>
                 </div>
-                <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-                  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-                </agm-map>
               </form>
 
               <p>
@@ -139,6 +172,361 @@
               </p>
             </ng-template>
           </ngb-tab>
+
+          <ngb-tab id="tab-EducationDetails">
+            <ng-template ngbTabTitle>
+              Education Details
+            </ng-template>
+            <ng-template ngbTabContent>
+              <form class="cv-form-education">
+
+                <div class="form-group">
+                    <h3 class="card-title">Institutions</h3>
+                    <h6 class="card-subtitle">List of Schools, Colleges, etc.</h6>
+                    <ngb-accordion #instutionAcc="ngbAccordion" [closeOthers]="true" activeIds="institution-0" class="accordion form-group">
+                      <ngb-panel *ngFor="let institution of cv.Education.Institutions; let i = index" id="institution-{{i}}">
+                        <ng-template ngbPanelTitle>
+                          <div class="text-left"><strong>Institution:</strong> {{institution.Name}}</div>
+                          <div class="text-left"><strong>Degree:</strong> {{institution.Degree}}</div>
+                        </ng-template>
+                        <ng-template ngbPanelContent>
+                          <div class="form-group">
+                            <label for="inputInstitutionName-{{i}}">Name</label>
+                            <input type="text" [(ngModel)]="institution.Name" name="inputInstitutionName-{{i}}" class="form-control" id="inputInstitutionName-{{i}}">
+                          </div>
+
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputInstitutionDegree-{{i}}">Degree</label>
+                              <input type="text" [(ngModel)]="institution.Degree" name="inputInstitutionDegree-{{i}}" class="form-control" id="inputInstitutionDegree-{{i}}">
+                            </div>
+                            <div class="form-group col-md-6">
+                              <label for="inputInstitutionConcentration-{{i}}">Concentration</label>
+                              <input type="text" [(ngModel)]="institution.Concentration" name="inputInstitutionConcentration-{{i}}" class="form-control" id="inputInstitutionConcentration-{{i}}">
+                            </div>
+                          </div>
+
+                          <div class="form-row">
+                            <!-- Datepicker for start date -->
+                            <div class="form-group col-md-6">
+                              <label for="institution-startDate-{{i}}">Start Date</label>
+                              <form class="form-inline">
+                                <div class="input-group full-width">
+                                  <input class="form-control" placeholder="yyyy-mm-dd" [minDate]="{year: 1970, month: 1, day: 1}"
+                                         [(ngModel)]="institution.StartDate" name="institution-startDate-{{i}}" id="institution-startDate-{{i}}" readonly="readonly" ngbDatepicker #institutionStartDate="ngbDatepicker">
+                                  <div class="input-group-append" (click)="institutionStartDate.toggle()" >
+                                    <i class="fa fa-calendar input-group-text"></i>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                            <!-- Datepicker for start date-->
+
+                            <!-- Datepicker for end date -->
+                            <div class="form-group col-md-6">
+                              <label for="institution-endDate-{{i}}">End Date</label>
+                              <form class="form-inline">
+                                <div class="input-group full-width">
+                                  <input class="form-control" placeholder="yyyy-mm-dd" [minDate]="{year: 1970, month: 1, day: 1}"
+                                         [(ngModel)]="institution.EndDate" name="institution-endDate-{{i}}" id="institution-endDate-{{i}}" readonly="readonly" ngbDatepicker #institutionEndDate="ngbDatepicker">
+                                  <div class="input-group-append" (click)="institutionEndDate.toggle()" >
+                                    <i class="fa fa-calendar input-group-text"></i>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                            <!-- Datepicker for end date-->
+                          </div>
+
+                          <div class="form-group">
+                            <label for="institutionAdditionalInfo">Institution Additional Info</label>
+                            <textarea [(ngModel)]="institution.AdditionalInfo" name="institutionAdditionalInfo" class="form-control" rows="5" id="institutionAdditionalInfo"></textarea>
+                          </div>
+                        </ng-template>
+                      </ngb-panel>
+                    </ngb-accordion>
+
+                    <br />
+
+                    <button class="btn btn-success btn-circle align-middle"
+                            (click)="addInstitution()" ngbTooltip="Add Institution" placement="right">
+                      <span class="fa fa-plus"></span>
+                    </button>
+
+                </div>
+
+                <div class="form-group">
+                  <label for="educationAdditionalDetails">Education Additional Details</label>
+                  <textarea [(ngModel)]="cv.Education.AdditionalDetails" name="educationAdditionalDetails" class="form-control" rows="5" id="educationAdditionalDetails"></textarea>
+                </div>
+
+              </form>
+
+              <p>
+                <button class="btn btn-outline-primary pull-left" (click)="t.select('tab-ContactDetails')">
+                  <span class="mdi mdi-arrow-left"></span> Previous
+                </button>
+                <button class="btn btn-outline-primary pull-right" (click)="t.select('tab-ProfessionalDetails')">
+                  Next <span class="mdi mdi-arrow-right"></span>
+                </button>
+              </p>
+            </ng-template>
+          </ngb-tab>
+
+          <ngb-tab id="tab-ProfessionalDetails">
+            <ng-template ngbTabTitle>
+              Professional Details
+            </ng-template>
+            <ng-template ngbTabContent>
+              <form class="cv-form-professional">
+
+                <div class="form-group">
+                  <label for="inputProfessionalSkills">Professional Skills</label>
+                  <input type="text" [(ngModel)]="cv.Professional.ProfessionalSkills" name="inputProfessionalSkills" class="form-control" id="inputProfessionalSkills">
+                </div>
+
+                <div class="form-group">
+                  <ngb-accordion #workplaceAcc="ngbAccordion" [closeOthers]="true" activeIds="workplace-0" class="accordion form-group">
+                    <ngb-panel *ngFor="let workplace of cv.Professional.WorkPlaces; let i = index" id="workplace-{{i}}">
+                      <ng-template ngbPanelTitle>
+                        <div class="text-left"><strong>Workplace:</strong> {{workplace.Name}}</div>
+                        <div class="text-left"><strong>Designation:</strong> {{workplace.Designation}}</div>
+                      </ng-template>
+                      <ng-template ngbPanelContent>
+                        <div class="form-group">
+                          <label for="inputWorkPlaceName-{{i}}">Name</label>
+                          <input type="text" [(ngModel)]="workplace.Name" name="inputWorkPlaceName-{{i}}" class="form-control" id="inputWorkPlaceName-{{i}}">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="inputWorkPlaceDesignation-{{i}}">Designation</label>
+                          <input type="text" [(ngModel)]="workplace.Designation" name="inputWorkPlaceDesignation-{{i}}" class="form-control" id="inputWorkPlaceDesignation-{{i}}">
+                        </div>
+
+                        <div class="form-row">
+                          <!-- Datepicker for start date -->
+                          <div class="form-group col-md-6">
+                            <label for="workplace-startDate-{{i}}">Start Date</label>
+                            <form class="form-inline">
+                              <div class="input-group full-width">
+                                <input class="form-control" placeholder="yyyy-mm-dd" [minDate]="{year: 1970, month: 1, day: 1}"
+                                       [(ngModel)]="workplace.StartDate" name="workplace-startDate-{{i}}" id="workplace-startDate-{{i}}" readonly="readonly" ngbDatepicker #workPlaceStartDate="ngbDatepicker">
+                                <div class="input-group-append" (click)="workPlaceStartDate.toggle()" >
+                                  <i class="fa fa-calendar input-group-text"></i>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                          <!-- Datepicker for start date-->
+
+                          <!-- Datepicker for end date -->
+                          <div class="form-group col-md-6">
+                            <label for="workplace-endDate-{{i}}">End Date</label>
+                            <form class="form-inline">
+                              <div class="input-group full-width">
+                                <input class="form-control" placeholder="yyyy-mm-dd" [minDate]="{year: 1970, month: 1, day: 1}"
+                                       [(ngModel)]="workplace.EndDate" name="workplace-endDate-{{i}}" id="workplace-endDate-{{i}}" readonly="readonly" ngbDatepicker #workPlaceEndDate="ngbDatepicker">
+                                <div class="input-group-append" (click)="workPlaceEndDate.toggle()" >
+                                  <i class="fa fa-calendar input-group-text"></i>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                          <!-- Datepicker for end date-->
+                        </div>
+
+                        <div class="form-group">
+                          <label for="workplaceAdditionalInfo">WorkPlace Additional Info</label>
+                          <textarea [(ngModel)]="workplace.AdditionalInfo" name="workplaceAdditionalInfo" class="form-control" rows="5" id="workplaceAdditionalInfo"></textarea>
+                        </div>
+                      </ng-template>
+                    </ngb-panel>
+                  </ngb-accordion>
+
+                  <br />
+
+                  <button class="btn btn-success btn-circle align-middle"
+                          (click)="addWorkplace()" ngbTooltip="Add WorkPlace" placement="right">
+                    <span class="fa fa-plus"></span>
+                  </button>
+                </div>
+
+                <div class="form-group">
+                  <label for="professionalDetailsAdditional">Professional Additional Details</label>
+                  <textarea [(ngModel)]="cv.Professional.AdditionalDetails" name="inputprofessionalDetailsAdditional" class="form-control" rows="5" id="professionalDetailsAdditional"></textarea>
+                </div>
+
+              </form>
+
+              <p>
+                <button class="btn btn-outline-primary pull-left" (click)="t.select('tab-EducationDetails')">
+                  <span class="mdi mdi-arrow-left"></span> Previous
+                </button>
+                <button class="btn btn-outline-primary pull-right" (click)="t.select('tab-ProjectDetails')">
+                  Next <span class="mdi mdi-arrow-right"></span>
+                </button>
+              </p>
+            </ng-template>
+          </ngb-tab>
+
+          <ngb-tab id="tab-ProjectDetails">
+          <ng-template ngbTabTitle>
+            Project Details
+          </ng-template>
+          <ng-template ngbTabContent>
+            <form class="cv-form-project">
+
+              <div class="form-group">
+                <ngb-accordion #projectAcc="ngbAccordion" [closeOthers]="true" activeIds="project-0" class="accordion form-group">
+                  <ngb-panel *ngFor="let project of cv.Project.Projects; let i = index" id="project-{{i}}">
+                    <ng-template ngbPanelTitle>
+                      <div class="text-left"><strong>Project:</strong> {{project.Title}}</div>
+                      <div class="text-left"><strong>Organizer:</strong> {{project.Organizer}}</div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                      <div class="form-group">
+                        <label for="inputProjectTitle-{{i}}">Title</label>
+                        <input type="text" [(ngModel)]="project.Title" name="inputProjectTitle-{{i}}" class="form-control" id="inputProjectTitle-{{i}}">
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="inputProjectOrganizer-{{i}}">Organizer</label>
+                        <input type="text" [(ngModel)]="project.Organizer" name="inputProjectOrganizer-{{i}}" class="form-control" id="inputProjectOrganizer-{{i}}">
+                      </div>
+
+                      <div class="form-row">
+                        <!-- Datepicker for start date -->
+                        <div class="form-group col-md-6">
+                          <label for="project-startDate-{{i}}">Start Date</label>
+                          <form class="form-inline">
+                            <div class="input-group full-width">
+                              <input class="form-control" placeholder="yyyy-mm-dd" [minDate]="{year: 1970, month: 1, day: 1}"
+                                     [(ngModel)]="project.StartDate" name="project-startDate-{{i}}" id="project-startDate-{{i}}" readonly="readonly" ngbDatepicker #projectStartDate="ngbDatepicker">
+                              <div class="input-group-append" (click)="projectStartDate.toggle()" >
+                                <i class="fa fa-calendar input-group-text"></i>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <!-- Datepicker for start date-->
+
+                        <!-- Datepicker for end date -->
+                        <div class="form-group col-md-6">
+                          <label for="project-endDate-{{i}}">End Date</label>
+                          <form class="form-inline">
+                            <div class="input-group full-width">
+                              <input class="form-control" placeholder="yyyy-mm-dd" [minDate]="{year: 1970, month: 1, day: 1}"
+                                     [(ngModel)]="project.EndDate" name="project-endDate-{{i}}" id="project-endDate-{{i}}" readonly="readonly" ngbDatepicker #projectEndDate="ngbDatepicker">
+                              <div class="input-group-append" (click)="projectEndDate.toggle()" >
+                                <i class="fa fa-calendar input-group-text"></i>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <!-- Datepicker for end date-->
+                      </div>
+
+                      <div class="form-group">
+                        <label for="projectAdditionalDetails">Project Additional Details</label>
+                        <textarea [(ngModel)]="project.AdditionalDetails" name="projectAdditionalDetails" class="form-control" rows="5" id="projectAdditionalDetails"></textarea>
+                      </div>
+                    </ng-template>
+                  </ngb-panel>
+                </ngb-accordion>
+
+                <br />
+
+                <button class="btn btn-success btn-circle align-middle"
+                        (click)="addProject()" ngbTooltip="Add Project" placement="right">
+                  <span class="fa fa-plus"></span>
+                </button>
+              </div>
+
+              <div class="form-group">
+                <label for="projectAdditional">Projects Details Additional</label>
+                <textarea [(ngModel)]="cv.Project.AdditionalDetails" name="projectAdditional" class="form-control" rows="5" id="projectAdditional"></textarea>
+              </div>
+
+            </form>
+
+            <p>
+              <button class="btn btn-outline-primary pull-left" (click)="t.select('tab-ProjectDetails')">
+                <span class="mdi mdi-arrow-left"></span> Previous
+              </button>
+              <button class="btn btn-outline-primary pull-right" (click)="t.select('tab-AdditionalDetails')">
+                Next <span class="mdi mdi-arrow-right"></span>
+              </button>
+            </p>
+          </ng-template>
+        </ngb-tab>
+
+          <ngb-tab id="tab-AdditionalDetails">
+          <ng-template ngbTabTitle>
+            Additional Details
+          </ng-template>
+          <ng-template ngbTabContent>
+            <form class="cv-form-additional">
+
+              <div class="form-row">
+                <div class="col-12">
+                  <label>Languages</label>
+                </div>
+
+                <div class="form-list form-inline col-12" *ngFor="let language of cv.AdditionalInfo.LanguageProficiencyList; let i = index">
+                  <div class="form-row">
+                    <div class="form-group form-inline">
+                      <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            Language
+                          </div>
+                        </div>
+                        <input type="text" [(ngModel)]="language.Language" name="inputLanguage-{{i}}" class="form-control" id="inputLanguage-{{i}}" PLACEHOLDER="Language">
+                      </div>
+                    </div>
+                    <div class="form-group form-inline">
+                      <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            Proficiency
+                          </div>
+                        </div>
+                        <input type="text" [(ngModel)]="language.Proficiency" name="inputProficiency-{{i}}" class="form-control" id="inputProficiency-{{i}}" PLACEHOLDER="Proficiency">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-success btn-circle align-middle"
+                        (click)="addLanguageProficiency()" ngbTooltip="Add Language Proficiency" placement="right">
+                  <span class="fa fa-plus"></span>
+                </button>
+              </div>
+
+              <br />
+
+              <div class="form-group">
+                <label for="inputHobbies">Hobbies</label>
+                <input type="text" [(ngModel)]="cv.AdditionalInfo.Hobbies" name="inputHobbies" class="form-control" id="inputHobbies">
+              </div>
+
+              <div class="form-group">
+                <label for="additionalSummary">Additional Summary</label>
+                <textarea [(ngModel)]="cv.AdditionalInfo.Notes" name="additionalNotes" class="form-control" rows="5" id="additionalSummary"></textarea>
+              </div>
+
+            </form>
+
+            <p>
+              <button class="btn btn-outline-primary pull-left" (click)="t.select('tab-ProjectDetails')">
+                <span class="mdi mdi-arrow-left"></span> Previous
+              </button>
+              <button class="btn btn-outline-primary pull-right" (click)="save()">
+                Save <span class="mdi mdi-arrow-right"></span>
+              </button>
+            </p>
+          </ng-template>
+        </ngb-tab>
         </ngb-tabset>
 
 

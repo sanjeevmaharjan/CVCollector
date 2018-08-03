@@ -14,7 +14,7 @@ public class WorkPlace extends OrganizationBase {
         Designation = designation;
         StartDate = startDate;
         EndDate = endDate;
-        Summary = summary;
+        AdditionalInfo = summary;
     }
 
     public String getDesignation() {

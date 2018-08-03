@@ -1,13 +1,14 @@
 package cvc.domain;
 
 import javax.persistence.Entity;
+import java.util.List;
 
 @Entity
 public class ContactDetails extends PersistentObject {
 
-    private String Phone;
+    private List<String> Phone;
 
-    private String Email;
+    private List<String> Email;
 
     private String Country;
 
@@ -15,28 +16,32 @@ public class ContactDetails extends PersistentObject {
 
     private String City;
 
-    private String Street;
+    private int Zip;
 
     private String ProfileLinks;
 
+    private String AdditionalDetails;
+
     public ContactDetails() {}
 
-    public ContactDetails(String phone, String email, String country, String state, String city, String street) {
+    public ContactDetails(List<String> phone, List<String> email, String country, String state, String city, int zip, String profileLinks, String additionalDetails) {
         Phone = phone;
         Email = email;
         Country = country;
         State = state;
         City = city;
-        Street = street;
+        Zip = zip;
+        ProfileLinks = profileLinks;
+        AdditionalDetails = additionalDetails;
     }
 
     //region getters and setters
 
-    public String getPhone() {
+    public List<String> getPhone() {
         return Phone;
     }
 
-    public String getEmail() {
+    public List<String> getEmail() {
         return Email;
     }
 
@@ -52,12 +57,16 @@ public class ContactDetails extends PersistentObject {
         return City;
     }
 
-    public String getStreet() {
-        return Street;
+    public int getZip() {
+        return Zip;
     }
 
     public String getProfileLinks() {
         return ProfileLinks;
+    }
+
+    public String getAdditionalDetails() {
+        return AdditionalDetails;
     }
 
     //endregion getters and setters

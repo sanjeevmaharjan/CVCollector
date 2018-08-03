@@ -1,9 +1,19 @@
 export class ContactDetailsModel {
-  phone: string;
+  Phone: string[] = [];
 
-  email: string;
+  Email: string[] = [];
 
-  address: string;
+  Country: string;
 
-  profileLinks: string;
+  State: string;
+
+  City: string;
+
+  Address: string;
+
+  Zip: string;
+
+  ProfileLinks: string;
+
+  AdditionalDetails: string;
 }

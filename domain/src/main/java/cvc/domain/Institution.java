@@ -7,14 +7,16 @@ import java.util.Date;
 public class Institution extends OrganizationBase {
     private String Degree;
 
+    private String Concentration;
+
     public Institution() {}
 
-    public Institution(String name, String degree, Date startDate, Date endDate, String summary) {
+    public Institution(String name, String degree, Date startDate, Date endDate, String additionalInfo) {
         Name = name;
         Degree = degree;
         StartDate = startDate;
         EndDate = endDate;
-        Summary = summary;
+        AdditionalInfo = additionalInfo;
     }
 
     public String getDegree() {

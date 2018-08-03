@@ -7,12 +7,14 @@ import { CvComponent } from './cv/cv.component';
 import {GuestRoutes} from "./guest.routing";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {TextDirective} from "../shared/form-elements/text.directive";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(GuestRoutes),
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   declarations: [LoginComponent, SignupComponent, CvComponent, TextDirective]
 })

@@ -10,14 +10,14 @@ public class ProfessionalDetails extends PersistentObject  {
     @OneToMany(cascade = {CascadeType.ALL})
     private List<WorkPlace> WorkPlaces;
 
-    private String Summary;
+    private String AdditionalDetails;
 
     public ProfessionalDetails() {}
 
-    public ProfessionalDetails(String professionalSkills, List<WorkPlace> workPlaces, String summary) {
+    public ProfessionalDetails(String professionalSkills, List<WorkPlace> workPlaces, String additionalDetails) {
         ProfessionalSkills = professionalSkills;
         WorkPlaces = workPlaces;
-        Summary = summary;
+        AdditionalDetails = additionalDetails;
     }
 
     //region getters and setters
@@ -30,8 +30,8 @@ public class ProfessionalDetails extends PersistentObject  {
         return WorkPlaces;
     }
 
-    public String getSummary() {
-        return Summary;
+    public String getAdditionalDetails() {
+        return AdditionalDetails;
     }
 
     //endregion getters and setters

@@ -10,13 +10,13 @@ public class EducationDetails extends PersistentObject {
     @OneToMany(cascade = {CascadeType.ALL})
     private List<Institution> Institutions;
 
-    private String Summary;
+    private String AdditionalDetails;
 
     public EducationDetails() {}
 
-    public EducationDetails(List<Institution> institutions, String summary) {
+    public EducationDetails(List<Institution> institutions, String additionalDetails) {
         Institutions = institutions;
-        Summary = summary;
+        AdditionalDetails = additionalDetails;
     }
 
     //region getters and setters
@@ -25,9 +25,10 @@ public class EducationDetails extends PersistentObject {
         return Institutions;
     }
 
-    public String getSummary() {
-        return Summary;
+    public String getAdditionalDetails() {
+        return AdditionalDetails;
     }
+
 
     //endregion getters and setters
 }

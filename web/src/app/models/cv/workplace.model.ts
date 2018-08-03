@@ -1,11 +1,11 @@
 export class WorkplaceModel {
-  name: string;
+  Name: string;
 
-  designation: string;
+  Designation: string;
 
-  startDate: string;
+  StartDate: string;
 
-  endDate: string;
+  EndDate: string;
 
-  summary: string;
+  AdditionalInfo: string;
 }

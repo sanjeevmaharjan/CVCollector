@@ -1,9 +1,9 @@
 import {WorkplaceModel} from "./workplace.model";
 
 export class ProfessionalDetailsModel {
-  professionalSkills: string;
+  ProfessionalSkills: string;
 
-  workplaces: WorkplaceModel[];
+  WorkPlaces: WorkplaceModel[] = [];
 
-  summary: string;
+  AdditionalDetails: string;
 }

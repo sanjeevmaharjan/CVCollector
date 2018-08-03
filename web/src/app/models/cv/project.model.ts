@@ -1,11 +1,11 @@
 export class ProjectModel {
-  title: string;
+  Title: string;
 
-  organizer: string;
+  Organizer: string;
 
-  startDate: string;
+  StartDate: string;
 
-  endDate: string;
+  EndDate: string;
 
-  summary: string;
+  AdditionalDetails: string;
 }

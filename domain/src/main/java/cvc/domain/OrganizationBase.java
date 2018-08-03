@@ -12,7 +12,7 @@ public abstract class OrganizationBase extends PersistentObject implements Seria
 
     Date EndDate;
 
-    String Summary;
+    String AdditionalInfo;
 
     public OrganizationBase() {}
 
@@ -30,8 +30,8 @@ public abstract class OrganizationBase extends PersistentObject implements Seria
         return EndDate;
     }
 
-    public String getSummary() {
-        return Summary;
+    public String getAdditionalInfo() {
+        return AdditionalInfo;
     }
 
     //endregion getters and setters

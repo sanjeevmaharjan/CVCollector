@@ -1,0 +1,8 @@
+GET http://localhost:8080/resources
+Accept: */*
+Cache-Control: no-cache
+
+
+"{"personal":{"firstName":"Sanjeev","lastName":"Maharjan","gender":"1","dob":{"year":1994,"month":11,"day":22},"nationality":"Nepali","father":"MB","mother":"GY","careerTitle":"Guffadi","maritalStatus":"1","additionalDetails":"Test perD"},"contact":{"address":"Chagal","zip":"44600","phone":"+9779843592494","email":"sanjeev.maharjan@hotmail.com","notes":"Test ConD"},"education":{"institutions":"MGS","additionalDetails":"Test EduD"},"professional":{"professionalSkills":"Pro skill","workplaces":"wrk p","additionalDetails":"Test proD"},"project":{"title":"Test Project","organizer":"Test Organizer","startDate":{"year":2018,"month":7,"day":1},"endDate":{"year":2018,"month":8,"day":1},"additionalDetails":"Test Pro D\n"},"additional":{"languageProficiencyList":"Nepali, Newari, English","hobbies":"singing, laughing","notes":"Test AddD"}}"
+###
+

@@ -26,25 +26,25 @@ public class PersonalDetails extends PersistentObject  {
 
     private String CareerTitle;
 
-    private String summary;
+    private String AdditionalDetails;
 
 
     public PersonalDetails() {}
 
-    public PersonalDetails(String FirstName, String LastName, Date dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String summary) {
-        this.FirstName = FirstName;
-        this.LastName = LastName;
-        this.DateOfBirth = dateOfBirth;
-        this.Father = father;
-        this.Mother = mother;
-        this.Nationality = nationality;
-        this.MaritalStatus = maritalStatus;
-        this.CareerTitle = careerTitle;
-        this.summary = summary;
+    public PersonalDetails(String firstName, String lastName, String gender, Date dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String additionalDetails) {
+        FirstName = firstName;
+        LastName = lastName;
+        Gender = gender;
+        DateOfBirth = dateOfBirth;
+        Father = father;
+        Mother = mother;
+        Nationality = nationality;
+        MaritalStatus = maritalStatus;
+        CareerTitle = careerTitle;
+        AdditionalDetails = additionalDetails;
     }
 
     //region getters and setters
-
 
     public String getFirstName() {
         return FirstName;
@@ -52,6 +52,10 @@ public class PersonalDetails extends PersistentObject  {
 
     public String getLastName() {
         return LastName;
+    }
+
+    public String getGender() {
+        return Gender;
     }
 
     public Date getDateOfBirth() {
@@ -78,9 +82,10 @@ public class PersonalDetails extends PersistentObject  {
         return CareerTitle;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getAdditionalDetails() {
+        return AdditionalDetails;
     }
+
 
     //endregion getters and setters
 }

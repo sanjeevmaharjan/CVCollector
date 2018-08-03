@@ -13,16 +13,16 @@ public class Project extends PersistentObject {
 
     private Date EndDate;
 
-    private String Summary;
+    private String AdditionalDetails;
 
     public Project() {}
 
-    public Project(String title, String organizer, Date startDate, Date endDate, String summary) {
+    public Project(String title, String organizer, Date startDate, Date endDate, String additionalDetails) {
         Title = title;
         Organizer = organizer;
         StartDate = startDate;
         EndDate = endDate;
-        Summary = summary;
+        AdditionalDetails = additionalDetails;
     }
 
     //region getters and setters
@@ -43,8 +43,8 @@ public class Project extends PersistentObject {
         return EndDate;
     }
 
-    public String getSummary() {
-        return Summary;
+    public String getAdditionalDetails() {
+        return AdditionalDetails;
     }
 
     //endregion getters and setters

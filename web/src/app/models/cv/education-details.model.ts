@@ -1,7 +1,7 @@
 import {InstitutionModel} from "./institution.model";
 
 export class EducationDetailsModel {
-  institutions: InstitutionModel[];
+  Institutions: InstitutionModel[] = [];
 
-  summary: string;
+  AdditionalDetails: string;
 }
