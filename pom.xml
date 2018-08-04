@@ -10,6 +10,7 @@
         <module>domain</module>
         <module>logic</module>
         <module>api</module>
+        <module>shared</module>
     </modules>
     <packaging>pom</packaging>
 

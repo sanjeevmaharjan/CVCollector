@@ -7,17 +7,17 @@ import {ProjectDetailsModel} from "./project-details.model";
 import {AwardsModel} from "./awards.model";
 
 export class CvModel {
-  Personal: PersonalDetailsModel;
+  personal: PersonalDetailsModel;
 
-  Contact: ContactDetailsModel;
+  contact: ContactDetailsModel;
 
-  Education: EducationDetailsModel;
+  education: EducationDetailsModel;
 
-  Professional: ProfessionalDetailsModel;
+  professional: ProfessionalDetailsModel;
 
-  Project: ProjectDetailsModel;
+  project: ProjectDetailsModel;
 
-  AdditionalInfo: AdditionalInfoModel;
+  additionalInfo: AdditionalInfoModel;
 
-  Awards: AwardsModel[] = [];
+  awards: AwardsModel[] = [];
 }

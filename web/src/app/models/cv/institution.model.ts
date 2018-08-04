@@ -1,13 +1,15 @@
 export class InstitutionModel {
-  Name: string;
+  name: string;
 
-  Degree: string;
+  degree: string;
 
-  Concentration: string;
+  concentration: string;
 
-  StartDate: string;
+  suruDate: string;
 
-  EndDate: string;
+  antimDate: string;
 
-  AdditionalInfo: string;
+  additionalInfo: string;
+
+  constructor() {}
 }

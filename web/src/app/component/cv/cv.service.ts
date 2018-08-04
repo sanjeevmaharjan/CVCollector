@@ -24,7 +24,7 @@ export class CvService {
   /**
    * Handle Http operation that failed.
    * Let the app continue.
-   * @param operation - Name of the operation that failed
+   * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
   public handleError<T> (operation = 'operation', result?: T) {

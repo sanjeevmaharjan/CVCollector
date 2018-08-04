@@ -1,11 +1,12 @@
 export class WorkplaceModel {
-  Name: string;
+  name: string;
 
-  Designation: string;
+  designation: string;
+  suruDate: string;
 
-  StartDate: string;
+  antimDate: string;
 
-  EndDate: string;
+  additionalInfo: string;
 
-  AdditionalInfo: string;
+  constructor() {}
 }

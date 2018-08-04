@@ -1,5 +1,7 @@
 package cvc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -21,6 +23,7 @@ public class Cv extends PersistentObject {
     private AdditionalInfo AdditionalInfo;
 
     @OneToMany(cascade = {CascadeType.ALL})
+    @JsonIgnore
     private List<Award> Awards;
 
     public Cv() {}
@@ -65,6 +68,33 @@ public class Cv extends PersistentObject {
         return Awards;
     }
 
+    public void setPersonal(PersonalDetails personal) {
+        Personal = personal;
+    }
+
+    public void setContact(ContactDetails contact) {
+        Contact = contact;
+    }
+
+    public void setEducation(EducationDetails education) {
+        Education = education;
+    }
+
+    public void setProfessional(ProfessionalDetails professional) {
+        Professional = professional;
+    }
+
+    public void setProject(ProjectDetails project) {
+        Project = project;
+    }
+
+    public void setAdditionalInfo(cvc.domain.AdditionalInfo additionalInfo) {
+        AdditionalInfo = additionalInfo;
+    }
+
+    public void setAwards(List<Award> awards) {
+        Awards = awards;
+    }
 
     //endregion getters and setters
 }

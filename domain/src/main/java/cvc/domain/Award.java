@@ -33,6 +33,17 @@ public class Award extends PersistentObject{
         return AwardFor;
     }
 
+    public void setTitle(String title) {
+        Title = title;
+    }
+
+    public void setYear(short year) {
+        Year = year;
+    }
+
+    public void setAwardFor(String awardFor) {
+        AwardFor = awardFor;
+    }
 
     //endregion getters and setters
 }

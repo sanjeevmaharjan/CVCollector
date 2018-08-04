@@ -5,6 +5,7 @@ import enums.Gender;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 @Entity
 public class PersonalDetails extends PersistentObject  {
@@ -13,6 +14,7 @@ public class PersonalDetails extends PersistentObject  {
 
     private String LastName;
 
+    @Column(nullable = true)
     private short Gender;
 
     @Column(name = "dob")
@@ -88,6 +90,49 @@ public class PersonalDetails extends PersistentObject  {
         return AdditionalDetails;
     }
 
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
+
+    public void setGender(short gender) {
+        Gender = gender;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        DateOfBirth = dateOfBirth;
+    }
+
+    public void setDob(client.entities.Date dateOfBirth) {
+        DateOfBirth = new GregorianCalendar(dateOfBirth.year, dateOfBirth.month, dateOfBirth.day).getTime();
+    }
+
+    public void setFather(String father) {
+        Father = father;
+    }
+
+    public void setMother(String mother) {
+        Mother = mother;
+    }
+
+    public void setNationality(String nationality) {
+        Nationality = nationality;
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        MaritalStatus = maritalStatus;
+    }
+
+    public void setCareerTitle(String careerTitle) {
+        CareerTitle = careerTitle;
+    }
+
+    public void setAdditionalDetails(String additionalDetails) {
+        AdditionalDetails = additionalDetails;
+    }
 
     //endregion getters and setters
 }

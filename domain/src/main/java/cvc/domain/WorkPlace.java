@@ -20,4 +20,8 @@ public class WorkPlace extends OrganizationBase {
     public String getDesignation() {
         return Designation;
     }
+
+    public void setDesignation(String designation) {
+        Designation = designation;
+    }
 }

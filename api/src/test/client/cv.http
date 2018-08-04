@@ -6,3 +6,2818 @@ Cache-Control: no-cache
 "{"personal":{"firstName":"Sanjeev","lastName":"Maharjan","gender":"1","dob":{"year":1994,"month":11,"day":22},"nationality":"Nepali","father":"MB","mother":"GY","careerTitle":"Guffadi","maritalStatus":"1","additionalDetails":"Test perD"},"contact":{"address":"Chagal","zip":"44600","phone":"+9779843592494","email":"sanjeev.maharjan@hotmail.com","notes":"Test ConD"},"education":{"institutions":"MGS","additionalDetails":"Test EduD"},"professional":{"professionalSkills":"Pro skill","workplaces":"wrk p","additionalDetails":"Test proD"},"project":{"title":"Test Project","organizer":"Test Organizer","startDate":{"year":2018,"month":7,"day":1},"endDate":{"year":2018,"month":8,"day":1},"additionalDetails":"Test Pro D\n"},"additional":{"languageProficiencyList":"Nepali, Newari, English","hobbies":"singing, laughing","notes":"Test AddD"}}"
 ###
 
+
+{
+  "log": {
+    "version": "1.2",
+    "creator": {
+      "name": "WebInspector",
+      "version": "537.36"
+    },
+    "pages": [
+      {
+        "startedDateTime": "2018-08-04T10:28:44.158Z",
+        "id": "page_2",
+        "title": "http://localhost:4200/",
+        "pageTimings": {
+          "onContentLoad": 1700.3750000003492,
+          "onLoad": 2495.614000000387
+        }
+      }
+    ],
+    "entries": [
+      {
+        "startedDateTime": "2018-08-04T10:28:44.157Z",
+        "time": 313.37559100018836,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "max-age=0"
+            },
+            {
+              "name": "Upgrade-Insecure-Requests",
+              "value": "1"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"379-eF4wTZRkYiDOiLBqBQYxhlEAha0\""
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 504,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"379-eF4wTZRkYiDOiLBqBQYxhlEAha0\""
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:44 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 889,
+            "mimeType": "text/html"
+          },
+          "redirectURL": "",
+          "headersSize": 210,
+          "bodySize": 0,
+          "_transferSize": 210
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.6835909999999856,
+          "dns": 0.0040000000000000036,
+          "ssl": -1,
+          "connect": 302.532,
+          "send": 0.2410000000000423,
+          "wait": 1.7619999999207039,
+          "receive": 6.153000000267639,
+          "_blocked_queueing": 0.5909999999857973
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10594",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:44.491Z",
+        "time": 71.51234399952955,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/runtime.js",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"1fda-9TjUt3IBirgnBcnb6eyTOhSFB5o\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 377,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:44 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"1fda-9TjUt3IBirgnBcnb6eyTOhSFB5o\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 8154,
+            "mimeType": "application/javascript"
+          },
+          "redirectURL": "",
+          "headersSize": 211,
+          "bodySize": 0,
+          "_transferSize": 211
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 9.484344000000041,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.06700000000000017,
+          "wait": 2.461999999569729,
+          "receive": 59.49899999995978,
+          "_blocked_queueing": 0.3440000000409782
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10594",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:44.491Z",
+        "time": 94.4685660002333,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/polyfills.js",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"373a9-3xW7Qmk7H8+9mDr33kKA2joJG8Y\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 380,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:44 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"373a9-3xW7Qmk7H8+9mDr33kKA2joJG8Y\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 226217,
+            "mimeType": "application/javascript"
+          },
+          "redirectURL": "",
+          "headersSize": 212,
+          "bodySize": 0,
+          "_transferSize": 212
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 80.04056599999971,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.06999999999999318,
+          "wait": 2.0210000001176383,
+          "receive": 12.33700000011595,
+          "_blocked_queueing": 0.5659999997078557
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10594",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:44.491Z",
+        "time": 95.10269899931427,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/styles.js",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"80a78-seDrh4mwRcnc5wvNx8hC9nU92s0\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 377,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:44 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"80a78-seDrh4mwRcnc5wvNx8hC9nU92s0\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 526968,
+            "mimeType": "application/javascript"
+          },
+          "redirectURL": "",
+          "headersSize": 212,
+          "bodySize": 0,
+          "_transferSize": 212
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 80.45069899999926,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.09000000000000341,
+          "wait": 2.8830000000388765,
+          "receive": 11.67899999927613,
+          "_blocked_queueing": 0.6989999992583762
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10595",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:44.491Z",
+        "time": 110.54291000035028,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/scripts.js",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"2d2e4-d3tpeYknsSPAX8mPacyWXgsdF6Q\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 378,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:44 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"2d2e4-d3tpeYknsSPAX8mPacyWXgsdF6Q\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 185060,
+            "mimeType": "application/javascript"
+          },
+          "redirectURL": "",
+          "headersSize": 212,
+          "bodySize": 0,
+          "_transferSize": 212
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 93.55290999999976,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.07299999999999329,
+          "wait": 4.594999999855645,
+          "receive": 12.322000000494882,
+          "_blocked_queueing": 0.9099999997488339
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10594",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:44.491Z",
+        "time": 111.70403499957956,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/vendor.js",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"49bbff-eXIOOh6kVGbO+pbgX1Ck7BJ2WlI\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 378,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:44 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"49bbff-eXIOOh6kVGbO+pbgX1Ck7BJ2WlI\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 4832255,
+            "mimeType": "application/javascript"
+          },
+          "redirectURL": "",
+          "headersSize": 213,
+          "bodySize": 0,
+          "_transferSize": 213
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 94.07003500000023,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.05499999999999261,
+          "wait": 10.771000000396981,
+          "receive": 6.807999999182357,
+          "_blocked_queueing": 1.0350000002290471
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10595",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:44.491Z",
+        "time": 113.19209899946054,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/main.js",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"e401-QVbrLnF0EVlpJe/DC1M1+weA2f8\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 374,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:44 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"e401-QVbrLnF0EVlpJe/DC1M1+weA2f8\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 58369,
+            "mimeType": "application/javascript"
+          },
+          "redirectURL": "",
+          "headersSize": 211,
+          "bodySize": 0,
+          "_transferSize": 211
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 109.42009900000006,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.07900000000000773,
+          "wait": 1.3930000002651894,
+          "receive": 2.299999999195279,
+          "_blocked_queueing": 1.0990000000674627
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10594",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:44.823Z",
+        "time": 0.09499999941908754,
+        "request": {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700",
+          "httpVersion": "spdy",
+          "headers": [],
+          "queryString": [
+            {
+              "name": "family",
+              "value": "Montserrat:300,400,500,600,700"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "spdy",
+          "headers": [
+            {
+              "name": "strict-transport-security",
+              "value": "max-age=3600"
+            },
+            {
+              "name": "content-encoding",
+              "value": "br"
+            },
+            {
+              "name": "last-modified",
+              "value": "Sat, 04 Aug 2018 09:05:13 GMT"
+            },
+            {
+              "name": "server",
+              "value": "ESF"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "date",
+              "value": "Sat, 04 Aug 2018 09:05:13 GMT"
+            },
+            {
+              "name": "x-frame-options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "name": "content-type",
+              "value": "text/css; charset=utf-8"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "alt-svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""
+            },
+            {
+              "name": "cache-control",
+              "value": "private, max-age=86400, stale-while-revalidate=604800"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "link",
+              "value": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin"
+            },
+            {
+              "name": "x-xss-protection",
+              "value": "1; mode=block"
+            },
+            {
+              "name": "expires",
+              "value": "Sat, 04 Aug 2018 09:05:13 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 9240,
+            "mimeType": "text/css"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": 0,
+          "_transferSize": 0
+        },
+        "cache": {},
+        "timings": {
+          "blocked": -1,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 0.08799999977782136,
+          "receive": 0.006999999641266186,
+          "_blocked_queueing": -1
+        },
+        "serverIPAddress": "172.217.19.202",
+        "_fromCache": "memory",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:45.831Z",
+        "time": 5.734477000301922,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/guest-guest-module.js",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"fe61-Xr5rnVLwjxl2p/JMmoDeROfPsTI\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 388,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:45 GMT"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"fe4c-1lkTyw7vlwW2GDUcXyJ5vQpZmxU\""
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/javascript; charset=UTF-8"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "Content-Length",
+              "value": "65100"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 65100,
+            "mimeType": "application/javascript",
+            "compression": 0
+          },
+          "redirectURL": "",
+          "headersSize": 277,
+          "bodySize": 65100,
+          "_transferSize": 65377
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.2694769999995916,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.07600000000000007,
+          "wait": 1.476000000243657,
+          "receive": 1.9130000000586733,
+          "_blocked_queueing": 0.47699999959149864
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10594",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:45.841Z",
+        "time": 0.0380000001314329,
+        "request": {
+          "method": "GET",
+          "url": "https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_cJD3gnD_g.woff2",
+          "httpVersion": "spdy",
+          "headers": [],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "spdy",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Fri, 13 Jul 2018 16:28:45 GMT"
+            },
+            {
+              "name": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "name": "last-modified",
+              "value": "Tue, 07 Nov 2017 15:25:19 GMT"
+            },
+            {
+              "name": "server",
+              "value": "sffe"
+            },
+            {
+              "name": "age",
+              "value": "1874189"
+            },
+            {
+              "name": "content-type",
+              "value": "font/woff2"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "alt-svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""
+            },
+            {
+              "name": "cache-control",
+              "value": "public, max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "content-length",
+              "value": "18444"
+            },
+            {
+              "name": "x-xss-protection",
+              "value": "1; mode=block"
+            },
+            {
+              "name": "expires",
+              "value": "Sat, 13 Jul 2019 16:28:45 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 18444,
+            "mimeType": "font/woff2"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": 0,
+          "_transferSize": 0
+        },
+        "cache": {},
+        "timings": {
+          "blocked": -1,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 0.03099999958067201,
+          "receive": 0.0070000005507608876,
+          "_blocked_queueing": -1
+        },
+        "serverIPAddress": "172.217.17.99",
+        "_fromCache": "memory",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:45.841Z",
+        "time": 0.05000000055588316,
+        "request": {
+          "method": "GET",
+          "url": "https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2",
+          "httpVersion": "spdy",
+          "headers": [],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "spdy",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Wed, 01 Aug 2018 00:22:30 GMT"
+            },
+            {
+              "name": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "name": "last-modified",
+              "value": "Tue, 07 Nov 2017 15:24:32 GMT"
+            },
+            {
+              "name": "server",
+              "value": "sffe"
+            },
+            {
+              "name": "age",
+              "value": "290564"
+            },
+            {
+              "name": "content-type",
+              "value": "font/woff2"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "alt-svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""
+            },
+            {
+              "name": "cache-control",
+              "value": "public, max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "content-length",
+              "value": "18684"
+            },
+            {
+              "name": "x-xss-protection",
+              "value": "1; mode=block"
+            },
+            {
+              "name": "expires",
+              "value": "Thu, 01 Aug 2019 00:22:30 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 18684,
+            "mimeType": "font/woff2"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": 0,
+          "_transferSize": 0
+        },
+        "cache": {},
+        "timings": {
+          "blocked": -1,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 0.041000000237545464,
+          "receive": 0.009000000318337698,
+          "_blocked_queueing": -1
+        },
+        "serverIPAddress": "172.217.17.99",
+        "_fromCache": "memory",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:45.841Z",
+        "time": 0.046999999540275894,
+        "request": {
+          "method": "GET",
+          "url": "https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_dJE3gnD_g.woff2",
+          "httpVersion": "spdy",
+          "headers": [],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "spdy",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Fri, 13 Jul 2018 22:50:44 GMT"
+            },
+            {
+              "name": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "name": "last-modified",
+              "value": "Tue, 07 Nov 2017 15:27:08 GMT"
+            },
+            {
+              "name": "server",
+              "value": "sffe"
+            },
+            {
+              "name": "age",
+              "value": "1853654"
+            },
+            {
+              "name": "content-type",
+              "value": "font/woff2"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "alt-svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""
+            },
+            {
+              "name": "cache-control",
+              "value": "public, max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "content-length",
+              "value": "18956"
+            },
+            {
+              "name": "x-xss-protection",
+              "value": "1; mode=block"
+            },
+            {
+              "name": "expires",
+              "value": "Sat, 13 Jul 2019 22:50:44 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 18956,
+            "mimeType": "font/woff2"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": 0,
+          "_transferSize": 0
+        },
+        "cache": {},
+        "timings": {
+          "blocked": -1,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 0.04199999966658652,
+          "receive": 0.004999999873689376,
+          "_blocked_queueing": -1
+        },
+        "serverIPAddress": "172.217.20.67",
+        "_fromCache": "memory",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:46.502Z",
+        "time": 23.67839300047308,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/assets/images/logo-icon.png",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "image/webp,image/apng,image/*,*/*;q=0.8"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"6ac-z9Urn592XfkU7QyUUSdlHwjYDe0\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 429,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:46 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"6ac-z9Urn592XfkU7QyUUSdlHwjYDe0\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 1708,
+            "mimeType": "image/png"
+          },
+          "redirectURL": "",
+          "headersSize": 210,
+          "bodySize": 0,
+          "_transferSize": 210
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 20.57139300000026,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.06799999999999784,
+          "wait": 1.015000000125962,
+          "receive": 2.0240000003468595,
+          "_blocked_queueing": 0.3930000002583256
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10594",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:46.502Z",
+        "time": 23.826393999644097,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/assets/images/logo-light-icon.png",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "image/webp,image/apng,image/*,*/*;q=0.8"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"63a-6Y9KjqsnSL2mjKXR0X30UmY2u18\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 435,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:46 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"63a-6Y9KjqsnSL2mjKXR0X30UmY2u18\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 1594,
+            "mimeType": "image/png"
+          },
+          "redirectURL": "",
+          "headersSize": 210,
+          "bodySize": 0,
+          "_transferSize": 210
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 20.37939399999969,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.05699999999999861,
+          "wait": 0.9150000003225287,
+          "receive": 2.4749999993218808,
+          "_blocked_queueing": 0.39399999968736665
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10595",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:46.503Z",
+        "time": 24.098420999866903,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/assets/images/logo-text.png",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "image/webp,image/apng,image/*,*/*;q=0.8"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"6ea-ki7V0bTX7xly5kLabSh8dLwYraw\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 429,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:46 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"6ea-ki7V0bTX7xly5kLabSh8dLwYraw\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 1770,
+            "mimeType": "image/png"
+          },
+          "redirectURL": "",
+          "headersSize": 210,
+          "bodySize": 0,
+          "_transferSize": 210
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 19.776420999999733,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.036000000000001364,
+          "wait": 2.181000000293249,
+          "receive": 2.10499999957392,
+          "_blocked_queueing": 0.42099999973288504
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10628",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:46.504Z",
+        "time": 25.5232990002487,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/assets/images/logo-light-text.png",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "image/webp,image/apng,image/*,*/*;q=0.8"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"688-d47iO/3jc3ocjnirH8MSGSl4gPU\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 435,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:46 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"688-d47iO/3jc3ocjnirH8MSGSl4gPU\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 1672,
+            "mimeType": "image/png"
+          },
+          "redirectURL": "",
+          "headersSize": 210,
+          "bodySize": 0,
+          "_transferSize": 210
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 19.726299000000267,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.04200000000000159,
+          "wait": 2.3460000003288144,
+          "receive": 3.408999999919615,
+          "_blocked_queueing": 0.2990000002682791
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10643",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:46.508Z",
+        "time": 22.96838100021887,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/assets/images/users/1.jpg",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "image/webp,image/apng,image/*,*/*;q=0.8"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"7aba-Z2kghsmd6jT6lUbdS4PEU//gqjs\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 428,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:46 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"7aba-Z2kghsmd6jT6lUbdS4PEU//gqjs\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 31418,
+            "mimeType": "image/jpeg"
+          },
+          "redirectURL": "",
+          "headersSize": 211,
+          "bodySize": 0,
+          "_transferSize": 211
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 18.724380999999834,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.10099999999999909,
+          "wait": 1.642999999709719,
+          "receive": 2.500000000509317,
+          "_blocked_queueing": 0.38099999983387534
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10594",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:46.586Z",
+        "time": 4.66331500061915,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/sockjs-node/info?t=1533378526585",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "t",
+              "value": "1533378526585"
+            }
+          ],
+          "cookies": [],
+          "headersSize": 346,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:46 GMT"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-store, no-cache, no-transform, must-revalidate, max-age=0"
+            },
+            {
+              "name": "Vary",
+              "value": "Origin"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=UTF-8"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 79,
+            "mimeType": "application/json",
+            "compression": -11
+          },
+          "redirectURL": "",
+          "headersSize": 278,
+          "bodySize": 90,
+          "_transferSize": 368
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.091315000000228,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.08199999999999985,
+          "wait": 0.5069999996001133,
+          "receive": 1.9830000010188087,
+          "_blocked_queueing": 0.315000000227883
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10594",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:46.593Z",
+        "time": 5.77241000043432,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/custom-select.png",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "image/webp,image/apng,image/*,*/*;q=0.8"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"3a8f-p3k+NKSsY55oy8yeJTfNlMK1HfY\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 420,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:46 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"3a8f-p3k+NKSsY55oy8yeJTfNlMK1HfY\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 14991,
+            "mimeType": "image/png"
+          },
+          "redirectURL": "",
+          "headersSize": 211,
+          "bodySize": 0,
+          "_transferSize": 211
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.7354100000005563,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.06800000000000006,
+          "wait": 0.9009999997432461,
+          "receive": 2.0680000006905175,
+          "_blocked_queueing": 0.41000000055646524
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10594",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:46.597Z",
+        "time": 6.057474999600345,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/themify.woff",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "http://localhost:4200"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"db2c-k5TzW9Kt3SRma3m/w21PnSR8sB0\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 410,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:46 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"db2c-k5TzW9Kt3SRma3m/w21PnSR8sB0\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 56108,
+            "mimeType": "application/font-woff"
+          },
+          "redirectURL": "",
+          "headersSize": 211,
+          "bodySize": 0,
+          "_transferSize": 211
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.8124749999998238,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.05300000000000038,
+          "wait": 0.94200000005163,
+          "receive": 2.2499999995488906,
+          "_blocked_queueing": 0.4749999998239218
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10594",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:46.599Z",
+        "time": 5.177601000003051,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/fontawesome-webfont.woff2?v=4.7.0",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "http://localhost:4200"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"12d68-1vSMun0Hb7by/Wupk6dbncHsvww\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "v",
+              "value": "4.7.0"
+            }
+          ],
+          "cookies": [],
+          "headersSize": 432,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:46 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"12d68-1vSMun0Hb7by/Wupk6dbncHsvww\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 77160,
+            "mimeType": "font/woff2"
+          },
+          "redirectURL": "",
+          "headersSize": 212,
+          "bodySize": 0,
+          "_transferSize": 212
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.569600999999733,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.06000000000000005,
+          "wait": 0.7709999996012775,
+          "receive": 1.7770000004020403,
+          "_blocked_queueing": 0.6009999997331761
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10643",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:46.600Z",
+        "time": 4.96958500052915,
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4200/materialdesignicons-webfont.woff2?v=1.8.36",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "http://localhost:4200"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:4200"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Accept",
+              "value": "*/*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "If-None-Match",
+              "value": "W/\"18598-m+B2aksqWA4dJ78nWkUmZVQA2co\""
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "v",
+              "value": "1.8.36"
+            }
+          ],
+          "cookies": [],
+          "headersSize": 441,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "Not Modified",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:28:46 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"18598-m+B2aksqWA4dJ78nWkUmZVQA2co\""
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 99736,
+            "mimeType": "font/woff2"
+          },
+          "redirectURL": "",
+          "headersSize": 212,
+          "bodySize": 0,
+          "_transferSize": 212
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.375585000000683,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.027000000000000135,
+          "wait": 0.9289999998891725,
+          "receive": 1.6380000006392947,
+          "_blocked_queueing": 0.5850000006830669
+        },
+        "serverIPAddress": "127.0.0.1",
+        "connection": "10628",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:49.923Z",
+        "time": 5.829560999721252,
+        "request": {
+          "method": "GET",
+          "url": "https://maps.googleapis.com/maps-api-v3/api/js/33/9/common.js",
+          "httpVersion": "spdy",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "spdy",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Tue, 24 Jul 2018 22:18:17 GMT"
+            },
+            {
+              "name": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "name": "last-modified",
+              "value": "Tue, 24 Jul 2018 01:35:10 GMT"
+            },
+            {
+              "name": "server",
+              "value": "sffe"
+            },
+            {
+              "name": "age",
+              "value": "902822"
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "content-type",
+              "value": "text/javascript"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "cache-control",
+              "value": "public, max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "alt-svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""
+            },
+            {
+              "name": "content-length",
+              "value": "30201"
+            },
+            {
+              "name": "x-xss-protection",
+              "value": "1; mode=block"
+            },
+            {
+              "name": "expires",
+              "value": "Wed, 24 Jul 2019 22:18:17 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 85009,
+            "mimeType": "text/javascript"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": 0,
+          "_transferSize": 0
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.181560999999834,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 0.4440000000800355,
+          "receive": 3.2039999996413826,
+          "_blocked_queueing": 0.5609999998341664
+        },
+        "serverIPAddress": "172.217.19.202",
+        "_fromCache": "disk",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:49.923Z",
+        "time": 6.417569999601255,
+        "request": {
+          "method": "GET",
+          "url": "https://maps.googleapis.com/maps-api-v3/api/js/33/9/util.js",
+          "httpVersion": "spdy",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "spdy",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Tue, 24 Jul 2018 22:18:17 GMT"
+            },
+            {
+              "name": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "name": "last-modified",
+              "value": "Tue, 24 Jul 2018 01:35:10 GMT"
+            },
+            {
+              "name": "server",
+              "value": "sffe"
+            },
+            {
+              "name": "age",
+              "value": "902822"
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "content-type",
+              "value": "text/javascript"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "cache-control",
+              "value": "public, max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "alt-svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"44,43,39,35\""
+            },
+            {
+              "name": "content-length",
+              "value": "52272"
+            },
+            {
+              "name": "x-xss-protection",
+              "value": "1; mode=block"
+            },
+            {
+              "name": "expires",
+              "value": "Wed, 24 Jul 2019 22:18:17 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 137186,
+            "mimeType": "text/javascript"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": 0,
+          "_transferSize": 0
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.0295700000001524,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 0.4490000003374881,
+          "receive": 3.938999999263615,
+          "_blocked_queueing": 0.5700000001525041
+        },
+        "serverIPAddress": "172.217.19.202",
+        "_fromCache": "disk",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:28:49.923Z",
+        "time": 0.0016990000003715977,
+        "request": {
+          "method": "GET",
+          "url": "https://maps.googleapis.com/maps-api-v3/api/js/33/9/stats.js",
+          "httpVersion": "",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 0,
+          "statusText": "",
+          "httpVersion": "",
+          "headers": [],
+          "cookies": [],
+          "content": {
+            "size": 0,
+            "mimeType": "x-unknown"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 0,
+          "_error": "net::ERR_BLOCKED_BY_CLIENT"
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 0.0016990000003715977,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 0,
+          "receive": 0,
+          "_blocked_queueing": -1
+        },
+        "serverIPAddress": "",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:32:20.969Z",
+        "time": 10751.29042899971,
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/cv/add",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "http://localhost:4200"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "1449"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 436,
+          "bodySize": 0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"awards\":[{}],\"personal\":{\"firstName\":\"Sanjeev \",\"lastName\":\"Maharjan\",\"gender\":\"1\",\"dob\":{\"year\":2018,\"month\":8,\"day\":1},\"nationality\":\"Nepali\",\"father\":\"MB\",\"mother\":\"GY\",\"careerTitle\":\"Guffadi\",\"maritalStatus\":\"1\",\"additionalDetails\":\"Test Personal Details Additional\\n\\n\"},\"contact\":{\"phone\":[\"9843592494\"],\"email\":[\"sanjeev.maharjan@hotmail.com\"],\"address\":\"chagal\",\"zip\":\"44600\",\"additionalDetails\":\"I don't wanna relocate\"},\"education\":{\"institutions\":[{\"name\":\"MGS\",\"degree\":\"School\",\"concentration\":\"O Math\",\"suruDate\":{\"year\":2018,\"month\":8,\"day\":1},\"antimDate\":{\"year\":2018,\"month\":8,\"day\":2},\"additionalInfo\":\"Test Institution Additional Info\"}],\"additionalDetails\":\"Test Education Additional Details\"},\"professional\":{\"workPlaces\":[{\"name\":\"Nowhere\",\"designation\":\"Nothing\",\"suruDate\":{\"year\":2018,\"month\":8,\"day\":1},\"antimDate\":{\"year\":2018,\"month\":8,\"day\":2},\"additionalInfo\":\"Test WorkPlace Additional Details\"}],\"professionalSkills\":\"Breathing\",\"additionalDetails\":\"Test Professional Additional Details\"},\"project\":{\"projects\":[{\"title\":\"No TItle\",\"organizer\":\"NoOne\",\"suruDate\":{\"year\":2018,\"month\":8,\"day\":1},\"antimDate\":{\"year\":2018,\"month\":8,\"day\":2},\"additionalDetails\":\"Test Project Additional Details\"}],\"additionalDetails\":\"Tset Project Detials Additional\"},\"additionalInfo\":{\"languageProficiencyList\":[{\"language\":\"Nepali\",\"proficiency\":\"Reading, singing\"}],\"hobbies\":\"Sleeping, eating\",\"notes\":\"Test Additional SUmmary\"}}"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:32:31 GMT"
+            },
+            {
+              "name": "Access-Control-Allow-Headers",
+              "value": "Origin, X-Requested-With, Content-Type, Accept"
+            },
+            {
+              "name": "Content-Length",
+              "value": "0"
+            },
+            {
+              "name": "Access-Control-Max-Age",
+              "value": "3600"
+            },
+            {
+              "name": "Access-Control-Allow-Methods",
+              "value": "POST, GET, PUT, OPTIONS, DELETE, PATCH"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 0,
+            "mimeType": "text/plain",
+            "compression": -1
+          },
+          "redirectURL": "",
+          "headersSize": 282,
+          "bodySize": 1,
+          "_transferSize": 283
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.9684289999997127,
+          "dns": 0.0040000000000000036,
+          "ssl": -1,
+          "connect": 0.3599999999999999,
+          "send": 0.3420000000000001,
+          "wait": 10745.939999999848,
+          "receive": 1.675999999861233,
+          "_blocked_queueing": 0.428999999712687
+        },
+        "serverIPAddress": "[::1]",
+        "connection": "10734",
+        "pageref": "page_2"
+      },
+      {
+        "startedDateTime": "2018-08-04T10:32:34.262Z",
+        "time": 11573.80068899921,
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:8080/cv/add",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "http://localhost:4200"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "Host",
+              "value": "localhost:8080"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9,ne;q=0.8"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "Referer",
+              "value": "http://localhost:4200/"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "1449"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 436,
+          "bodySize": 0,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"awards\":[{}],\"personal\":{\"firstName\":\"Sanjeev \",\"lastName\":\"Maharjan\",\"gender\":\"1\",\"dob\":{\"year\":2018,\"month\":8,\"day\":1},\"nationality\":\"Nepali\",\"father\":\"MB\",\"mother\":\"GY\",\"careerTitle\":\"Guffadi\",\"maritalStatus\":\"1\",\"additionalDetails\":\"Test Personal Details Additional\\n\\n\"},\"contact\":{\"phone\":[\"9843592494\"],\"email\":[\"sanjeev.maharjan@hotmail.com\"],\"address\":\"chagal\",\"zip\":\"44600\",\"additionalDetails\":\"I don't wanna relocate\"},\"education\":{\"institutions\":[{\"name\":\"MGS\",\"degree\":\"School\",\"concentration\":\"O Math\",\"suruDate\":{\"year\":2018,\"month\":8,\"day\":1},\"antimDate\":{\"year\":2018,\"month\":8,\"day\":2},\"additionalInfo\":\"Test Institution Additional Info\"}],\"additionalDetails\":\"Test Education Additional Details\"},\"professional\":{\"workPlaces\":[{\"name\":\"Nowhere\",\"designation\":\"Nothing\",\"suruDate\":{\"year\":2018,\"month\":8,\"day\":1},\"antimDate\":{\"year\":2018,\"month\":8,\"day\":2},\"additionalInfo\":\"Test WorkPlace Additional Details\"}],\"professionalSkills\":\"Breathing\",\"additionalDetails\":\"Test Professional Additional Details\"},\"project\":{\"projects\":[{\"title\":\"No TItle\",\"organizer\":\"NoOne\",\"suruDate\":{\"year\":2018,\"month\":8,\"day\":1},\"antimDate\":{\"year\":2018,\"month\":8,\"day\":2},\"additionalDetails\":\"Test Project Additional Details\"}],\"additionalDetails\":\"Tset Project Detials Additional\"},\"additionalInfo\":{\"languageProficiencyList\":[{\"language\":\"Nepali\",\"proficiency\":\"Reading, singing\"}],\"hobbies\":\"Sleeping, eating\",\"notes\":\"Test Additional SUmmary\"}}"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 04 Aug 2018 10:32:45 GMT"
+            },
+            {
+              "name": "Access-Control-Allow-Headers",
+              "value": "Origin, X-Requested-With, Content-Type, Accept"
+            },
+            {
+              "name": "Content-Length",
+              "value": "0"
+            },
+            {
+              "name": "Access-Control-Max-Age",
+              "value": "3600"
+            },
+            {
+              "name": "Access-Control-Allow-Methods",
+              "value": "POST, GET, PUT, OPTIONS, DELETE, PATCH"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 0,
+            "mimeType": "text/plain",
+            "compression": -1
+          },
+          "redirectURL": "",
+          "headersSize": 282,
+          "bodySize": 1,
+          "_transferSize": 283
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 2.324688999999511,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.1200000000000001,
+          "wait": 11568.869999999803,
+          "receive": 2.4859999994077953,
+          "_blocked_queueing": 0.6889999995109974
+        },
+        "serverIPAddress": "[::1]",
+        "connection": "10734",
+        "pageref": "page_2"
+      }
+    ]
+  }
+}
+
+

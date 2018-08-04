@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import {CvComponent} from "./cv.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {BrowserModule} from "@angular/platform-browser";
 
 @NgModule({
   imports: [

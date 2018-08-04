@@ -5,7 +5,7 @@ export const ROUTES: RouteInfo[] = [
       path: '/component/cv', title: 'CV', icon: 'mdi mdi-account-box', class: '', label: '', labelClass: '', extralink: false, submenu: []
     },
     {
-        path: '', title: 'Personal', icon: '', class: 'nav-small-cap', label: '', labelClass: '', extralink: true, submenu: []
+        path: '', title: 'personal', icon: '', class: 'nav-small-cap', label: '', labelClass: '', extralink: true, submenu: []
     },
     {
         path: '/starter', title: 'Starter Page', icon: 'mdi mdi-gauge', class: '', label: '', labelClass: '', extralink: false, submenu: []

@@ -2,6 +2,7 @@ package cvc.domain;
 
 import javax.persistence.Entity;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 @Entity
 public class Project extends PersistentObject {
@@ -45,6 +46,34 @@ public class Project extends PersistentObject {
 
     public String getAdditionalDetails() {
         return AdditionalDetails;
+    }
+
+    public void setTitle(String title) {
+        Title = title;
+    }
+
+    public void setOrganizer(String organizer) {
+        Organizer = organizer;
+    }
+
+    public void setStartDate(Date startDate) {
+        StartDate = startDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        EndDate = endDate;
+    }
+
+    public void setSuruDate(client.entities.Date startDate) {
+        StartDate = new GregorianCalendar(startDate.year, startDate.month, startDate.day).getTime();
+    }
+
+    public void setAntimDate(client.entities.Date endDate) {
+        EndDate = new GregorianCalendar(endDate.year, endDate.month, endDate.day).getTime();
+    }
+
+    public void setAdditionalDetails(String additionalDetails) {
+        AdditionalDetails = additionalDetails;
     }
 
     //endregion getters and setters

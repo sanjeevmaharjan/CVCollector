@@ -1,21 +1,21 @@
 export class PersonalDetailsModel {
-  FirstName: string;
+  firstName: string;
 
-  LastName: string;
+  lastName: string;
 
-  Gender: number;
+  gender: number;
 
-  DateOfBirth: Date;
+  dob: Date;
 
-  Father: string;
+  father: string;
 
-  Mother: string;
+  mother: string;
 
-  Nationality: string;
+  nationality: string;
 
-  MaritalStatus: string;
+  maritalStatus: string;
 
-  CareerTitle: string;
+  careerTitle: string;
 
-  AdditionalDetails: string;
+  additionalDetails: string;
 }

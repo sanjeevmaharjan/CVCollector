@@ -22,4 +22,16 @@ public class Institution extends OrganizationBase {
     public String getDegree() {
         return Degree;
     }
+
+    public void setDegree(String degree) {
+        Degree = degree;
+    }
+
+    public String getConcentration() {
+        return Concentration;
+    }
+
+    public void setConcentration(String concentration) {
+        Concentration = concentration;
+    }
 }

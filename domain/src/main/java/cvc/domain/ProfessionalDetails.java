@@ -34,5 +34,17 @@ public class ProfessionalDetails extends PersistentObject  {
         return AdditionalDetails;
     }
 
+    public void setProfessionalSkills(String professionalSkills) {
+        ProfessionalSkills = professionalSkills;
+    }
+
+    public void setWorkPlaces(List<WorkPlace> workPlaces) {
+        WorkPlaces = workPlaces;
+    }
+
+    public void setAdditionalDetails(String additionalDetails) {
+        AdditionalDetails = additionalDetails;
+    }
+
     //endregion getters and setters
 }

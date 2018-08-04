@@ -40,5 +40,21 @@ public class Reference extends PersistentObject {
         return Designation;
     }
 
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setContact(String contact) {
+        Contact = contact;
+    }
+
+    public void setOrganization(String organization) {
+        Organization = organization;
+    }
+
+    public void setDesignation(String designation) {
+        Designation = designation;
+    }
+
     //endregion getters and setters
 }

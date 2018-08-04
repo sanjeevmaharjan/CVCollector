@@ -29,6 +29,13 @@ public class EducationDetails extends PersistentObject {
         return AdditionalDetails;
     }
 
+    public void setInstitutions(List<Institution> institutions) {
+        Institutions = institutions;
+    }
+
+    public void setAdditionalDetails(String additionalDetails) {
+        AdditionalDetails = additionalDetails;
+    }
 
     //endregion getters and setters
 }

@@ -1,5 +1,7 @@
 export class LanguageProficiencyModel {
-  Language: string;
+  language: string;
 
-  Proficiency: string;
+  proficiency: string;
+
+  constructor() {}
 }

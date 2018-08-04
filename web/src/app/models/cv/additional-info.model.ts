@@ -1,9 +1,9 @@
 import {LanguageProficiencyModel} from "./language-proficiency.model";
 
 export class AdditionalInfoModel {
-  LanguageProficiencyList: LanguageProficiencyModel[] = [];
+  languageProficiencyList: LanguageProficiencyModel[] = [];
 
-  Hobbies: string;
+  hobbies: string;
 
-  Notes: string;
+  notes: string;
 }

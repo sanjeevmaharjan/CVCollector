@@ -1,14 +1,15 @@
 package cvc.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.util.List;
 
 @Entity
 public class ContactDetails extends PersistentObject {
 
-    private String Phone;
+    private String PhoneList;
 
-    private String Email;
+    private String EmailList;
 
     private String Country;
 
@@ -16,6 +17,7 @@ public class ContactDetails extends PersistentObject {
 
     private String City;
 
+    @Column(nullable = true)
     private int Zip;
 
     private String ProfileLinks;
@@ -25,8 +27,8 @@ public class ContactDetails extends PersistentObject {
     public ContactDetails() {}
 
     public ContactDetails(List<String> phone, List<String> email, String country, String state, String city, int zip, String profileLinks, String additionalDetails) {
-        Phone = String.join("|", phone);
-        Email = String.join("|", email);
+        PhoneList = String.join("|", phone);
+        EmailList = String.join("|", email);
         Country = country;
         State = state;
         City = city;
@@ -37,12 +39,12 @@ public class ContactDetails extends PersistentObject {
 
     //region getters and setters
 
-    public String getPhone() {
-        return Phone;
+    public String getPhoneList() {
+        return PhoneList;
     }
 
-    public String getEmail() {
-        return Email;
+    public String getEmailList() {
+        return EmailList;
     }
 
     public String getCountry() {
@@ -67,6 +69,50 @@ public class ContactDetails extends PersistentObject {
 
     public String getAdditionalDetails() {
         return AdditionalDetails;
+    }
+
+    public void setPhoneList(String phone) {
+        PhoneList = phone;
+    }
+
+    public void setEmailList(String email) {
+        EmailList = email;
+    }
+
+    public void setPhone(List<String> phone) {
+        PhoneList = String.join("|", phone);
+    }
+
+    public void setEmail(List<String> email) {
+        EmailList = String.join("|", email);
+    }
+
+    public void setCountry(String country) {
+        Country = country;
+    }
+
+    public void setState(String state) {
+        State = state;
+    }
+
+    public void setCity(String city) {
+        City = city;
+    }
+
+    public void setZip(int zip) {
+        Zip = zip;
+    }
+
+    public void setProfileLinks(String profileLinks) {
+        ProfileLinks = profileLinks;
+    }
+
+    public void setAdditionalDetails(String additionalDetails) {
+        AdditionalDetails = additionalDetails;
+    }
+
+    public void setAddress(String Address) {
+        Country = Address;
     }
 
     //endregion getters and setters

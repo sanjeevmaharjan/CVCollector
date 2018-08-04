@@ -40,5 +40,17 @@ public class AdditionalInfo extends PersistentObject {
         return Notes;
     }
 
+    public void setLanguageProficiencyList(List<LanguageProficiency> languageProficiencyList) {
+        LanguageProficiencyList = languageProficiencyList;
+    }
+
+    public void setHobbies(String hobbies) {
+        Hobbies = hobbies;
+    }
+
+    public void setNotes(String notes) {
+        Notes = notes;
+    }
+
     //endregion getters and setters
 }

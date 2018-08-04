@@ -1,7 +1,9 @@
 export class AwardsModel {
-  Title: string;
+  title: string;
 
-  Year: number;
+  year: number;
 
-  AwardFor: string;
+  awardFor: string;
+
+  constructor() {}
 }

@@ -29,5 +29,13 @@ public class ProjectDetails extends PersistentObject {
         return AdditionalDetails;
     }
 
+    public void setProjects(List<Project> projects) {
+        Projects = projects;
+    }
+
+    public void setAdditionalDetails(String additionalDetails) {
+        AdditionalDetails = additionalDetails;
+    }
+
     //endregion getters and setters
 }

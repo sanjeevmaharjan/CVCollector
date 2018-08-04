@@ -15,6 +15,7 @@ import {WorkplaceModel} from "../../models/cv/workplace.model";
 import {ProjectDetailsModel} from "../../models/cv/project-details.model";
 import {AwardsModel} from "../../models/cv/awards.model";
 import {LanguageProficiencyModel} from "../../models/cv/language-proficiency.model";
+import {HttpService} from "../../services/http.service";
 
 @Component({
   selector: 'app-cv',
@@ -29,24 +30,25 @@ export class CvComponent implements OnInit {
   currentDate: Date = new Date(Date.now());
 
   constructor(
+    private httpService: HttpService,
     private ngZone: NgZone
   ) {
     this.cv = new CvModel();
-    this.cv.Personal = new PersonalDetailsModel();
-    this.cv.Contact = new ContactDetailsModel();
-    this.cv.Education = new EducationDetailsModel();
-    this.cv.Professional = new ProfessionalDetailsModel();
-    this.cv.Project = new ProjectDetailsModel();
-    this.cv.AdditionalInfo = new AdditionalInfoModel();
+    this.cv.personal = new PersonalDetailsModel();
+    this.cv.contact = new ContactDetailsModel();
+    this.cv.education = new EducationDetailsModel();
+    this.cv.professional = new ProfessionalDetailsModel();
+    this.cv.project = new ProjectDetailsModel();
+    this.cv.additionalInfo = new AdditionalInfoModel();
 
     // initialize arrays
-    this.cv.Awards.push(new AwardsModel());
-    this.cv.Contact.Phone.push('');
-    this.cv.Contact.Email.push('');
-    this.cv.Education.Institutions.push(new InstitutionModel());
-    this.cv.Professional.WorkPlaces.push(new WorkplaceModel());
-    this.cv.Project.Projects.push(new ProjectModel());
-    this.cv.AdditionalInfo.LanguageProficiencyList.push(new LanguageProficiencyModel());
+    this.cv.awards.push(new AwardsModel());
+    this.cv.contact.phone.push('');
+    this.cv.contact.email.push('');
+    this.cv.education.institutions.push(new InstitutionModel());
+    this.cv.professional.workPlaces.push(new WorkplaceModel());
+    this.cv.project.projects.push(new ProjectModel());
+    this.cv.additionalInfo.languageProficiencyList.push(new LanguageProficiencyModel());
   }
 
   ngOnInit() {
@@ -56,30 +58,32 @@ export class CvComponent implements OnInit {
   };
 
   public addPhone() {
-    this.cv.Contact.Phone.push('');
+    this.cv.contact.phone.push('');
   }
 
   public addEmail() {
-    this.cv.Contact.Email.push('');
+    this.cv.contact.email.push('');
   }
 
   public addInstitution() {
-    this.cv.Education.Institutions.push(new InstitutionModel());
+    this.cv.education.institutions.push(new InstitutionModel());
   }
 
   public addWorkplace() {
-    this.cv.Professional.WorkPlaces.push(new WorkplaceModel());
+    this.cv.professional.workPlaces.push(new WorkplaceModel());
   }
 
   public addProject() {
-    this.cv.Project.Projects.push(new ProjectModel());
+    this.cv.project.projects.push(new ProjectModel());
   }
 
   public addLanguageProficiency() {
-    this.cv.AdditionalInfo.LanguageProficiencyList.push(new LanguageProficiencyModel());
+    this.cv.additionalInfo.languageProficiencyList.push(new LanguageProficiencyModel());
   }
 
   public save() {
     console.log(this.cv);
+    this.httpService.postAsJson<CvModel>("cv/add", this.cv)
+      .subscribe(msg => console.log(msg));
   }
 }

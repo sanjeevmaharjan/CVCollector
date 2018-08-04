@@ -21,9 +21,18 @@ public class LanguageProficiency extends PersistentObject {
         return Language;
     }
 
+    public void setLanguage(String language) {
+        Language = language;
+    }
+
     public String getProficiency() {
         return Proficiency;
     }
+
+    public void setProficiency(String proficiency) {
+        Proficiency = proficiency;
+    }
+
 
     //endregion getters and setters
 }

@@ -1,7 +1,7 @@
 import {ProjectModel} from "./project.model";
 
 export class ProjectDetailsModel {
-  Projects: ProjectModel[] = [];
+  projects: ProjectModel[] = [];
 
-  AdditionalDetails: string;
+  additionalDetails: string;
 }
