@@ -1,6 +1,6 @@
 import {Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
 import {NgbAccordion, NgbAccordionConfig, NgbPanelChangeEvent, NgbTabChangeEvent} from '@ng-bootstrap/ng-bootstrap';
-import {AgmCoreModule, MapsAPILoader} from "@agm/core";
+//import {AgmCoreModule, MapsAPILoader} from "@agm/core";
 import { } from 'googlemaps';
 import {FormControl} from "@angular/forms";
 import { CvModel } from '../../models/cv/cv.model';

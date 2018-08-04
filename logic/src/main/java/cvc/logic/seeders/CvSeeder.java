@@ -2,6 +2,7 @@ package cvc.logic.seeders;
 
 import cvc.domain.*;
 import cvc.logic.interfaces.ICvRepository;
+import enums.Gender;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +27,12 @@ public class CvSeeder implements CommandLineRunner {
         List<Cv> cvs = new ArrayList<>();
 
         for (int i = 0; i < 10; i ++) {
+            List<String> phoneList = new ArrayList<>();
+            phoneList.add("1234567890");
+
+            List<String> emailList = new ArrayList<>();
+            emailList.add("test@test.com");
+
             List<Institution> institutionList = new ArrayList<>();
             institutionList.add(
                     new Institution(
@@ -84,7 +91,9 @@ public class CvSeeder implements CommandLineRunner {
 
             Cv cv = new Cv(
                     new PersonalDetails(
-                            "TestFirstName TestLastName",
+                            "TestFirstName",
+                            "TestLastName",
+                            Gender.Male,
                             new GregorianCalendar(1994, 11, 22).getTime(),
                             "Daddy",
                             "Mommy",
@@ -94,12 +103,14 @@ public class CvSeeder implements CommandLineRunner {
                             "Just a test Cv"
                     ),
                     new ContactDetails(
-                            "1234567890",
-                            "test@test.com",
+                            phoneList,
+                            emailList,
                             "TestCountry",
                             "TestState",
                             "TestCity",
-                            "TestStreet"
+                            44600,
+                            "fb.me/maharjanx",
+                            "Test Additional Details"
                     ),
                     new EducationDetails(
                             institutionList,
@@ -116,7 +127,8 @@ public class CvSeeder implements CommandLineRunner {
                     ),
                     new AdditionalInfo(
                             languageProficiencyList,
-                            "Singing, Dancing"
+                            "Singing, Dancing",
+                            "Test Notes."
                     ),
                     awardList
             );

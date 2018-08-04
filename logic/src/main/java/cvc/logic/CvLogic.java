@@ -12,9 +12,9 @@ public class CvLogic {
         this.cvRepository = cvRepository;
     }
 
-    public List<Cv> getBySmartFilter() {
+    /*public List<Cv> getBySmartFilter() {
         List<Cv> cvList = cvRepository.findAll();
 
 
-    }
+    }*/
 }

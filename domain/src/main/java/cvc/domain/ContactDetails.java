@@ -6,9 +6,9 @@ import java.util.List;
 @Entity
 public class ContactDetails extends PersistentObject {
 
-    private List<String> Phone;
+    private String Phone;
 
-    private List<String> Email;
+    private String Email;
 
     private String Country;
 
@@ -25,8 +25,8 @@ public class ContactDetails extends PersistentObject {
     public ContactDetails() {}
 
     public ContactDetails(List<String> phone, List<String> email, String country, String state, String city, int zip, String profileLinks, String additionalDetails) {
-        Phone = phone;
-        Email = email;
+        Phone = String.join("|", phone);
+        Email = String.join("|", email);
         Country = country;
         State = state;
         City = city;
@@ -37,11 +37,11 @@ public class ContactDetails extends PersistentObject {
 
     //region getters and setters
 
-    public List<String> getPhone() {
+    public String getPhone() {
         return Phone;
     }
 
-    public List<String> getEmail() {
+    public String getEmail() {
         return Email;
     }
 

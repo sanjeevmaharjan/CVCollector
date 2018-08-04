@@ -1,5 +1,7 @@
 package cvc.domain;
 
+import enums.Gender;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.util.Date;
@@ -11,7 +13,7 @@ public class PersonalDetails extends PersistentObject  {
 
     private String LastName;
 
-    private String Gender;
+    private short Gender;
 
     @Column(name = "dob")
     private Date DateOfBirth;
@@ -31,10 +33,10 @@ public class PersonalDetails extends PersistentObject  {
 
     public PersonalDetails() {}
 
-    public PersonalDetails(String firstName, String lastName, String gender, Date dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String additionalDetails) {
+    public PersonalDetails(String firstName, String lastName, Gender gender, Date dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String additionalDetails) {
         FirstName = firstName;
         LastName = lastName;
-        Gender = gender;
+        Gender = gender.getId();
         DateOfBirth = dateOfBirth;
         Father = father;
         Mother = mother;
@@ -54,7 +56,7 @@ public class PersonalDetails extends PersistentObject  {
         return LastName;
     }
 
-    public String getGender() {
+    public short getGender() {
         return Gender;
     }
 
