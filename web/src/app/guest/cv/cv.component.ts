@@ -16,6 +16,7 @@ import {ProjectDetailsModel} from "../../models/cv/project-details.model";
 import {AwardsModel} from "../../models/cv/awards.model";
 import {LanguageProficiencyModel} from "../../models/cv/language-proficiency.model";
 import {HttpService} from "../../services/http.service";
+import {isNullOrUndefined} from "@swimlane/ngx-datatable/release/utils";
 
 @Component({
   selector: 'app-cv',
@@ -52,9 +53,15 @@ export class CvComponent implements OnInit {
   }
 
   ngOnInit() {
+    let cvFromLocal = localStorage.getItem('cv-data');
+    if (!isNullOrUndefined(cvFromLocal)) {
+      this.cv = JSON.parse(cvFromLocal);
+    }
   }
 
   public beforeChange($event: NgbTabChangeEvent) {
+    localStorage.setItem('cv-data', JSON.stringify(this.cv));
+    console.log(this.cv);
   };
 
   public addPhone() {
@@ -83,6 +90,7 @@ export class CvComponent implements OnInit {
 
   public save() {
     console.log(this.cv);
+    localStorage.setItem('cv-data', JSON.stringify(this.cv));
     this.httpService.postAsJson<CvModel>("cv/add", this.cv)
       .subscribe(msg => console.log(msg));
   }

@@ -8,6 +8,9 @@ import {GuestRoutes} from "./guest.routing";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {TextDirective} from "../shared/form-elements/text.directive";
 import {FormsModule} from "@angular/forms";
+import {PreviewComponent} from "./preview/preview.component";
+import {HomeComponent} from "./home/home.component";
+import {CvViewComponent} from "../shared/cv-view/cv-view.component";
 
 @NgModule({
   imports: [
@@ -16,6 +19,14 @@ import {FormsModule} from "@angular/forms";
     NgbModule,
     FormsModule
   ],
-  declarations: [LoginComponent, SignupComponent, CvComponent, TextDirective]
+  declarations: [
+    LoginComponent,
+    SignupComponent,
+    CvComponent,
+    TextDirective,
+    PreviewComponent,
+    HomeComponent,
+    CvViewComponent
+  ]
 })
 export class GuestModule { }

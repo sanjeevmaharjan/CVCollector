@@ -23,6 +23,7 @@ import { SpinnerComponent } from './shared/spinner.component';
 import { FrontComponent } from './layouts/front/front.component';
 import { ErrorComponent } from './error/error.component';
 import { TextDirective } from './shared/form-elements/text.directive';
+import { CvViewComponent } from './shared/cv-view/cv-view.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,

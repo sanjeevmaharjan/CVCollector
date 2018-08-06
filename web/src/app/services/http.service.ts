@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {throwError} from "rxjs";
+import { apiEndPoint } from "../../environments/environment";
 
 const httpJsonOptions = {
   headers: new HttpHeaders({
@@ -14,7 +15,7 @@ const httpJsonOptions = {
   providedIn: 'root'
 })
 export class HttpService {
-  baseUrl = 'http://localhost:8080/';
+  baseUrl = apiEndPoint;
 
   constructor(private http: HttpClient) { }
 
