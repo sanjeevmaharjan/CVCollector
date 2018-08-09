@@ -1,7 +1,7 @@
 package cvc.domain;
 
 import javax.persistence.Entity;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 public class Institution extends OrganizationBase {
@@ -11,7 +11,7 @@ public class Institution extends OrganizationBase {
 
     public Institution() {}
 
-    public Institution(String name, String degree, Date startDate, Date endDate, String additionalInfo) {
+    public Institution(String name, String degree, LocalDate startDate, LocalDate endDate, String additionalInfo) {
         Name = name;
         Degree = degree;
         StartDate = startDate;

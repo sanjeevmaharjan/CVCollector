@@ -8,4 +8,9 @@ public class Date {
     public short month;
 
     public short day;
+
+    @Override
+    public String toString() {
+        return year + "-" + month + "-" + day;
+    }
 }

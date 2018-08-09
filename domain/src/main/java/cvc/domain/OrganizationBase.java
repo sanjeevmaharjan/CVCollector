@@ -1,7 +1,10 @@
 package cvc.domain;
 
+import org.apache.tomcat.jni.Local;
+
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -9,9 +12,9 @@ import java.util.GregorianCalendar;
 public abstract class OrganizationBase extends PersistentObject implements Serializable {
     String Name;
 
-    Date StartDate;
+    LocalDate StartDate;
 
-    Date EndDate;
+    LocalDate EndDate;
 
     String AdditionalInfo;
 
@@ -23,11 +26,11 @@ public abstract class OrganizationBase extends PersistentObject implements Seria
         return Name;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return StartDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return EndDate;
     }
 
@@ -39,20 +42,20 @@ public abstract class OrganizationBase extends PersistentObject implements Seria
         Name = name;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         StartDate = startDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         EndDate = endDate;
     }
 
     public void setSuruDate(client.entities.Date startDate) {
-        StartDate = new GregorianCalendar(startDate.year, startDate.month, startDate.day).getTime();
+        StartDate = LocalDate.parse(startDate.toString());
     }
 
     public void setAntimDate(client.entities.Date endDate) {
-        EndDate = new GregorianCalendar(endDate.year, endDate.month, endDate.day).getTime();
+        EndDate = LocalDate.parse(endDate.toString());
     }
 
     public void setAdditionalInfo(String additionalInfo) {

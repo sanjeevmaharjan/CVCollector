@@ -24,6 +24,7 @@ import { FrontComponent } from './layouts/front/front.component';
 import { ErrorComponent } from './error/error.component';
 import { TextDirective } from './shared/form-elements/text.directive';
 import { CvViewComponent } from './shared/cv-view/cv-view.component';
+import {LoggerService} from "./services/logger.service";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -52,13 +53,19 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PerfectScrollbarModule
   ],
   providers: [
-      {
+    {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }, {
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+    },
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+    {
+      provide: LoggerService,
+      useClass: LoggerService
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

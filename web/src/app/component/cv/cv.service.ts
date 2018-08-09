@@ -14,12 +14,7 @@ export class CvService {
     private http: HttpClient
   ) { }
 
-  public getAll<T>(url: string): Observable<T[]> {
-    return this.http.get<T[]>(this.baseUrl + url)
-      .pipe(
-        catchError(this.handleError('getCvs', []))
-      );
-  }
+
 
   /**
    * Handle Http operation that failed.

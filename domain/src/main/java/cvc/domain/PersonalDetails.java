@@ -4,7 +4,7 @@ import enums.Gender;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.GregorianCalendar;
 
 @Entity
@@ -18,7 +18,7 @@ public class PersonalDetails extends PersistentObject  {
     private short Gender;
 
     @Column(name = "dob")
-    private Date DateOfBirth;
+    private LocalDate DateOfBirth;
 
     private String Father;
 
@@ -35,7 +35,7 @@ public class PersonalDetails extends PersistentObject  {
 
     public PersonalDetails() {}
 
-    public PersonalDetails(String firstName, String lastName, Gender gender, Date dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String additionalDetails) {
+    public PersonalDetails(String firstName, String lastName, Gender gender, LocalDate dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String additionalDetails) {
         FirstName = firstName;
         LastName = lastName;
         Gender = gender.getId();
@@ -62,7 +62,7 @@ public class PersonalDetails extends PersistentObject  {
         return Gender;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return DateOfBirth;
     }
 
@@ -102,12 +102,12 @@ public class PersonalDetails extends PersistentObject  {
         Gender = gender;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         DateOfBirth = dateOfBirth;
     }
 
     public void setDob(client.entities.Date dateOfBirth) {
-        DateOfBirth = new GregorianCalendar(dateOfBirth.year, dateOfBirth.month, dateOfBirth.day).getTime();
+        DateOfBirth = LocalDate.parse(dateOfBirth.toString());
     }
 
     public void setFather(String father) {

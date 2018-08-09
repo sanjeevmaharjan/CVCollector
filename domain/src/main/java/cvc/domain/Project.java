@@ -1,7 +1,7 @@
 package cvc.domain;
 
 import javax.persistence.Entity;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.GregorianCalendar;
 
 @Entity
@@ -10,15 +10,15 @@ public class Project extends PersistentObject {
 
     private String Organizer;
 
-    private Date StartDate;
+    private LocalDate StartDate;
 
-    private Date EndDate;
+    private LocalDate EndDate;
 
     private String AdditionalDetails;
 
     public Project() {}
 
-    public Project(String title, String organizer, Date startDate, Date endDate, String additionalDetails) {
+    public Project(String title, String organizer, LocalDate startDate, LocalDate endDate, String additionalDetails) {
         Title = title;
         Organizer = organizer;
         StartDate = startDate;
@@ -36,11 +36,11 @@ public class Project extends PersistentObject {
         return Organizer;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return StartDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return EndDate;
     }
 
@@ -56,20 +56,20 @@ public class Project extends PersistentObject {
         Organizer = organizer;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         StartDate = startDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         EndDate = endDate;
     }
 
     public void setSuruDate(client.entities.Date startDate) {
-        StartDate = new GregorianCalendar(startDate.year, startDate.month, startDate.day).getTime();
+        StartDate = LocalDate.parse(startDate.toString());
     }
 
     public void setAntimDate(client.entities.Date endDate) {
-        EndDate = new GregorianCalendar(endDate.year, endDate.month, endDate.day).getTime();
+        EndDate = LocalDate.parse(endDate.toString());
     }
 
     public void setAdditionalDetails(String additionalDetails) {

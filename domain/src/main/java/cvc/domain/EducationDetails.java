@@ -10,6 +10,8 @@ public class EducationDetails extends PersistentObject {
     @OneToMany(cascade = {CascadeType.ALL})
     private List<Institution> Institutions;
 
+    // @TODO Education Percentage
+
     private String AdditionalDetails;
 
     public EducationDetails() {}
