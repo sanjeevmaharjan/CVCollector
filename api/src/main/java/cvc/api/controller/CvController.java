@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import cvc.domain.Cv;
 import cvc.logic.CvLogic;
 import cvc.logic.interfaces.ICvRepository;
+import cvc.logic.interfaces.service.ICvSearchService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,10 +17,13 @@ import java.util.List;
 @RequestMapping(path = "/cv", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CvController {
     private ICvRepository cvRepository;
+    private ICvSearchService cvSearchService;
     private CvLogic cvLogic;
 
-    public CvController(ICvRepository cvRepository) {
+    public CvController(ICvRepository cvRepository,
+                        ICvSearchService cvSearchService) {
         this.cvRepository = cvRepository;
+        this.cvSearchService = cvSearchService;
     }
 
     /*
@@ -71,5 +75,10 @@ public class CvController {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @GetMapping("/filter/name/{nameStartsWith}")
+    public List<Cv> getCvsByName(@PathVariable String nameStartsWith) {
+        return cvSearchService.nameStartsWith(nameStartsWith);
     }
 }

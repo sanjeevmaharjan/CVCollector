@@ -6,6 +6,7 @@ import enums.Gender;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -38,8 +39,8 @@ public class CvSeeder implements CommandLineRunner {
                     new Institution(
                             "Test Institution",
                             "Test Degree",
-                            new GregorianCalendar(2000,1,1).getTime(),
-                            new GregorianCalendar(2010, 1, 1).getTime(),
+                            LocalDate.parse("2000-01-01"),
+                            LocalDate.parse("2010-01-01"),
                             "Test Institution Summary"
                     )
             );
@@ -49,8 +50,8 @@ public class CvSeeder implements CommandLineRunner {
                     new WorkPlace(
                             "Test Name",
                             "Tester",
-                            new GregorianCalendar(2000,1,1).getTime(),
-                            new GregorianCalendar(2010, 1, 1).getTime(),
+                            LocalDate.parse("2000-01-01"),
+                            LocalDate.parse("2010-01-01"),
                             "Test WorkPlace Summary"
                     )
             );
@@ -60,8 +61,8 @@ public class CvSeeder implements CommandLineRunner {
                     new Project(
                             "Test Project",
                             "Test Organizer",
-                            new GregorianCalendar(2000,1,1).getTime(),
-                            new GregorianCalendar(2010, 1, 1).getTime(),
+                            LocalDate.parse("2000-01-01"),
+                            LocalDate.parse("2010-01-01"),
                             "Test Summary"
                     )
             );
@@ -94,7 +95,7 @@ public class CvSeeder implements CommandLineRunner {
                             "TestFirstName",
                             "TestLastName",
                             Gender.Male,
-                            new GregorianCalendar(1994, 11, 22).getTime(),
+                            LocalDate.parse("1994-11-22"),
                             "Daddy",
                             "Mommy",
                             "Nepali",

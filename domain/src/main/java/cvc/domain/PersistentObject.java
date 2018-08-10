@@ -6,7 +6,7 @@ import java.io.Serializable;
 @MappedSuperclass
 public abstract class PersistentObject implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
     long Id;
 

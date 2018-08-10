@@ -1,4 +1,4 @@
-package cvc.logic.service.specifications;
+package cvc.logic.specifications;
 
 import cvc.domain.PersonalDetails;
 import cvc.domain.PersonalDetails_;
@@ -17,6 +17,7 @@ public final class PersonalDetailsSpecifications {
             @Override
             public Predicate toPredicate(Root<PersonalDetails> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 String startsWithPattern = getStartsWithPattern(nameStart);
+                criteriaQuery.select(root.get(PersonalDetails_.Cv));
                 return criteriaBuilder.or(
                         criteriaBuilder.like(criteriaBuilder.lower(root.get(PersonalDetails_.FirstName)), startsWithPattern),
                         criteriaBuilder.like(criteriaBuilder.lower(root.get(PersonalDetails_.LastName)), startsWithPattern)

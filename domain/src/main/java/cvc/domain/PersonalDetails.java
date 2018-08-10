@@ -2,13 +2,16 @@ package cvc.domain;
 
 import enums.Gender;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.GregorianCalendar;
 
 @Entity
 public class PersonalDetails extends PersistentObject  {
+
+    @OneToOne(optional = false, cascade = CascadeType.ALL, mappedBy = "Personal", targetEntity = Cv.class)
+    private Cv Cv;
 
     private String FirstName;
 
@@ -132,6 +135,10 @@ public class PersonalDetails extends PersistentObject  {
 
     public void setAdditionalDetails(String additionalDetails) {
         AdditionalDetails = additionalDetails;
+    }
+
+    Cv getCv() {
+        return Cv;
     }
 
     //endregion getters and setters

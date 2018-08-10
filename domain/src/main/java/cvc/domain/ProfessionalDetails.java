@@ -1,10 +1,15 @@
 package cvc.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
 public class ProfessionalDetails extends PersistentObject  {
+
+    @OneToOne(mappedBy = "Professional")
+    private Cv Cv;
+
     private String ProfessionalSkills;
 
     @OneToMany(cascade = {CascadeType.ALL})

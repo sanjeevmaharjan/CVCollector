@@ -1,9 +1,14 @@
 package cvc.domain;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Award extends PersistentObject{
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cv_id")
+    private Cv Cv;
+
     private String Title;
 
     private short Year;

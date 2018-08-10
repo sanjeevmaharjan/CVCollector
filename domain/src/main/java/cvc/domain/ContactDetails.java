@@ -1,11 +1,14 @@
 package cvc.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
 public class ContactDetails extends PersistentObject {
+
+    @OneToOne(mappedBy = "Contact")
+    private Cv Cv;
 
     private String PhoneList;
 

@@ -2,28 +2,44 @@ package cvc.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
 public class Cv extends PersistentObject {
+
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "personal_id", unique = true, nullable = false)
+    @NotNull
     private PersonalDetails Personal;
 
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "contact_id", unique = true, nullable = false)
+    @NotNull
     private ContactDetails Contact;
 
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "education_id", unique = true, nullable = false)
+    @NotNull
     private EducationDetails Education;
 
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "professional_id", unique = true, nullable = false)
+    @NotNull
     private ProfessionalDetails Professional;
 
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "project_id", unique = true, nullable = false)
+    @NotNull
     private ProjectDetails Project;
 
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "additional_info_id", unique = true, nullable = false)
+    @NotNull
     private AdditionalInfo AdditionalInfo;
 
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JsonIgnore
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "Cv", orphanRemoval = true)
     private List<Award> Awards;
 
     public Cv() {}

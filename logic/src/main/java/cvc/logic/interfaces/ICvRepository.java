@@ -13,11 +13,4 @@ import java.util.Optional;
 
 @Repository
 public interface ICvRepository extends JpaRepository<Cv,Long>, JpaSpecificationExecutor<Cv> {
-    @Override
-    @Transactional(timeout = 10)
-    List<Cv> findAll(Specification<Cv> spec);
-
-    List<Cv> minAge(short ageMin);
-
-    List<Cv> maxAge(short ageMax);
 }
