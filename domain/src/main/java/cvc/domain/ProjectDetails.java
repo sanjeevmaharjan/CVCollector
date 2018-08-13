@@ -1,5 +1,7 @@
 package cvc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -7,7 +9,8 @@ import java.util.List;
 @Entity
 public class ProjectDetails extends PersistentObject {
 
-    @OneToOne(mappedBy = "Project")
+    @OneToOne(optional = false, mappedBy = "Project", fetch = FetchType.LAZY, targetEntity = Cv.class)
+    @JsonIgnore
     private Cv Cv;
 
     @OneToMany(cascade = {CascadeType.ALL})
@@ -38,6 +41,15 @@ public class ProjectDetails extends PersistentObject {
 
     public void setAdditionalDetails(String additionalDetails) {
         AdditionalDetails = additionalDetails;
+    }
+
+    @JsonIgnore
+    public Cv getCv() {
+        return Cv;
+    }
+
+    public void setCv(Cv cv) {
+        Cv = cv;
     }
 
     //endregion getters and setters

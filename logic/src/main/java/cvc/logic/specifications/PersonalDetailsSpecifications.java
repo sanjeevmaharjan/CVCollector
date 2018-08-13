@@ -1,50 +1,55 @@
 package cvc.logic.specifications;
 
+import cvc.domain.Cv;
+import cvc.domain.Cv_;
 import cvc.domain.PersonalDetails;
 import cvc.domain.PersonalDetails_;
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.time.LocalDate;
 
 public final class PersonalDetailsSpecifications {
 
-    public static Specification<PersonalDetails>  nameStartsWith(String nameStart) {
-        return new Specification<PersonalDetails>() {
+    public static Specification<Cv> nameStartsWith(String nameStart) {
+        return new Specification<Cv>() {
             @Override
-            public Predicate toPredicate(Root<PersonalDetails> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
                 String startsWithPattern = getStartsWithPattern(nameStart);
-                criteriaQuery.select(root.get(PersonalDetails_.Cv));
                 return criteriaBuilder.or(
-                        criteriaBuilder.like(criteriaBuilder.lower(root.get(PersonalDetails_.FirstName)), startsWithPattern),
-                        criteriaBuilder.like(criteriaBuilder.lower(root.get(PersonalDetails_.LastName)), startsWithPattern)
+                        criteriaBuilder.like(
+                                criteriaBuilder.lower(personal.get(PersonalDetails_.FirstName)), startsWithPattern
+                        ),
+                        criteriaBuilder.like(
+                                criteriaBuilder.lower(personal.get(PersonalDetails_.LastName)), startsWithPattern
+                        )
                 );
             }
         };
     }
 
-    public static Specification<PersonalDetails> ageLessThan(int ageMax) {
-        return new Specification<PersonalDetails>() {
+    public static Specification<Cv> ageLessThan(int ageMax) {
+        return new Specification<Cv>() {
             @Override
-            public Predicate toPredicate(Root<PersonalDetails> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
                 LocalDate date = LocalDate.now().minusYears(ageMax);
                 return criteriaBuilder.greaterThanOrEqualTo(
-                        root.get(PersonalDetails_.DateOfBirth), date
+                        personal.get(PersonalDetails_.DateOfBirth), date
                 );
             }
         };
     }
 
-    public static Specification<PersonalDetails> ageGreaterThan(int ageMin) {
-        return new Specification<PersonalDetails>() {
+    public static Specification<Cv> ageGreaterThan(int ageMin) {
+        return new Specification<Cv>() {
             @Override
-            public Predicate toPredicate(Root<PersonalDetails> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
                 LocalDate date = LocalDate.now().minusYears(ageMin);
                 return criteriaBuilder.lessThanOrEqualTo(
-                        root.get(PersonalDetails_.DateOfBirth), date
+                        personal.get(PersonalDetails_.DateOfBirth), date
                 );
             }
         };

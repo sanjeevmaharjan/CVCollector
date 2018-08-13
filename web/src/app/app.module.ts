@@ -1,29 +1,23 @@
-import * as $ from 'jquery';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Routes, RouterModule } from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
-import { FullComponent } from './layouts/full/full.component';
+import {FullComponent} from './layouts/full/full.component';
 
-import { NavigationComponent } from './shared/header-navigation/navigation.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import {NavigationComponent} from './shared/header-navigation/navigation.component';
+import {SidebarComponent} from './shared/sidebar/sidebar.component';
+import {BreadcrumbComponent} from './shared/breadcrumb/breadcrumb.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface, PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 
-import { Approutes } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SpinnerComponent } from './shared/spinner.component';
-import { FrontComponent } from './layouts/front/front.component';
-import { ErrorComponent } from './error/error.component';
-import { TextDirective } from './shared/form-elements/text.directive';
-import { CvViewComponent } from './shared/cv-view/cv-view.component';
+import {Approutes} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {SpinnerComponent} from './shared/spinner.component';
+import {FrontComponent} from './layouts/front/front.component';
 import {LoggerService} from "./services/logger.service";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -49,7 +43,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(Approutes, { useHash: false }),
+    RouterModule.forRoot(Approutes, {useHash: false}),
     PerfectScrollbarModule
   ],
   providers: [
@@ -68,4 +62,5 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

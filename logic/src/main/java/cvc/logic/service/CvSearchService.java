@@ -1,10 +1,8 @@
 package cvc.logic.service;
 
 import cvc.domain.Cv;
-import cvc.domain.PersonalDetails;
 import cvc.logic.interfaces.ICvRepository;
 import cvc.logic.interfaces.service.ICvSearchService;
-import cvc.logic.specifications.CvSpecifications;
 import cvc.logic.specifications.PersonalDetailsSpecifications;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -24,7 +22,7 @@ public class CvSearchService implements ICvSearchService {
     @Transactional(readOnly = true)
     @Override
     public List<Cv> minAge(short ageMin) {
-        Specification<Cv> specs = CvSpecifications.ageGreaterThan(ageMin);
+        Specification<Cv> specs = PersonalDetailsSpecifications.ageGreaterThan(ageMin);
         List<Cv> searchResults = repository.findAll(specs);
         return searchResults;
     }
@@ -32,7 +30,7 @@ public class CvSearchService implements ICvSearchService {
     @Transactional(readOnly = true)
     @Override
     public List<Cv> maxAge(short ageMax) {
-        Specification<Cv> specs = CvSpecifications.ageLessThan(ageMax);
+        Specification<Cv> specs = PersonalDetailsSpecifications.ageLessThan(ageMax);
         List<Cv> searchResults = repository.findAll(specs);
         return searchResults;
     }
@@ -40,7 +38,7 @@ public class CvSearchService implements ICvSearchService {
     @Transactional(readOnly = true)
     @Override
     public List<Cv> nameStartsWith(String startsWith) {
-        Specification<Cv> specs = CvSpecifications.nameStartsWith(startsWith);
+        Specification<Cv> specs = PersonalDetailsSpecifications.nameStartsWith(startsWith);
         List<Cv> searchResults = repository.findAll(specs);
         return searchResults;
     }

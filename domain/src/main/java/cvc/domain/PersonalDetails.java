@@ -1,5 +1,6 @@
 package cvc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import enums.Gender;
 
 import javax.persistence.*;
@@ -10,7 +11,8 @@ import java.util.GregorianCalendar;
 @Entity
 public class PersonalDetails extends PersistentObject  {
 
-    @OneToOne(optional = false, cascade = CascadeType.ALL, mappedBy = "Personal", targetEntity = Cv.class)
+    @OneToOne(optional = false, mappedBy = "Personal", fetch = FetchType.LAZY, targetEntity = Cv.class)
+    @JsonIgnore
     private Cv Cv;
 
     private String FirstName;
@@ -137,8 +139,13 @@ public class PersonalDetails extends PersistentObject  {
         AdditionalDetails = additionalDetails;
     }
 
-    Cv getCv() {
+    @JsonIgnore
+    public cvc.domain.Cv getCv() {
         return Cv;
+    }
+
+    public void setCv(cvc.domain.Cv cv) {
+        Cv = cv;
     }
 
     //endregion getters and setters

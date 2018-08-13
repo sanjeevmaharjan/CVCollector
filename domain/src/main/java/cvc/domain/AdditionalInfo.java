@@ -1,5 +1,6 @@
 package cvc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -9,7 +10,8 @@ import java.util.List;
 @Entity
 public class AdditionalInfo extends PersistentObject {
 
-    @OneToOne(mappedBy = "AdditionalInfo")
+    @OneToOne(optional = false, mappedBy = "AdditionalInfo", fetch = FetchType.LAZY, targetEntity = Cv.class)
+    @JsonIgnore
     private Cv Cv;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -52,6 +54,15 @@ public class AdditionalInfo extends PersistentObject {
 
     public void setNotes(String notes) {
         Notes = notes;
+    }
+
+    @JsonIgnore
+    public Cv getCv() {
+        return Cv;
+    }
+
+    public void setCv(Cv cv) {
+        Cv = cv;
     }
 
     //endregion getters and setters

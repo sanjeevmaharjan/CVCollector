@@ -56,6 +56,14 @@ public class Cv extends PersistentObject {
 
     //region getters and setters
 
+
+    // Override to include id because of @JsonIgnore in superclass
+    @Override
+    @JsonIgnore(false)
+    public long getId() {
+        return super.getId();
+    }
+
     public PersonalDetails getPersonal() {
         return Personal;
     }
@@ -104,7 +112,7 @@ public class Cv extends PersistentObject {
         Project = project;
     }
 
-    public void setAdditionalInfo(cvc.domain.AdditionalInfo additionalInfo) {
+    public void setAdditionalInfo(AdditionalInfo additionalInfo) {
         AdditionalInfo = additionalInfo;
     }
 

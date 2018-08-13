@@ -17,6 +17,7 @@ import {AwardsModel} from "../../models/cv/awards.model";
 import {LanguageProficiencyModel} from "../../models/cv/language-proficiency.model";
 import {HttpService} from "../../services/http.service";
 import {isNullOrUndefined} from "@swimlane/ngx-datatable/release/utils";
+import {MapsAPILoader} from "@agm/core";
 
 @Component({
   selector: 'app-cv',
@@ -32,6 +33,7 @@ export class CvComponent implements OnInit {
 
   constructor(
     private httpService: HttpService,
+    private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone
   ) {
     this.cv = new CvModel();
@@ -95,3 +97,4 @@ export class CvComponent implements OnInit {
       .subscribe(msg => console.log(msg));
   }
 }
+

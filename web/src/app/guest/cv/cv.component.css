@@ -30,3 +30,7 @@ ul.justify-content-start.nav.nav-tabs {
   margin-bottom: 0.5em;
   display: inline-block;
 }
+
+agm-map {
+  height: 300px;
+}

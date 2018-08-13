@@ -1,5 +1,7 @@
 package cvc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -12,6 +14,7 @@ public abstract class PersistentObject implements Serializable {
 
     public PersistentObject() {}
 
+    @JsonIgnore
     public long getId() {
         return Id;
     }

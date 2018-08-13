@@ -1,5 +1,7 @@
 package cvc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -7,7 +9,8 @@ import java.util.List;
 @Entity
 public class ContactDetails extends PersistentObject {
 
-    @OneToOne(mappedBy = "Contact")
+    @OneToOne(optional = false, mappedBy = "Contact", fetch = FetchType.LAZY, targetEntity = Cv.class)
+    @JsonIgnore
     private Cv Cv;
 
     private String PhoneList;
@@ -116,6 +119,15 @@ public class ContactDetails extends PersistentObject {
 
     public void setAddress(String Address) {
         Country = Address;
+    }
+
+    @JsonIgnore
+    public Cv getCv() {
+        return Cv;
+    }
+
+    public void setCv(Cv cv) {
+        Cv = cv;
     }
 
     //endregion getters and setters
