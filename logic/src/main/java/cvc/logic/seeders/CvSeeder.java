@@ -109,6 +109,7 @@ public class CvSeeder implements CommandLineRunner {
                             "TestCountry",
                             "TestState",
                             "TestCity",
+                            false,
                             44600,
                             "fb.me/maharjanx",
                             "Test Additional Details"

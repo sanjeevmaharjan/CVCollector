@@ -1,6 +1,7 @@
 package cvc.logic.interfaces;
 
 import cvc.domain.Cv;
+import cvc.logic.model.CvSearchCriteria;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

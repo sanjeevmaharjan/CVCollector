@@ -23,6 +23,8 @@ public class ContactDetails extends PersistentObject {
 
     private String City;
 
+    private boolean CanRelocate;
+
     @Column(nullable = true)
     private int Zip;
 
@@ -32,12 +34,13 @@ public class ContactDetails extends PersistentObject {
 
     public ContactDetails() {}
 
-    public ContactDetails(List<String> phone, List<String> email, String country, String state, String city, int zip, String profileLinks, String additionalDetails) {
+    public ContactDetails(List<String> phone, List<String> email, String country, String state, String city, boolean canRelocate, int zip, String profileLinks, String additionalDetails) {
         PhoneList = String.join("|", phone);
         EmailList = String.join("|", email);
         Country = country;
         State = state;
         City = city;
+        CanRelocate = canRelocate;
         Zip = zip;
         ProfileLinks = profileLinks;
         AdditionalDetails = additionalDetails;
@@ -119,6 +122,14 @@ public class ContactDetails extends PersistentObject {
 
     public void setAddress(String Address) {
         Country = Address;
+    }
+
+    public boolean getCanRelocate() {
+        return CanRelocate;
+    }
+
+    public void setCanRelocate(boolean canRelocate) {
+        CanRelocate = canRelocate;
     }
 
     @JsonIgnore
