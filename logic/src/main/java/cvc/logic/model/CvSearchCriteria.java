@@ -238,7 +238,7 @@ public class CvSearchCriteria {
             AddSpec(PersonalDetailsSpecifications.ageGreaterThan(MinAge));
         }
 
-        if (MaxAge > 0 ) {
+        if (MaxAge < 200 ) {
             AddSpec(PersonalDetailsSpecifications.ageLessThan(MaxAge));
         }
 
@@ -257,7 +257,7 @@ public class CvSearchCriteria {
             return;
         }
 
-        specs.and(spec);
+        specs = specs.and(spec);
     }
 
     private boolean isNotNullOrEmpty (String value) {

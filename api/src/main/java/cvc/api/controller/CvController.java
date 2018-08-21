@@ -7,6 +7,7 @@ import cvc.domain.Cv;
 import cvc.logic.CvLogic;
 import cvc.logic.interfaces.ICvRepository;
 import cvc.logic.interfaces.service.ICvSearchService;
+import cvc.logic.interfaces.service.ICvUpdateService;
 import cvc.logic.model.CvSearchCriteria;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -17,14 +18,13 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/cv", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CvController {
-    private ICvRepository cvRepository;
     private ICvSearchService cvSearchService;
+    private ICvUpdateService cvUpdateService;
     private CvLogic cvLogic;
 
-    public CvController(ICvRepository cvRepository,
-                        ICvSearchService cvSearchService) {
-        this.cvRepository = cvRepository;
+    public CvController(ICvSearchService cvSearchService, ICvUpdateService cvUpdateService) {
         this.cvSearchService = cvSearchService;
+        this.cvUpdateService = cvUpdateService;
     }
 
     /*
@@ -40,7 +40,7 @@ public class CvController {
      */
     @GetMapping("/filter/{filter}")
     public List<Cv> getCvs(@PathVariable String filter) {
-        return this.cvRepository.findAll();
+        return this.cvSearchService.getAll();
     }
 
     /*
@@ -48,7 +48,7 @@ public class CvController {
     */
     @GetMapping("/{id}")
     public Cv getCv(@PathVariable String id) {
-        return cvRepository.findById(Long.parseLong(id)).orElse(null);
+        return cvSearchService.getById(Long.parseLong(id));
     }
 
     /*
@@ -62,7 +62,7 @@ public class CvController {
             ObjectMapper mapper = new ObjectMapper();
             Cv cv = mapper.readValue(payload, Cv.class);
             System.out.println(cv);
-            this.cvRepository.save(cv);
+            this.cvUpdateService.save(cv);
         }
         catch (JsonMappingException e) {
             e.printStackTrace();

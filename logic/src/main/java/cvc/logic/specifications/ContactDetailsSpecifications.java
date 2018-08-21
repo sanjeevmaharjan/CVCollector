@@ -12,7 +12,7 @@ public final class ContactDetailsSpecifications {
             @Override
             public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 Join<Cv, ContactDetails> contact = root.join(Cv_.Contact);
-                return criteriaBuilder.equal(contact.get(ContactDetails_.CanRelocate), true);
+                return criteriaBuilder.isTrue(contact.get(ContactDetails_.CanRelocate));
             }
         };
     }
