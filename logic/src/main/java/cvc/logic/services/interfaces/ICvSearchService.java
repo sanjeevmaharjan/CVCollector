@@ -1,4 +1,4 @@
-package cvc.logic.interfaces.service;
+package cvc.logic.services.interfaces;
 
 import cvc.domain.Cv;
 import cvc.logic.model.CvSearchCriteria;

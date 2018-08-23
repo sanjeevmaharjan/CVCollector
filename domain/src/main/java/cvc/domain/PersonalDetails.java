@@ -1,12 +1,10 @@
 package cvc.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import enums.Gender;
+import enums.EGender;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.GregorianCalendar;
 
 @Entity
 public class PersonalDetails extends PersistentObject  {
@@ -40,7 +38,7 @@ public class PersonalDetails extends PersistentObject  {
 
     public PersonalDetails() {}
 
-    public PersonalDetails(String firstName, String lastName, Gender gender, LocalDate dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String additionalDetails) {
+    public PersonalDetails(String firstName, String lastName, EGender gender, LocalDate dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String additionalDetails) {
         FirstName = firstName;
         LastName = lastName;
         Gender = gender.getId();

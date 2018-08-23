@@ -1,13 +1,14 @@
 package enums;
 
-public enum Gender {
+public enum EGender {
     Male((short)1),
     Female((short)2),
-    Other((short)3);
+    Other((short)3),
+    Unspecified((short) -1);
 
     private final short id;
 
-    Gender(short id) { this.id = id; }
+    EGender(short id) { this.id = id; }
 
     public short getId() { return id; }
 }

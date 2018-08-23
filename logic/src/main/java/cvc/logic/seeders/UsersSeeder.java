@@ -1,7 +1,7 @@
 package cvc.logic.seeders;
 
 import cvc.domain.Users;
-import cvc.logic.interfaces.IUserRepository;
+import cvc.logic.repositories.IUserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

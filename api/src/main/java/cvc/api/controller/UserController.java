@@ -1,7 +1,7 @@
 package cvc.api.controller;
 
 import cvc.domain.Users;
-import cvc.logic.interfaces.IUserRepository;
+import cvc.logic.repositories.IUserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

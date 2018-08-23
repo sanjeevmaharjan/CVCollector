@@ -1,8 +1,8 @@
 package cvc.logic.services;
 
 import cvc.domain.Cv;
-import cvc.logic.interfaces.ICvRepository;
-import cvc.logic.interfaces.service.ICvUpdateService;
+import cvc.logic.repositories.ICvRepository;
+import cvc.logic.services.interfaces.ICvUpdateService;
 import org.springframework.stereotype.Service;
 
 @Service

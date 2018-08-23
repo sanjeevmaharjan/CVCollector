@@ -1,14 +1,13 @@
 package cvc.logic.seeders;
 
 import cvc.domain.*;
-import cvc.logic.interfaces.ICvRepository;
-import enums.Gender;
+import cvc.logic.repositories.ICvRepository;
+import enums.EGender;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @Component
@@ -94,7 +93,7 @@ public class CvSeeder implements CommandLineRunner {
                     new PersonalDetails(
                             "TestFirstName",
                             "TestLastName",
-                            Gender.Male,
+                            EGender.Male,
                             LocalDate.parse("1994-11-22"),
                             "Daddy",
                             "Mommy",

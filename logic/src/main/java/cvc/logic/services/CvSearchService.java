@@ -1,8 +1,8 @@
 package cvc.logic.services;
 
 import cvc.domain.Cv;
-import cvc.logic.interfaces.ICvRepository;
-import cvc.logic.interfaces.service.ICvSearchService;
+import cvc.logic.repositories.ICvRepository;
+import cvc.logic.services.interfaces.ICvSearchService;
 import cvc.logic.model.CvSearchCriteria;
 import cvc.logic.specifications.PersonalDetailsSpecifications;
 import org.springframework.data.jpa.domain.Specification;
