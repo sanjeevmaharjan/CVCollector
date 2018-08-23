@@ -1,8 +1,8 @@
 package cvc.logic.services;
 
 import cvc.domain.Cv;
-import cvc.logic.interfaces.ICvRepository;
-import cvc.logic.interfaces.service.ICvSearchService;
+import cvc.logic.repositories.ICvRepository;
+import cvc.logic.services.interfaces.ICvSearchService;
 import cvc.logic.model.CvSearchCriteria;
 import cvc.logic.specifications.PersonalDetailsSpecifications;
 import org.springframework.data.jpa.domain.Specification;
@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class CvSearchService implements ICvSearchService {
 
     private final ICvRepository repository;
@@ -20,7 +21,6 @@ public class CvSearchService implements ICvSearchService {
         this.repository = repository;
     }
 
-    @Transactional(readOnly = true)
     @Override
     public List<Cv> minAge(short ageMin) {
         Specification<Cv> specs = PersonalDetailsSpecifications.ageGreaterThan(ageMin);
@@ -28,7 +28,6 @@ public class CvSearchService implements ICvSearchService {
         return searchResults;
     }
 
-    @Transactional(readOnly = true)
     @Override
     public List<Cv> maxAge(short ageMax) {
         Specification<Cv> specs = PersonalDetailsSpecifications.ageLessThan(ageMax);
@@ -36,7 +35,16 @@ public class CvSearchService implements ICvSearchService {
         return searchResults;
     }
 
-    @Transactional(readOnly = true)
+    @Override
+    public List<Cv> getAll() {
+        return repository.findAll();
+    }
+
+    @Override
+    public Cv getById(long id) {
+        return repository.findById(id).orElse(null);
+    }
+
     @Override
     public List<Cv> nameStartsWith(String startsWith) {
         Specification<Cv> specs = PersonalDetailsSpecifications.nameStartsWith(startsWith);
@@ -44,7 +52,7 @@ public class CvSearchService implements ICvSearchService {
         return searchResults;
     }
 
-    @Transactional(readOnly = true)
+    @Override
     public List<Cv> findByFilter(CvSearchCriteria cvSearchCriteria) {
         if (cvSearchCriteria == null) {
             return repository.findAll();

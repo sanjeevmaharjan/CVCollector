@@ -18,8 +18,6 @@ public class ProfessionalDetails extends PersistentObject  {
     @OneToMany(cascade = {CascadeType.ALL})
     private List<WorkPlace> WorkPlaces;
 
-    // @TODO add workplace experience
-
     private String AdditionalDetails;
 
     public ProfessionalDetails() {}

@@ -9,6 +9,8 @@ public class Institution extends OrganizationBase {
 
     private String Concentration;
 
+    private float Score;
+
     public Institution() {}
 
     public Institution(String name, String degree, LocalDate startDate, LocalDate endDate, String additionalInfo) {
@@ -33,5 +35,13 @@ public class Institution extends OrganizationBase {
 
     public void setConcentration(String concentration) {
         Concentration = concentration;
+    }
+
+    public float getScore() {
+        return Score;
+    }
+
+    public void setScore(float score) {
+        Score = score;
     }
 }

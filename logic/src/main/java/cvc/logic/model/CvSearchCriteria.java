@@ -1,19 +1,17 @@
 package cvc.logic.model;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import cvc.domain.Cv;
 import cvc.logic.specifications.ContactDetailsSpecifications;
 import cvc.logic.specifications.PersonalDetailsSpecifications;
+import enums.EGender;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.lang.Nullable;
-
-import java.util.Date;
 
 // Default values Considered in search logic. Not might be used though
 public class CvSearchCriteria {
+    // region Personal Details Criteria
     private String Name = null;
 
-    private short Gender;
+    private EGender Gender = EGender.Unspecified;
 
     // For Age
     private short MinAge = 0;
@@ -25,21 +23,41 @@ public class CvSearchCriteria {
 
     private String CareerTitle;
 
+    // endregion Personal Details Criteria
+
+    // region Contact Details Criteria
+
     private String Country;
 
     private String City;
 
     private boolean RelocationCriteria;
 
+    // endregion Contact Details Criteria
+
+    // region Education Details Criteria
+
     private int AcademicScoreMin;
 
     private int AcademicScoreMax;
+
+    // endregion Education Details Criteria
+
+    // region Work Details Criteria
 
     private int JobExperienceMin;
 
     private int JobExperienceMax;
 
+    // endregion Work Details Criteria
+
+    // region Project Details Criteria
+
     private int project;
+
+    // endregion Project Details Criteria
+
+    // region Additional Fields Criteria
 
     private String PersonalAdditional;
 
@@ -53,6 +71,8 @@ public class CvSearchCriteria {
 
     private String AdditionalNotes;
 
+    // endregion Additional Fields Criteria
+
     private Specification<Cv> specs = null;
 
     // region getters and setters
@@ -65,11 +85,11 @@ public class CvSearchCriteria {
         Name = name;
     }
 
-    public short getGender() {
+    public EGender getGender() {
         return Gender;
     }
 
-    public void setGender(short gender) {
+    public void setGender(EGender gender) {
         Gender = gender;
     }
 
@@ -234,11 +254,15 @@ public class CvSearchCriteria {
             AddSpec(PersonalDetailsSpecifications.nameStartsWith(Name));
         }
 
+        if (!Gender.equals(EGender.Unspecified)) {
+            AddSpec(PersonalDetailsSpecifications.thisGenderOnly(Gender));
+        }
+
         if (MinAge > 0) {
             AddSpec(PersonalDetailsSpecifications.ageGreaterThan(MinAge));
         }
 
-        if (MaxAge > 0 ) {
+        if (MaxAge < 200 ) {
             AddSpec(PersonalDetailsSpecifications.ageLessThan(MaxAge));
         }
 
@@ -257,7 +281,7 @@ public class CvSearchCriteria {
             return;
         }
 
-        specs.and(spec);
+        specs = specs.and(spec);
     }
 
     private boolean isNotNullOrEmpty (String value) {

@@ -1,9 +1,6 @@
 package cvc.logic;
 
-import cvc.domain.Cv;
-import cvc.logic.interfaces.ICvRepository;
-
-import java.util.List;
+import cvc.logic.repositories.ICvRepository;
 
 public class CvLogic {
     private ICvRepository cvRepository;
