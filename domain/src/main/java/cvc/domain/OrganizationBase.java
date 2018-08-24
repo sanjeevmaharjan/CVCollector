@@ -62,5 +62,8 @@ public abstract class OrganizationBase extends PersistentObject implements Seria
         AdditionalInfo = additionalInfo;
     }
 
+    public int getTimeEngaged() {
+        return EndDate - StartDate;
+    }
     //endregion getters and setters
 }

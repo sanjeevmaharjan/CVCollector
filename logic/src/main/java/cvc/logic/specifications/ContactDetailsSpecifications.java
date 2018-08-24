@@ -16,4 +16,6 @@ public final class ContactDetailsSpecifications {
             }
         };
     }
+
+    // TODO Distance Calculation
 }
