@@ -82,7 +82,7 @@ public class CvController {
         return cvSearchService.nameStartsWith(nameStartsWith);
     }
 
-    @PostMapping(value = "/filter/object", consumes = "application/json")
+    @PostMapping(value = "/filter/criteria", consumes = "application/json")
     public List<Cv> getCvsByFilterObject(@RequestBody String payload) {
         System.out.println(payload);
 
