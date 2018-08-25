@@ -1,7 +1,8 @@
 package cvc.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import enums.EGender;
+import enums.Genders;
+import enums.MaritalStatuses;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -29,7 +30,7 @@ public class PersonalDetails extends PersistentObject  {
 
     private String Nationality;
 
-    private String MaritalStatus;
+    private short MaritalStatus;
 
     private String CareerTitle;
 
@@ -38,7 +39,7 @@ public class PersonalDetails extends PersistentObject  {
 
     public PersonalDetails() {}
 
-    public PersonalDetails(String firstName, String lastName, EGender gender, LocalDate dateOfBirth, String father, String mother, String nationality, String maritalStatus, String careerTitle, String additionalDetails) {
+    public PersonalDetails(String firstName, String lastName, Genders gender, LocalDate dateOfBirth, String father, String mother, String nationality, MaritalStatuses maritalStatus, String careerTitle, String additionalDetails) {
         FirstName = firstName;
         LastName = lastName;
         Gender = gender.getId();
@@ -46,7 +47,7 @@ public class PersonalDetails extends PersistentObject  {
         Father = father;
         Mother = mother;
         Nationality = nationality;
-        MaritalStatus = maritalStatus;
+        MaritalStatus = maritalStatus.getId();
         CareerTitle = careerTitle;
         AdditionalDetails = additionalDetails;
     }
@@ -81,8 +82,8 @@ public class PersonalDetails extends PersistentObject  {
         return Nationality;
     }
 
-    public String getMaritalStatus() {
-        return MaritalStatus;
+    public MaritalStatuses getMaritalStatus() {
+        return MaritalStatuses.getById(MaritalStatus);
     }
 
     public String getCareerTitle() {
@@ -101,8 +102,8 @@ public class PersonalDetails extends PersistentObject  {
         LastName = lastName;
     }
 
-    public void setGender(short gender) {
-        Gender = gender;
+    public void setGender(Genders gender) {
+        Gender = gender.getId();
     }
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
@@ -125,8 +126,8 @@ public class PersonalDetails extends PersistentObject  {
         Nationality = nationality;
     }
 
-    public void setMaritalStatus(String maritalStatus) {
-        MaritalStatus = maritalStatus;
+    public void setMaritalStatus(MaritalStatuses maritalStatus) {
+        MaritalStatus = maritalStatus.getId();
     }
 
     public void setCareerTitle(String careerTitle) {

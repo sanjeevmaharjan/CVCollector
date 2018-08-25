@@ -2,7 +2,7 @@ package cvc.logic.seeders;
 
 import cvc.domain.*;
 import cvc.logic.repositories.ICvRepository;
-import enums.EGender;
+import enums.Genders;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -93,7 +93,7 @@ public class CvSeeder implements CommandLineRunner {
                     new PersonalDetails(
                             "TestFirstName",
                             "TestLastName",
-                            EGender.Male,
+                            Genders.Male,
                             LocalDate.parse("1994-11-22"),
                             "Daddy",
                             "Mommy",

@@ -3,15 +3,18 @@ package cvc.logic.model;
 import cvc.domain.Cv;
 import cvc.logic.specifications.ContactDetailsSpecifications;
 import cvc.logic.specifications.PersonalDetailsSpecifications;
-import enums.EGender;
+import enums.Genders;
+import enums.MaritalStatuses;
 import org.springframework.data.jpa.domain.Specification;
+
+import java.util.List;
 
 // Default values Considered in search logic. Not might be used though
 public class CvSearchCriteria {
     // region Personal Details Criteria
     private String Name = null;
 
-    private EGender Gender = EGender.Unspecified;
+    private Genders Gender = Genders.Unspecified;
 
     // For Age
     private short MinAge = 0;
@@ -19,9 +22,9 @@ public class CvSearchCriteria {
 
     private String Nationality;
 
-    private String MaritalStatus;
+    private List<MaritalStatuses> MaritalStatus;
 
-    private String CareerTitle;
+    private List<String> CareerTitle;
 
     // endregion Personal Details Criteria
 
@@ -37,9 +40,9 @@ public class CvSearchCriteria {
 
     // region Education Details Criteria
 
-    private int AcademicScoreMin;
+    private float AcademicScoreMin;
 
-    private int AcademicScoreMax;
+    private float AcademicScoreMax;
 
     // endregion Education Details Criteria
 
@@ -85,11 +88,11 @@ public class CvSearchCriteria {
         Name = name;
     }
 
-    public EGender getGender() {
+    public Genders getGender() {
         return Gender;
     }
 
-    public void setGender(EGender gender) {
+    public void setGender(Genders gender) {
         Gender = gender;
     }
 
@@ -117,19 +120,19 @@ public class CvSearchCriteria {
         Nationality = nationality;
     }
 
-    public String getMaritalStatus() {
+    public List<MaritalStatuses> getMaritalStatus() {
         return MaritalStatus;
     }
 
-    public void setMaritalStatus(String maritalStatus) {
+    public void setMaritalStatus(List<MaritalStatuses> maritalStatus) {
         MaritalStatus = maritalStatus;
     }
 
-    public String getCareerTitle() {
+    public List<String> getCareerTitle() {
         return CareerTitle;
     }
 
-    public void setCareerTitle(String careerTitle) {
+    public void setCareerTitle(List<String> careerTitle) {
         CareerTitle = careerTitle;
     }
 
@@ -149,19 +152,19 @@ public class CvSearchCriteria {
         City = city;
     }
 
-    public int getAcademicScoreMin() {
+    public float getAcademicScoreMin() {
         return AcademicScoreMin;
     }
 
-    public void setAcademicScoreMin(int academicScoreMin) {
+    public void setAcademicScoreMin(float academicScoreMin) {
         AcademicScoreMin = academicScoreMin;
     }
 
-    public int getAcademicScoreMax() {
+    public float getAcademicScoreMax() {
         return AcademicScoreMax;
     }
 
-    public void setAcademicScoreMax(int academicScoreMax) {
+    public void setAcademicScoreMax(float academicScoreMax) {
         AcademicScoreMax = academicScoreMax;
     }
 
@@ -254,7 +257,7 @@ public class CvSearchCriteria {
             AddSpec(PersonalDetailsSpecifications.nameStartsWith(Name));
         }
 
-        if (!Gender.equals(EGender.Unspecified)) {
+        if (!Gender.equals(Genders.Unspecified)) {
             AddSpec(PersonalDetailsSpecifications.thisGenderOnly(Gender));
         }
 

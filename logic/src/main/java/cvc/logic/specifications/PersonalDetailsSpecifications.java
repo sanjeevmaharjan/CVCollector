@@ -4,11 +4,13 @@ import cvc.domain.Cv;
 import cvc.domain.Cv_;
 import cvc.domain.PersonalDetails;
 import cvc.domain.PersonalDetails_;
-import enums.EGender;
+import enums.Genders;
+import enums.MaritalStatuses;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.*;
 import java.time.LocalDate;
+import java.util.List;
 
 public final class PersonalDetailsSpecifications {
 
@@ -30,7 +32,7 @@ public final class PersonalDetailsSpecifications {
         };
     }
 
-    public static Specification<Cv> thisGenderOnly(EGender gender) {
+    public static Specification<Cv> thisGenderOnly(Genders gender) {
         return new Specification<Cv>() {
             @Override
             public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
@@ -75,6 +77,28 @@ public final class PersonalDetailsSpecifications {
                 return criteriaBuilder.like(
                         criteriaBuilder.lower(personal.get(PersonalDetails_.Nationality)), nationContains
                 );
+            }
+        };
+    }
+
+    public static Specification<Cv> theseMaritalStatuses(List<MaritalStatuses> maritalStatus) {
+        return new Specification<Cv>() {
+            @Override
+            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
+                return personal.get(PersonalDetails_.MaritalStatus)
+                        .in(maritalStatus);
+            }
+        };
+    }
+
+    public static Specification<Cv> theseCareerTitles(List<String> careers) {
+        return new Specification<Cv>() {
+            @Override
+            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
+                return personal.get(PersonalDetails_.CareerTitle)
+                        .in(careers);
             }
         };
     }
