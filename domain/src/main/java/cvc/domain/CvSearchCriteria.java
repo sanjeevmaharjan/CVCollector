@@ -28,7 +28,7 @@ public class CvSearchCriteria {
 
     private String City;
 
-    private boolean RelocationCriteria;
+    private boolean RelocationCriteria = false;
 
     // endregion Contact Details Criteria
 

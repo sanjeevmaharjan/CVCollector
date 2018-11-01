@@ -11,6 +11,7 @@ web/node_modules
 .settings
 .springBeans
 .sts4-cache
+.metadata
 
 # compiled output
 web/dist
@@ -22,6 +23,27 @@ web/out-tsc
 *.iws
 *.iml
 *.ipr
+.metadata/
+
+### Vim Files ###
+
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
 
 ### NetBeans ###
 nbproject/private/
@@ -37,6 +59,9 @@ nbdist/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# vim
+*.swp
 
 # misc
 /web/.sass-cache
