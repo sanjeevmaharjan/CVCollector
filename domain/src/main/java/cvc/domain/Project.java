@@ -2,7 +2,6 @@ package cvc.domain;
 
 import javax.persistence.Entity;
 import java.time.LocalDate;
-import java.util.GregorianCalendar;
 
 @Entity
 public class Project extends PersistentObject {

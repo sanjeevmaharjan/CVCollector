@@ -1,12 +1,9 @@
 package cvc.domain;
 
-import org.apache.tomcat.jni.Local;
-
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.time.Period;
 
 @MappedSuperclass
 public abstract class OrganizationBase extends PersistentObject implements Serializable {
@@ -17,6 +14,8 @@ public abstract class OrganizationBase extends PersistentObject implements Seria
     LocalDate EndDate;
 
     String AdditionalInfo;
+
+    int TimeEngaged = -1;
 
     public OrganizationBase() {}
 
@@ -44,10 +43,16 @@ public abstract class OrganizationBase extends PersistentObject implements Seria
 
     public void setStartDate(LocalDate startDate) {
         StartDate = startDate;
+        if (EndDate != null) {
+            setTimeEngaged();
+        }
     }
 
     public void setEndDate(LocalDate endDate) {
         EndDate = endDate;
+        if (StartDate != null) {
+            setTimeEngaged();
+        }
     }
 
     public void setSuruDate(client.entities.Date startDate) {
@@ -63,7 +68,21 @@ public abstract class OrganizationBase extends PersistentObject implements Seria
     }
 
     public int getTimeEngaged() {
-        return EndDate - StartDate;
+        if (TimeEngaged < 0) {
+            setTimeEngaged();
+        }
+
+        return TimeEngaged;
+    }
+
+    public void setTimeEngaged(int i) {
+        TimeEngaged = i;
+    }
+
+    public void setTimeEngaged() {
+        if (StartDate == null || EndDate == null || EndDate.compareTo(StartDate) < 0)
+            return;
+        TimeEngaged = TimeEngaged = Period.between(StartDate, EndDate).getYears();
     }
     //endregion getters and setters
 }

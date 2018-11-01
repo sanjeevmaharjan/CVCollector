@@ -1,15 +1,9 @@
-package cvc.logic.model;
+package cvc.domain;
 
-import cvc.domain.Cv;
-import cvc.logic.specifications.ContactDetailsSpecifications;
-import cvc.logic.specifications.PersonalDetailsSpecifications;
 import enums.Genders;
 import enums.MaritalStatuses;
-import org.springframework.data.jpa.domain.Specification;
-
 import java.util.List;
 
-// Default values Considered in search logic. Not might be used though
 public class CvSearchCriteria {
     // region Personal Details Criteria
     private String Name = null;
@@ -75,8 +69,6 @@ public class CvSearchCriteria {
     private String AdditionalNotes;
 
     // endregion Additional Fields Criteria
-
-    private Specification<Cv> specs = null;
 
     // region getters and setters
 
@@ -249,47 +241,4 @@ public class CvSearchCriteria {
     }
 
     // endregion getters and setters
-
-    // region Other functions
-
-    public Specification<Cv> getSpecs() {
-        if (isNotNullOrEmpty(Name)) {
-            AddSpec(PersonalDetailsSpecifications.nameStartsWith(Name));
-        }
-
-        if (!Gender.equals(Genders.Unspecified)) {
-            AddSpec(PersonalDetailsSpecifications.thisGenderOnly(Gender));
-        }
-
-        if (MinAge > 0) {
-            AddSpec(PersonalDetailsSpecifications.ageGreaterThan(MinAge));
-        }
-
-        if (MaxAge < 200 ) {
-            AddSpec(PersonalDetailsSpecifications.ageLessThan(MaxAge));
-        }
-
-        if (RelocationCriteria) {
-            AddSpec(ContactDetailsSpecifications.canRelocateOnly());
-        }
-
-        return specs;
-    }
-
-    private void AddSpec(Specification<Cv> spec) {
-        if (spec == null) return;
-
-        if (specs == null) {
-            specs = spec;
-            return;
-        }
-
-        specs = specs.and(spec);
-    }
-
-    private boolean isNotNullOrEmpty (String value) {
-        return value != null && !value.isEmpty();
-    }
-
-    // endregion Other functions
 }

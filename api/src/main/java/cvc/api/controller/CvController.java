@@ -4,10 +4,11 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cvc.domain.Cv;
+import cvc.domain.CvSearchCriteria;
 import cvc.logic.CvLogic;
 import cvc.logic.services.interfaces.ICvSearchService;
 import cvc.logic.services.interfaces.ICvUpdateService;
-import cvc.logic.model.CvSearchCriteria;
+import cvc.logic.model.CvSearchCriteriaModel;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/cv", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/cv", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CvController {
     private ICvSearchService cvSearchService;
     private ICvUpdateService cvUpdateService;
@@ -79,7 +80,7 @@ public class CvController {
 
     @GetMapping("/filter/name/{nameStartsWith}")
     public List<Cv> getCvsByName(@PathVariable String nameStartsWith) {
-        return cvSearchService.nameStartsWith(nameStartsWith);
+        return cvSearchService.withName(nameStartsWith);
     }
 
     @PostMapping(value = "/filter/object", consumes = "application/json")
@@ -91,7 +92,6 @@ public class CvController {
         try {
             ObjectMapper mapper = new ObjectMapper();
             filter = mapper.readValue(payload, CvSearchCriteria.class);
-            System.out.println(filter.getName() + "\t" + filter.isRelocationCriteria());
         }
         catch (JsonMappingException e) {
             e.printStackTrace();
@@ -106,6 +106,6 @@ public class CvController {
             e.printStackTrace();
         }
 
-        return this.cvSearchService.findByFilter(filter);
+        return this.cvSearchService.findByFilter(new CvSearchCriteriaModel(filter));
     }
 }

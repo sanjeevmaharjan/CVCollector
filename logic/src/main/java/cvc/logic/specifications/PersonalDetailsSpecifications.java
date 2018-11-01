@@ -4,6 +4,7 @@ import cvc.domain.Cv;
 import cvc.domain.Cv_;
 import cvc.domain.PersonalDetails;
 import cvc.domain.PersonalDetails_;
+import cvc.logic.specifications.common.PatternHelper;
 import enums.Genders;
 import enums.MaritalStatuses;
 import org.springframework.data.jpa.domain.Specification;
@@ -15,107 +16,60 @@ import java.util.List;
 public final class PersonalDetailsSpecifications {
 
     public static Specification<Cv> nameStartsWith(String nameStart) {
-        return new Specification<Cv>() {
-            @Override
-            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
-                String startsWithPattern = getStartsWithPattern(nameStart);
-                return criteriaBuilder.or(
-                        criteriaBuilder.like(
-                                criteriaBuilder.lower(personal.get(PersonalDetails_.FirstName)), startsWithPattern
-                        ),
-                        criteriaBuilder.like(
-                                criteriaBuilder.lower(personal.get(PersonalDetails_.LastName)), startsWithPattern
-                        )
-                );
-            }
+        return (root, criteriaQuery, criteriaBuilder) -> {
+            Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
+            String startsWithPattern = PatternHelper.getStartsWithPattern(nameStart);
+            return criteriaBuilder.or(
+                    criteriaBuilder.like(criteriaBuilder.lower(personal.get(PersonalDetails_.FirstName)),
+                            startsWithPattern),
+                    criteriaBuilder.like(criteriaBuilder.lower(personal.get(PersonalDetails_.LastName)),
+                            startsWithPattern));
         };
     }
 
     public static Specification<Cv> thisGenderOnly(Genders gender) {
-        return new Specification<Cv>() {
-            @Override
-            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
-                return criteriaBuilder.equal(personal.get(PersonalDetails_.Gender), gender);
-            }
+        return (root, criteriaQuery, criteriaBuilder) -> {
+            Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
+            return criteriaBuilder.equal(personal.get(PersonalDetails_.Gender), gender);
         };
     }
 
     public static Specification<Cv> ageLessThan(int ageMax) {
-        return new Specification<Cv>() {
-            @Override
-            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
-                LocalDate date = LocalDate.now().minusYears(ageMax);
-                return criteriaBuilder.greaterThanOrEqualTo(
-                        personal.get(PersonalDetails_.DateOfBirth), date
-                );
-            }
+        return (root, criteriaQuery, criteriaBuilder) -> {
+            Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
+            LocalDate date = LocalDate.now().minusYears(ageMax);
+            return criteriaBuilder.greaterThanOrEqualTo(personal.get(PersonalDetails_.DateOfBirth), date);
         };
     }
 
     public static Specification<Cv> ageGreaterThan(int ageMin) {
-        return new Specification<Cv>() {
-            @Override
-            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
-                LocalDate date = LocalDate.now().minusYears(ageMin);
-                return criteriaBuilder.lessThanOrEqualTo(
-                        personal.get(PersonalDetails_.DateOfBirth), date
-                );
-            }
+        return (root, criteriaQuery, criteriaBuilder) -> {
+            Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
+            LocalDate date = LocalDate.now().minusYears(ageMin);
+            return criteriaBuilder.lessThanOrEqualTo(personal.get(PersonalDetails_.DateOfBirth), date);
         };
     }
 
     public static Specification<Cv> thisNationality(String nationContains) {
-        return new Specification<Cv>() {
-            @Override
-            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
-                String containsPattern = getContainsPattern(nationContains);
-                return criteriaBuilder.like(
-                        criteriaBuilder.lower(personal.get(PersonalDetails_.Nationality)), nationContains
-                );
-            }
+        return (root, criteriaQuery, criteriaBuilder) -> {
+            Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
+            String containsPattern = PatternHelper.getContainsPattern(nationContains);
+            return criteriaBuilder.like(criteriaBuilder.lower(personal.get(PersonalDetails_.Nationality)),
+            containsPattern);
         };
     }
 
     public static Specification<Cv> theseMaritalStatuses(List<MaritalStatuses> maritalStatus) {
-        return new Specification<Cv>() {
-            @Override
-            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
-                return personal.get(PersonalDetails_.MaritalStatus)
-                        .in(maritalStatus);
-            }
+        return (root, criteriaQuery, criteriaBuilder) -> {
+            Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
+            return personal.get(PersonalDetails_.MaritalStatus).in(maritalStatus);
         };
     }
 
     public static Specification<Cv> theseCareerTitles(List<String> careers) {
-        return new Specification<Cv>() {
-            @Override
-            public Predicate toPredicate(Root<Cv> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
-                Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
-                return personal.get(PersonalDetails_.CareerTitle)
-                        .in(careers);
-            }
+        return (root, criteriaQuery, criteriaBuilder) -> {
+            Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
+            return personal.get(PersonalDetails_.CareerTitle).in(careers);
         };
-    }
-
-    private static String getStartsWithPattern(String startsWith) {
-        if (startsWith == null || startsWith.isEmpty()) {
-            return "%";
-        }
-
-        return startsWith.toLowerCase() + "%";
-    }
-
-    private static String getContainsPattern(String startsWith) {
-        if (startsWith == null || startsWith.isEmpty()) {
-            return "%";
-        }
-
-        return "%" + startsWith.toLowerCase() + "%";
     }
 }

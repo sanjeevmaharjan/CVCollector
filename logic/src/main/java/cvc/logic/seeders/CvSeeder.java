@@ -3,6 +3,7 @@ package cvc.logic.seeders;
 import cvc.domain.*;
 import cvc.logic.repositories.ICvRepository;
 import enums.Genders;
+import enums.MaritalStatuses;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -98,7 +99,7 @@ public class CvSeeder implements CommandLineRunner {
                             "Daddy",
                             "Mommy",
                             "Nepali",
-                            "Single",
+                            MaritalStatuses.Unmarried,
                             "Tester",
                             "Just a test Cv"
                     ),

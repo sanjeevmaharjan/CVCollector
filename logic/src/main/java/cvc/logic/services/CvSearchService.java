@@ -3,8 +3,9 @@ package cvc.logic.services;
 import cvc.domain.Cv;
 import cvc.logic.repositories.ICvRepository;
 import cvc.logic.services.interfaces.ICvSearchService;
-import cvc.logic.model.CvSearchCriteria;
+import cvc.logic.model.CvSearchCriteriaModel;
 import cvc.logic.specifications.PersonalDetailsSpecifications;
+import enums.Genders;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,19 +47,25 @@ public class CvSearchService implements ICvSearchService {
     }
 
     @Override
-    public List<Cv> nameStartsWith(String startsWith) {
-        Specification<Cv> specs = PersonalDetailsSpecifications.nameStartsWith(startsWith);
+    public List<Cv> withName(String name) {
+        Specification<Cv> specs = PersonalDetailsSpecifications.nameStartsWith(name);
         List<Cv> searchResults = repository.findAll(specs);
         return searchResults;
     }
 
     @Override
-    public List<Cv> findByFilter(CvSearchCriteria cvSearchCriteria) {
-        if (cvSearchCriteria == null) {
+    public List<Cv> withGender(short gender) {
+        Specification<Cv> specs = PersonalDetailsSpecifications.thisGenderOnly(Genders.fromId(gender));
+        return repository.findAll(specs);
+    }
+
+    @Override
+    public List<Cv> findByFilter(CvSearchCriteriaModel criteriaModel) {
+        if (criteriaModel == null) {
             return repository.findAll();
         }
 
-        Specification<Cv> specs = cvSearchCriteria.getSpecs();
+        Specification<Cv> specs = criteriaModel.getSpecs();
         List<Cv> searchResults = repository.findAll(specs);
         return searchResults;
     }

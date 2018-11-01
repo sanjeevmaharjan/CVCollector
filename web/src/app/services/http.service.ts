@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {catchError} from "rxjs/operators";
-import {throwError} from "rxjs";
-import { apiEndPoint } from "../../environments/environment";
-import {Observable} from "rxjs/Observable";
-import {of} from "rxjs/internal/observable/of";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
+import {throwError} from 'rxjs';
+import { apiEndPoint } from '../../environments/environment';
+import {Observable} from 'rxjs/Observable';
+import {of} from 'rxjs/internal/observable/of';
+import {LoginModel} from '../models/cv/login.model';
 
-const httpJsonOptions = {
+const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    //'Authorization': 'my-auth-token'
+    'Content-Type':  'application/json'
   })
 };
 
@@ -29,10 +29,21 @@ export class HttpService {
   }
 
   postAsJson<T>(url: string, body: T, op: string = '') {
-    
-    return this.http.post<T>(this.baseUrl + url, body, httpJsonOptions)
+    return this.http.post<T>(this.baseUrl + url, body, httpOptions)
       .pipe(
         catchError(this.handleError(op, body))
+      );
+  }
+
+  public login(user: LoginModel) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic Y3JtQ2xpZW50MTpjcm1TdXBlclNlY3JldA=='
+    });
+    console.log(headers);
+    return this.http.post<LoginModel>(this.baseUrl + '/oauth/token', user, {headers: headers})
+      .pipe(
+        catchError(this.handleError('login', user))
       );
   }
 

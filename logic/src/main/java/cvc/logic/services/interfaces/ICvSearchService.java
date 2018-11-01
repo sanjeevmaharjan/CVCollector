@@ -1,14 +1,15 @@
 package cvc.logic.services.interfaces;
 
 import cvc.domain.Cv;
-import cvc.logic.model.CvSearchCriteria;
-import org.springframework.lang.Nullable;
+import cvc.logic.model.CvSearchCriteriaModel;
 
 import java.util.List;
 
 public interface ICvSearchService {
 
-    List<Cv> nameStartsWith(String string);
+    List<Cv> withName(String name);
+
+    List<Cv> withGender(short gender);
 
     List<Cv> minAge(short ageMin);
 
@@ -18,6 +19,6 @@ public interface ICvSearchService {
 
     Cv getById(long id);
 
-    List<Cv> findByFilter(CvSearchCriteria cvSearchCriteria);
+    List<Cv> findByFilter(CvSearchCriteriaModel cvSearchCriteria);
 
 }

@@ -15,44 +15,39 @@
     <dependencies>
         <dependency>
             <groupId>com.ncit</groupId>
-            <artifactId>shared</artifactId>
+            <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
-            <optional>true</optional>
         </dependency>
     </dependencies>
 
     <build>
-        <plugins>
+    	<plugins>
             <plugin>
-                <groupId>org.bsc.maven</groupId>
-                <artifactId>maven-processor-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>process</id>
-                        <goals>
-                            <goal>process</goal>
-                        </goals>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <processors>
-                                <processor>org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor</processor>
-                            </processors>
-                        </configuration>
-                    </execution>
-                </executions>
-                <dependencies>
+               <groupId>org.bsc.maven</groupId>
+               <artifactId>maven-processor-plugin</artifactId>
+               <executions>
+                   <execution>
+                       <id>process</id>
+                       <goals>
+                           <goal>process</goal>
+                       </goals>
+                       <phase>generate-sources</phase>
+                       <configuration>
+                           <processors>
+                               <processor>org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor</processor>
+                           </processors>
+                       </configuration>
+                   </execution>
+               </executions>
+               <dependencies>
                     <dependency>
                         <groupId>org.hibernate</groupId>
                         <artifactId>hibernate-jpamodelgen</artifactId>
+                        <version>5.3.7.Final</version>
                     </dependency>
-                </dependencies>
-            </plugin>
+               </dependencies>
+           </plugin>
         </plugins>
     </build>
 

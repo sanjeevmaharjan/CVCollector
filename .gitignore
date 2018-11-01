@@ -54,3 +54,4 @@ web/e2e/*.map
 # System Files
 web/.DS_Store
 web/Thumbs.db
+/.metadata/
