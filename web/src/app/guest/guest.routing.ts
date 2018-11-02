@@ -30,7 +30,7 @@ export const GuestRoutes: Routes = [
         }
       },
       {
-        path: 'cv',
+        path: 'cv/:client',
         component: CvComponent,
         data: {
           title: 'Cv',

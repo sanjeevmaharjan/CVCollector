@@ -11,8 +11,10 @@ export class TokenInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         const currentToken = this.auth.getToken();
+        console.log(currentToken);
 
         if (currentToken) {
+            console.log('Attaching Header');
             req = req.clone({
                 setHeaders: {
                     Authorization: `Bearer ${currentToken}`

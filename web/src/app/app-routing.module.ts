@@ -3,8 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FullComponent } from './layouts/full/full.component';
-import {FrontComponent} from "./layouts/front/front.component";
-import {ErrorComponent} from "./error/error.component";
+import {FrontComponent} from './layouts/front/front.component';
+import {ErrorComponent} from './error/error.component';
+import { UserAuthGuard } from './auth/user.auth.guard';
 
 export const Approutes: Routes = [
 /*
@@ -26,9 +27,9 @@ export const Approutes: Routes = [
     path: '',
     component: FullComponent,
     children: [
-        //{ path: '', redirectTo: '/starter', pathMatch: 'full' },
-        { path: 'starter', loadChildren: './starter/starter.module#StarterModule' },
-        { path: 'component', loadChildren: './component/component.module#ComponentsModule' },
+        // { path: '', redirectTo: '/starter', pathMatch: 'full' },
+        { path: 'starter', loadChildren: './starter/starter.module#StarterModule', canActivateChild: [UserAuthGuard] },
+      { path: 'component', loadChildren: './component/component.module#ComponentsModule', canActivateChild: [UserAuthGuard] },
     ]
 },
 

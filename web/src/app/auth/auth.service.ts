@@ -16,7 +16,7 @@ export class AuthService {
 
     public getToken(): string {
         const user = JSON.parse(localStorage.getItem('currentUser'));
-        return user ? localStorage.getItem(user.access_token) : '';
+        return user ? user.access_token : '';
     }
 
     public isAuthenticated(): boolean {
@@ -38,9 +38,10 @@ export class AuthService {
 
         observableLogin.subscribe(response => {
             if (response && response.access_token) {
-                localStorage.setItem('currentUser', response);
+                localStorage.setItem('currentUser', JSON.stringify(response));
 
                 const returnUrl = localStorage.getItem('returnUrl');
+                localStorage.removeItem('returnUrl');
                 const goto = returnUrl ? returnUrl : '/home';
 
                 this.router.navigate([goto]);
@@ -49,6 +50,7 @@ export class AuthService {
     }
 
     public logout() {
-        localStorage.removeItem('access_token');
+        localStorage.removeItem('currentUser');
+        this.router.navigate(['/login']);
     }
 }

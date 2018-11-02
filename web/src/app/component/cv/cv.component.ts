@@ -25,7 +25,7 @@ export class CvComponent implements OnInit {
   ) {  }
 
   ngOnInit() {
-    this.httpService.getAll<CvModel>("/api/cv/")
+    this.httpService.getAll<CvModel>('/api/cv/')
       .subscribe(
         cvs => {
           this.cvs = cvs;

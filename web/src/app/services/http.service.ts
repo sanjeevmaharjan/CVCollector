@@ -44,9 +44,10 @@ export class HttpService {
 
   public login(user: LoginModel): Observable<any> {
     console.log(authOptions);
-    return this.http.post(this.baseUrl + '/oauth/token', user, authOptions)
+    const body = this.convertJsonToUrlEncoded(user);
+    return this.http.post(this.baseUrl + '/oauth/token', body, authOptions)
       .pipe(
-        catchError(this.handleError('login', user))
+        catchError(this.handleError('login', body))
       );
   }
 
@@ -66,5 +67,17 @@ export class HttpService {
 
   public log(msg: string) {
     console.log(Date() + msg);
+  }
+
+  private convertJsonToUrlEncoded(json: any) {
+    const params = [];
+
+    for (const key in json) {
+      if (json.hasOwnProperty(key)) {
+        params.push(encodeURIComponent(key) + '=' + encodeURIComponent(json[key]));
+      }
+    }
+
+    return params.join('&');
   }
 }
