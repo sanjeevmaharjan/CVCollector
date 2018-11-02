@@ -5,11 +5,18 @@ import {throwError} from 'rxjs';
 import { apiEndPoint } from '../../environments/environment';
 import {Observable} from 'rxjs/Observable';
 import {of} from 'rxjs/internal/observable/of';
-import {LoginModel} from '../models/cv/login.model';
+import {LoginModel} from '../models/login.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'
+  })
+};
+
+const authOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Authorization': 'Basic Y3JtQ2xpZW50MTpjcm1TdXBlclNlY3JldA=='
   })
 };
 
@@ -35,13 +42,9 @@ export class HttpService {
       );
   }
 
-  public login(user: LoginModel) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Basic Y3JtQ2xpZW50MTpjcm1TdXBlclNlY3JldA=='
-    });
-    console.log(headers);
-    return this.http.post<LoginModel>(this.baseUrl + '/oauth/token', user, {headers: headers})
+  public login(user: LoginModel): Observable<any> {
+    console.log(authOptions);
+    return this.http.post(this.baseUrl + '/oauth/token', user, authOptions)
       .pipe(
         catchError(this.handleError('login', user))
       );

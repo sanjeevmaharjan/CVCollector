@@ -1,4 +1,4 @@
-import {LanguageProficiencyModel} from "./language-proficiency.model";
+import {LanguageProficiencyModel} from './language-proficiency.model';
 
 export class AdditionalInfoModel {
   languageProficiencyList: LanguageProficiencyModel[] = [];
