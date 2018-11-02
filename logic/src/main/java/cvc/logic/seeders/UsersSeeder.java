@@ -46,12 +46,14 @@ public class UsersSeeder implements CommandLineRunner {
         Users sanjeev = new Users("Sanjeev Maharjan", "sanjeev", password, roles);
         Users prazeen = new Users("Prazeen Shrestha", "prazeen",password, roles);
         Users prakash = new Users("Prakash Aryal", "prakash",password, roles);
+        Users client = new Users("Client", "client",password, roles);
 
         List<Users> usersList = new ArrayList<>();
 
         usersList.add(sanjeev);
         usersList.add(prazeen);
         usersList.add(prakash);
+        usersList.add(client);
 
         userRepository.saveAll(usersList);
     }

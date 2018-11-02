@@ -11,6 +11,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = {"cvc.logic"})
 @EntityScan(basePackages = {"cvc.domain"})
 @ComponentScan(basePackages = {"cvc"})
-@Import(SecurityConfig.class)
 public class AppConfig {
 }

@@ -35,10 +35,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .requestMatcher(new OAuthRequestedMatcher())
                 .csrf().disable()
                 .anonymous().disable()
-                .httpBasic()
-                    .realmName(SecurityConfig.REALM)
-                .and().authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS).permitAll()
+                .authorizeRequests()
                 // restricting all access to /api/** to authenticated users
                 .antMatchers("/api/**").authenticated()
                 .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());

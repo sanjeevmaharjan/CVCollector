@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,8 +23,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import cvc.logic.services.ClientVerificationService;
 
 @Configuration
-@EnableWebSecurity(debug = true)
-@Order(Ordered.HIGHEST_PRECEDENCE)
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public static final String REALM = "cvc";
 
@@ -41,23 +41,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    @Order(Ordered.HIGHEST_PRECEDENCE)
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .csrf().disable()
-                .httpBasic()
-                    .realmName(REALM)
-                .and()
                 .formLogin().disable()
                 .anonymous().disable()
-                .authorizeRequests()
+                .httpBasic()
+                .and().authorizeRequests()
                 .antMatchers("/about").permitAll()
                 .antMatchers("/signup").permitAll()
-                .antMatchers("/oauth/token").permitAll()
-                .anyRequest().authenticated();
+                .antMatchers(HttpMethod.OPTIONS,"/oauth/token").permitAll()
+                .anyRequest().authenticated()
+                .and();
     }
 
     @Override

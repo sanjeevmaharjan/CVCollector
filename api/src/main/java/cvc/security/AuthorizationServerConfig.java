@@ -14,6 +14,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.approval.UserApprovalHandler;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
@@ -31,9 +32,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Value("${security.oauth2.resource.id}")
     private String resourceId;
 
-    /*
-     * @Autowired private UserApprovalHandler userApprovalHandler;
-     */
+     @Autowired
+     private UserApprovalHandler userApprovalHandler;
 
     @Autowired
     @Qualifier("authenticationManagerBean")
@@ -54,7 +54,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints/* .userApprovalHandler(userApprovalHandler) */
+        endpoints/*.userApprovalHandler(userApprovalHandler)*/
                 .authenticationManager(authenticationManager)
                 .tokenServices(tokenServices())
                 .tokenStore(tokenStore())
@@ -77,8 +77,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
             new KeyStoreKeyFactory(
                     new ClassPathResource("mykeys.jks"),
                     "mypass".toCharArray());
-    converter.setKeyPair(keyStoreKeyFactory.getKeyPair("mykeys"));
-    return converter;
+        converter.setKeyPair(keyStoreKeyFactory.getKeyPair("mykeys"));
+        return converter;
     }
 
     @Bean
