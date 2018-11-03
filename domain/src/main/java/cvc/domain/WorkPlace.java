@@ -17,6 +17,15 @@ public class WorkPlace extends OrganizationBase {
         AdditionalInfo = summary;
         setTimeEngaged();
     }
+    
+    public WorkPlace(String name, String designation, String startDate, String endDate, String summary) {
+        Name = name;
+        Designation = designation;
+        StartDate = LocalDate.parse(startDate);
+        EndDate = LocalDate.parse(endDate);
+        AdditionalInfo = summary;
+        setTimeEngaged();
+    }
 
     public String getDesignation() {
         return Designation;

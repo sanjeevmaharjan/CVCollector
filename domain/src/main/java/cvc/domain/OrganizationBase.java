@@ -55,6 +55,28 @@ public abstract class OrganizationBase extends PersistentObject implements Seria
         }
     }
 
+    public void setStartDate(String startDate) {
+        try {
+            StartDate = LocalDate.parse(startDate);
+            if (EndDate != null) {
+                setTimeEngaged();
+            }
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+    }
+
+    public void setEndDate(String endDate) {
+        try {
+            EndDate = LocalDate.parse(endDate);
+            if (StartDate != null) {
+                setTimeEngaged();
+            }
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+    }
+
     public void setSuruDate(client.entities.Date startDate) {
         StartDate = LocalDate.parse(startDate.toString());
     }

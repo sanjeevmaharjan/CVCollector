@@ -25,6 +25,14 @@ public class Project extends PersistentObject {
         AdditionalDetails = additionalDetails;
     }
 
+    public Project(String title, String organizer, String startDate, String endDate, String additionalDetails) {
+        Title = title;
+        Organizer = organizer;
+        StartDate = LocalDate.parse(startDate);
+        EndDate = LocalDate.parse(endDate);
+        AdditionalDetails = additionalDetails;
+    }
+
     //region getters and setters
 
     public String getTitle() {
@@ -61,6 +69,22 @@ public class Project extends PersistentObject {
 
     public void setEndDate(LocalDate endDate) {
         EndDate = endDate;
+    }
+
+    public void setStartDate(String startDate) {
+        try {
+            StartDate = LocalDate.parse(startDate);
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+    }
+
+    public void setEndDate(String endDate) {
+        try {
+            EndDate = LocalDate.parse(endDate);
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
     }
 
     public void setSuruDate(client.entities.Date startDate) {
