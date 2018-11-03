@@ -30,6 +30,11 @@ export const Approutes: Routes = [
         // { path: '', redirectTo: '/starter', pathMatch: 'full' },
         { path: 'starter', loadChildren: './starter/starter.module#StarterModule', canActivateChild: [UserAuthGuard] },
       { path: 'component', loadChildren: './component/component.module#ComponentsModule', canActivateChild: [UserAuthGuard] },
+      {
+        path: 'client',
+        loadChildren: './client/client.module#ClientModule',
+        canActivateChild: [UserAuthGuard]
+      }
     ]
 },
 
