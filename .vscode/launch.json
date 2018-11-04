@@ -24,7 +24,9 @@
             "mainClass": "cvc.api.CvcApplication",
             "args": "",
             "env": {
-                "JDBC_DATABASE_URL": "jdbc:postgresql://localhost:5432/cvc"
+                "JDBC_DATABASE_URL": "jdbc:postgresql://localhost:5432/cvc",
+                "POSTGRES_USERNAME": "cvc",
+                "POSTGRES_PASSWORD": "****"
             },
             "projectName": "api"
         }
