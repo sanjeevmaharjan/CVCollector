@@ -28,6 +28,7 @@
                 "POSTGRES_USERNAME": "cvc",
                 "POSTGRES_PASSWORD": "****"
             },
+            "preLaunchTask": "compile",
             "projectName": "api"
         }
     ]
