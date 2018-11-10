@@ -26,7 +26,7 @@
             "env": {
                 "JDBC_DATABASE_URL": "jdbc:postgresql://localhost:5432/cvc",
                 "POSTGRES_USERNAME": "cvc",
-                "POSTGRES_PASSWORD": "****"
+                "POSTGRES_PASSWORD": "dgheet1z"
             },
             "preLaunchTask": "compile",
             "projectName": "api"

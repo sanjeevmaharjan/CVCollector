@@ -1,9 +1,16 @@
 package cvc.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.istack.NotNull;
+
 import java.util.List;
 
 @Entity
@@ -19,6 +26,10 @@ public class Users extends PersistentObject{
     private List<Roles> Roles;
 
     private boolean IsEnabled;
+
+    @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "cv_id", unique = true, nullable = false)
+    private Cv Cv;
 
     public Users() {}
 
@@ -69,6 +80,21 @@ public class Users extends PersistentObject{
 
     public void setEnabled(boolean enabled) {
         IsEnabled = enabled;
+    }
+
+    /**
+     * @return the cv
+     */
+    @JsonIgnore
+    public Cv getCv() {
+        return Cv;
+    }
+
+    /**
+     * @param cv the cv to set
+     */
+    public void setCv(Cv cv) {
+        Cv = cv;
     }
 
     //endregion getters and setters

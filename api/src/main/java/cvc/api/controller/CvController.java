@@ -5,14 +5,36 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cvc.domain.Cv;
 import cvc.domain.CvSearchCriteria;
+import cvc.domain.Users;
 import cvc.logic.CvLogic;
 import cvc.logic.services.interfaces.ICvSearchService;
 import cvc.logic.services.interfaces.ICvUpdateService;
 import cvc.logic.model.CvSearchCriteriaModel;
+
+import org.apache.mahout.cf.taste.common.TasteException;
+import org.apache.mahout.cf.taste.impl.common.FastByIDMap;
+import org.apache.mahout.cf.taste.impl.model.GenericDataModel;
+import org.apache.mahout.cf.taste.impl.model.GenericPreference;
+import org.apache.mahout.cf.taste.impl.model.GenericUserPreferenceArray;
+import org.apache.mahout.cf.taste.impl.neighborhood.NearestNUserNeighborhood;
+import org.apache.mahout.cf.taste.impl.recommender.CachingRecommender;
+import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
+import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
+import org.apache.mahout.cf.taste.model.DataModel;
+import org.apache.mahout.cf.taste.model.Preference;
+import org.apache.mahout.cf.taste.model.PreferenceArray;
+import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
+import org.apache.mahout.cf.taste.recommender.RecommendedItem;
+import org.apache.mahout.cf.taste.recommender.Recommender;
+import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -21,6 +43,7 @@ public class CvController {
     private ICvSearchService cvSearchService;
     private ICvUpdateService cvUpdateService;
     private CvLogic cvLogic;
+    private static CachingRecommender cachingRecommender;
 
     public CvController(ICvSearchService cvSearchService, ICvUpdateService cvUpdateService) {
         this.cvSearchService = cvSearchService;
@@ -107,5 +130,57 @@ public class CvController {
         }
 
         return this.cvSearchService.findByFilter(new CvSearchCriteriaModel(filter));
+    }
+
+    @GetMapping("/getRankedCvs")
+    public List<Cv> getRankedCvs(Principal principal) {
+        String name = principal.getName();
+
+        List<Users> users = cvSearchService.findUsersCv();
+        FastByIDMap<PreferenceArray> preferences = new FastByIDMap<PreferenceArray>();
+        for (Users user : users) {
+            List<Cv> userCvs;
+            PreferenceArray userPreferenceArray = new GenericUserPreferenceArray(userCvs.size());
+            userPreferenceArray.setUserID(0, user.getId());
+            for (int i = 0; i < userCvs.size(); i++) {
+                userPreferenceArray.setItemID(i, userCvs.get(i).getId());
+                userPreferenceArray.setValue(i, 1f);
+            }
+            preferences.put(user.getId(), userPreferenceArray);
+        }
+
+        users = null;
+
+        DataModel dataModel = new GenericDataModel(preferences);
+        List<Long> ids = new ArrayList<>();
+
+        try {
+            List<RecommendedItem> recommendations = recommend(dataModel);
+            recommendations.stream().forEach(recommendation -> {
+                ids.add(recommendation.getItemID());
+            });
+            
+        }
+        catch(TasteException e) {
+            e.printStackTrace();
+        }
+
+        return cvSearchService.getByIds(ids);
+    }
+
+    private static List<RecommendedItem> recommend(DataModel dataModel) throws TasteException {
+        if (cachingRecommender != null) {
+            return cachingRecommender.recommend(1,2);
+        }
+
+        UserSimilarity similarity = new PearsonCorrelationSimilarity(dataModel);
+
+        UserNeighborhood neighborhood = new NearestNUserNeighborhood(2, similarity, dataModel);
+
+        Recommender recommender = new GenericUserBasedRecommender(dataModel, neighborhood, similarity);
+
+        cachingRecommender = new CachingRecommender(recommender);
+
+        return cachingRecommender.recommend(1, 2);
     }
 }

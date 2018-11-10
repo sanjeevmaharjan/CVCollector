@@ -1,6 +1,7 @@
 package cvc.logic.services.interfaces;
 
 import cvc.domain.Cv;
+import cvc.domain.Users;
 import cvc.logic.model.CvSearchCriteriaModel;
 
 import java.util.List;
@@ -20,5 +21,11 @@ public interface ICvSearchService {
     Cv getById(long id);
 
     List<Cv> findByFilter(CvSearchCriteriaModel cvSearchCriteria);
+    
+    List<Users> findUsersCvByFilter(CvSearchCriteriaModel cvSearchCriteria);
+
+    List<Users> findUsersCv();
+
+    List<Cv> getByIds(List<Long> ids);
 
 }

@@ -1,7 +1,9 @@
 package cvc.logic.services;
 
 import cvc.domain.Cv;
+import cvc.domain.Users;
 import cvc.logic.repositories.ICvRepository;
+import cvc.logic.repositories.IUserRepository;
 import cvc.logic.services.interfaces.ICvSearchService;
 import cvc.logic.model.CvSearchCriteriaModel;
 import cvc.logic.specifications.PersonalDetailsSpecifications;
@@ -17,9 +19,11 @@ import java.util.List;
 public class CvSearchService implements ICvSearchService {
 
     private final ICvRepository repository;
+    private final IUserRepository userRepository;
 
-    public CvSearchService(ICvRepository repository) {
+    public CvSearchService(ICvRepository repository, IUserRepository userRepository) {
         this.repository = repository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -46,6 +50,10 @@ public class CvSearchService implements ICvSearchService {
         return repository.findById(id).orElse(null);
     }
 
+    public List<Cv> getByIds(List<Long> ids) {
+        return repository.findAllById(ids);
+    }
+
     @Override
     public List<Cv> withName(String name) {
         Specification<Cv> specs = PersonalDetailsSpecifications.nameStartsWith(name);
@@ -68,5 +76,10 @@ public class CvSearchService implements ICvSearchService {
         Specification<Cv> specs = criteriaModel.getSpecs();
         List<Cv> searchResults = repository.findAll(specs);
         return searchResults;
+    }
+
+    @Override
+    public List<Users> findUsersCv() {
+        return userRepository.findAll();
     }
 }
