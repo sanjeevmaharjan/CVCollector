@@ -9,6 +9,10 @@ import java.util.List;
 @Entity
 public class Cv extends PersistentObject {
 
+    @OneToOne(optional = false, mappedBy = "Cv", fetch = FetchType.EAGER, targetEntity = Users.class)
+    @JsonIgnore
+    private Users user;
+
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "personal_id", unique = true, nullable = false)
     @NotNull
@@ -118,6 +122,20 @@ public class Cv extends PersistentObject {
 
     public void setAwards(List<Award> awards) {
         Awards = awards;
+    }
+
+    /**
+     * @return the user
+     */
+    public Users getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     //endregion getters and setters

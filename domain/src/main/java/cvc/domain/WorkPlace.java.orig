@@ -1,3 +1,33 @@
+<<<<<<< HEAD
+package cvc.domain;
+
+import javax.persistence.Entity;
+import java.time.LocalDate;
+
+@Entity
+public class WorkPlace extends OrganizationBase {
+    private String Designation;
+
+    public WorkPlace() {}
+
+    public WorkPlace(String name, String designation, LocalDate startDate, LocalDate endDate, String summary) {
+        Name = name;
+        Designation = designation;
+        StartDate = startDate;
+        EndDate = endDate;
+        AdditionalInfo = summary;
+        setTimeEngaged();
+    }
+
+    public String getDesignation() {
+        return Designation;
+    }
+
+    public void setDesignation(String designation) {
+        Designation = designation;
+    }
+}
+=======
 package cvc.domain;
 
 import javax.persistence.Entity;
@@ -35,3 +65,4 @@ public class WorkPlace extends OrganizationBase {
         Designation = designation;
     }
 }
+>>>>>>> b0cc845306de5ca0edca03498d0bc5d07b7e6dd3

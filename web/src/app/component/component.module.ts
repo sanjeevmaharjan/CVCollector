@@ -22,7 +22,7 @@ import { NgbdtimepickerBasic } from './timepicker/timepicker.component';
 import { NgbdtypeheadBasic } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
-import { CvComponent } from './cv/cv.component';
+import { CvComponent } from '../client/cv/cv.component';
 
 @NgModule({
   imports: [

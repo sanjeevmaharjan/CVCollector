@@ -1,0 +1,163 @@
+<<<<<<< HEAD
+# dependencies
+target/
+!.mvn/wrapper/maven-wrapper.jar
+web/node_modules
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+.metadata
+
+# compiled output
+web/dist
+web/tmp
+web/out-tsc
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+.metadata/
+
+### Vim Files ###
+
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# IDE - VSCode
+.vscode/*
+
+# vim
+*.swp
+
+# misc
+/web/.sass-cache
+/web/connect.lock
+/web/coverage
+/web/libpeerconnection.log
+/web/npm-debug.log
+/web/testem.log
+/web/typings
+
+# e2e
+web/e2e/*.js
+web/e2e/*.map
+
+# System Files
+web/.DS_Store
+web/Thumbs.db
+/.metadata/
+=======
+# dependencies
+target/
+!.mvn/wrapper/maven-wrapper.jar
+web/node_modules
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+.metadata
+
+# compiled output
+web/dist
+web/tmp
+web/out-tsc
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+.metadata/
+
+### Vim Files ###
+
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# vim
+*.swp
+
+# misc
+/web/.sass-cache
+/web/connect.lock
+/web/coverage
+/web/libpeerconnection.log
+/web/npm-debug.log
+/web/testem.log
+/web/typings
+
+# e2e
+web/e2e/*.js
+web/e2e/*.map
+
+# System Files
+web/.DS_Store
+web/Thumbs.db
+/.metadata/
+>>>>>>> b0cc845306de5ca0edca03498d0bc5d07b7e6dd3

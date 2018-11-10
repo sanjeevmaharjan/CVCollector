@@ -2,9 +2,10 @@ package enums;
 
 public enum MaritalStatuses {
     Unspecified((short) -1),
-    Unmarried((short) 0),
-    Married((short) 1),
-    Divorced((short) 2);
+    Single((short) 0),
+    Unmarried((short) 1),
+    Married((short) 2),
+    Divorced((short) 3);
 
     private final short id;
 

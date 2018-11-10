@@ -1,3 +1,116 @@
+<<<<<<< HEAD
+package cvc.api.controller;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import cvc.domain.Cv;
+import cvc.domain.CvSearchCriteria;
+import cvc.logic.CvLogic;
+import cvc.logic.services.interfaces.ICvSearchService;
+import cvc.logic.services.interfaces.ICvUpdateService;
+import cvc.logic.model.CvSearchCriteriaModel;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.util.List;
+
+@RestController
+@RequestMapping(path = "/api/cv", produces = MediaType.APPLICATION_JSON_VALUE)
+public class CvController {
+    private ICvSearchService cvSearchService;
+    private ICvUpdateService cvUpdateService;
+    private CvLogic cvLogic;
+
+    public CvController(ICvSearchService cvSearchService, ICvUpdateService cvUpdateService) {
+        this.cvSearchService = cvSearchService;
+        this.cvUpdateService = cvUpdateService;
+    }
+
+    /*
+     * forwards to getCvs to smart filter by default
+     */
+    @GetMapping("/")
+    public List<Cv> index() {
+        return getCvs("smart");
+    }
+
+    /*
+     * Gets the list of Cv filtered by filter param
+     */
+    @GetMapping("/filter/{filter}")
+    public List<Cv> getCvs(@PathVariable String filter) {
+        return this.cvSearchService.getAll();
+    }
+
+    /*
+     * Gets the cv by id
+    */
+    @GetMapping("/{id}")
+    public Cv getCv(@PathVariable String id) {
+        return cvSearchService.getById(Long.parseLong(id));
+    }
+
+    /*
+     * Inserts the new Cv
+     */
+    @PostMapping(value = "/add", consumes = "application/json")
+    public void addCv(@RequestBody String payload) {
+        // System.out.println(payload);
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            Cv cv = mapper.readValue(payload, Cv.class);
+            System.out.println(cv);
+            this.cvUpdateService.save(cv);
+        }
+        catch (JsonMappingException e) {
+            e.printStackTrace();
+        }
+        catch (JsonParseException e) {
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @GetMapping("/filter/name/{nameStartsWith}")
+    public List<Cv> getCvsByName(@PathVariable String nameStartsWith) {
+        return cvSearchService.withName(nameStartsWith);
+    }
+
+    @PostMapping(value = "/filter/criteria", consumes = "application/json")
+    public List<Cv> getCvsByFilterObject(@RequestBody String payload) {
+        System.out.println(payload);
+
+        CvSearchCriteria filter = null;
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            filter = mapper.readValue(payload, CvSearchCriteria.class);
+        }
+        catch (JsonMappingException e) {
+            e.printStackTrace();
+        }
+        catch (JsonParseException e) {
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return this.cvSearchService.findByFilter(new CvSearchCriteriaModel(filter));
+    }
+}
+=======
 package cvc.api.controller;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -184,3 +297,4 @@ public class CvController {
         return cachingRecommender.recommend(1, 2);
     }
 }
+>>>>>>> b0cc845306de5ca0edca03498d0bc5d07b7e6dd3

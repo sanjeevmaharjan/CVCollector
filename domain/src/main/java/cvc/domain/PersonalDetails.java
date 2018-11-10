@@ -52,6 +52,21 @@ public class PersonalDetails extends PersistentObject  {
         AdditionalDetails = additionalDetails;
     }
 
+    public PersonalDetails(String firstName, String lastName, Genders gender, String dateOfBirth, String father,
+            String mother, String nationality, MaritalStatuses maritalStatus, String careerTitle,
+            String additionalDetails) {
+        FirstName = firstName;
+        LastName = lastName;
+        Gender = gender.getId();
+        DateOfBirth = LocalDate.parse(dateOfBirth);
+        Father = father;
+        Mother = mother;
+        Nationality = nationality;
+        MaritalStatus = maritalStatus.getId();
+        CareerTitle = careerTitle;
+        AdditionalDetails = additionalDetails;
+    }
+
     //region getters and setters
 
     public String getFirstName() {
@@ -106,12 +121,23 @@ public class PersonalDetails extends PersistentObject  {
         Gender = gender.getId();
     }
 
+    public void setGender(String gender) {
+        if (gender == null || gender == "") {
+            return;
+        }
+        Gender = Short.parseShort(gender);
+    }
+
     public void setDateOfBirth(LocalDate dateOfBirth) {
         DateOfBirth = dateOfBirth;
     }
 
-    public void setDob(client.entities.Date dateOfBirth) {
-        DateOfBirth = LocalDate.parse(dateOfBirth.toString());
+    public void setDateOfBirth(String dateOfBirth) {
+        try {
+            DateOfBirth = LocalDate.parse(dateOfBirth);
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
     }
 
     public void setFather(String father) {
@@ -128,6 +154,13 @@ public class PersonalDetails extends PersistentObject  {
 
     public void setMaritalStatus(MaritalStatuses maritalStatus) {
         MaritalStatus = maritalStatus.getId();
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        if (maritalStatus == null || maritalStatus == ""){
+            return;
+        }
+        MaritalStatus = Short.parseShort(maritalStatus);
     }
 
     public void setCareerTitle(String careerTitle) {

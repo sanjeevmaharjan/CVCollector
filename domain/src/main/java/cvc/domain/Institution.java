@@ -21,6 +21,14 @@ public class Institution extends OrganizationBase {
         AdditionalInfo = additionalInfo;
     }
 
+    public Institution(String name, String degree, String startDate, String endDate, String additionalInfo) {
+        Name = name;
+        Degree = degree;
+        StartDate = LocalDate.parse(startDate);
+        EndDate = LocalDate.parse(endDate);
+        AdditionalInfo = additionalInfo;
+    }
+
     public String getDegree() {
         return Degree;
     }
