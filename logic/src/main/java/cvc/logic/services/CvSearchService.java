@@ -79,6 +79,11 @@ public class CvSearchService implements ICvSearchService {
     }
 
     @Override
+    public List<Users> findUsersCvByFilter(CvSearchCriteriaModel cvSearchCriteria) {
+        return null;
+    }
+
+    @Override
     public List<Users> findUsersCv() {
         return userRepository.findAll();
     }

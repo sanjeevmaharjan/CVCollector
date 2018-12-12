@@ -7,10 +7,10 @@
     <artifactId>cvc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
+        <module>common</module>
         <module>domain</module>
         <module>logic</module>
         <module>api</module>
-        <module>common</module>
         <module>ranker</module>
     </modules>
     <packaging>pom</packaging>
