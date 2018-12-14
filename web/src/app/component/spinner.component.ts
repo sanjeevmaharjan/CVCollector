@@ -3,10 +3,10 @@ import {Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationErro
 import {DOCUMENT} from '@angular/common';
 
 @Component({
-  selector: 'app-spinner',
+  selector: 'app-spinner1',
   template: `
-    <div class="preloader" *ngIf="isSpinnerVisible">
-      <div class="spinner">
+    <div class="nested-preloader text-center" *ngIf="isSpinnerVisible">
+      <div class="nested-spinner">
         <div class="double-bounce1"></div>
         <div class="double-bounce2"></div>
       </div>

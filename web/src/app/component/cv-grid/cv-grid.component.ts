@@ -3,6 +3,7 @@ import {CvModel} from '../../models/cv/cv.model';
 import {HttpService} from '../../services/http.service';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cv-grid',
@@ -17,7 +18,8 @@ export class CvGridComponent implements OnInit {
 
   constructor(
     private httpService: HttpService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {  }
 
   ngOnInit() {
@@ -43,6 +45,10 @@ export class CvGridComponent implements OnInit {
       default:
         return 'Unspecified';
     }
+  }
+
+  open(k: number) {
+    this.router.navigate(['/component/cv/' + k]);
   }
 
 }

@@ -29,6 +29,7 @@ import { CvIndividualComponent } from './cv-individual/cv-individual.component';
 import { CvListComponent } from './cv-list/cv-list.component';
 import { CvGridComponent } from './cv-grid/cv-grid.component';
 import {CvViewComponent} from '../shared/cv-view/cv-view.component';
+import {SpinnerComponent} from "./spinner.component";
 
 @NgModule({
   imports: [
@@ -61,7 +62,8 @@ import {CvViewComponent} from '../shared/cv-view/cv-view.component';
     CvIndividualComponent,
     CvListComponent,
     CvGridComponent,
-    CvViewComponent
+    CvViewComponent,
+    SpinnerComponent
   ]
 })
 

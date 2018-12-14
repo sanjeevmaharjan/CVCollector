@@ -1,6 +1,7 @@
 package cvc.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import enums.Genders;
 import enums.MaritalStatuses;
 
@@ -20,8 +21,9 @@ public class CvSearchCriteria extends PersistentObject {
     private Genders Gender = Genders.Unspecified;
 
     // For Age
-    private short MinAge = 0;
-    private short MaxAge = 200;
+    private Short MinAge = 0;
+
+    private Short MaxAge = 200;
 
     private String Nationality;
 
@@ -37,29 +39,29 @@ public class CvSearchCriteria extends PersistentObject {
 
     private String City;
 
-    private boolean RelocationCriteria = false;
+    private Boolean RelocationCriteria = false;
 
     // endregion Contact Details Criteria
 
     // region Education Details Criteria
 
-    private float AcademicScoreMin;
+    private Float AcademicScoreMin;
 
-    private float AcademicScoreMax;
+    private Float AcademicScoreMax;
 
     // endregion Education Details Criteria
 
     // region Work Details Criteria
 
-    private int JobExperienceMin;
+    private Integer JobExperienceMin;
 
-    private int JobExperienceMax;
+    private Integer JobExperienceMax;
 
     // endregion Work Details Criteria
 
     // region Project Details Criteria
 
-    private int project;
+    private Integer project;
 
     // endregion Project Details Criteria
 
@@ -81,14 +83,17 @@ public class CvSearchCriteria extends PersistentObject {
 
     // region getters and setters
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getName() {
         return Name;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public void setName(String name) {
         Name = name;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public Genders getGender() {
         return Gender;
     }
@@ -97,6 +102,7 @@ public class CvSearchCriteria extends PersistentObject {
         Gender = gender;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public short getMinAge() {
         return MinAge;
     }
@@ -105,6 +111,7 @@ public class CvSearchCriteria extends PersistentObject {
         MinAge = minAge;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public short getMaxAge() {
         return MaxAge;
     }
@@ -113,6 +120,7 @@ public class CvSearchCriteria extends PersistentObject {
         MaxAge = maxAge;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getNationality() {
         return Nationality;
     }
@@ -121,6 +129,7 @@ public class CvSearchCriteria extends PersistentObject {
         Nationality = nationality;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public MaritalStatuses getMaritalStatus() {
         return MaritalStatus;
     }
@@ -129,14 +138,16 @@ public class CvSearchCriteria extends PersistentObject {
         MaritalStatus = maritalStatus;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getCareerTitle() {
         return CareerTitle;
     }
 
     public void setCareerTitle(List<String> careerTitle) {
-        CareerTitle =  String.join(",", careerTitle);
+        CareerTitle = String.join(",", careerTitle);
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getCountry() {
         return Country;
     }
@@ -145,6 +156,7 @@ public class CvSearchCriteria extends PersistentObject {
         Country = country;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getCity() {
         return City;
     }
@@ -153,6 +165,7 @@ public class CvSearchCriteria extends PersistentObject {
         City = city;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public float getAcademicScoreMin() {
         return AcademicScoreMin;
     }
@@ -161,6 +174,7 @@ public class CvSearchCriteria extends PersistentObject {
         AcademicScoreMin = academicScoreMin;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public float getAcademicScoreMax() {
         return AcademicScoreMax;
     }
@@ -169,6 +183,7 @@ public class CvSearchCriteria extends PersistentObject {
         AcademicScoreMax = academicScoreMax;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public int getJobExperienceMin() {
         return JobExperienceMin;
     }
@@ -177,6 +192,7 @@ public class CvSearchCriteria extends PersistentObject {
         JobExperienceMin = jobExperienceMin;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public int getJobExperienceMax() {
         return JobExperienceMax;
     }
@@ -185,6 +201,7 @@ public class CvSearchCriteria extends PersistentObject {
         JobExperienceMax = jobExperienceMax;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public int getProject() {
         return project;
     }
@@ -193,6 +210,7 @@ public class CvSearchCriteria extends PersistentObject {
         this.project = project;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getPersonalAdditional() {
         return PersonalAdditional;
     }
@@ -201,6 +219,7 @@ public class CvSearchCriteria extends PersistentObject {
         PersonalAdditional = personalAdditional;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getContactAdditional() {
         return ContactAdditional;
     }
@@ -209,6 +228,7 @@ public class CvSearchCriteria extends PersistentObject {
         ContactAdditional = contactAdditional;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getEducationAdditional() {
         return EducationAdditional;
     }
@@ -217,6 +237,7 @@ public class CvSearchCriteria extends PersistentObject {
         EducationAdditional = educationAdditional;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getProfessionalAdditional() {
         return ProfessionalAdditional;
     }
@@ -225,6 +246,7 @@ public class CvSearchCriteria extends PersistentObject {
         ProfessionalAdditional = professionalAdditional;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getProjectAdditional() {
         return ProjectAdditional;
     }
@@ -233,6 +255,7 @@ public class CvSearchCriteria extends PersistentObject {
         ProjectAdditional = projectAdditional;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public String getAdditionalNotes() {
         return AdditionalNotes;
     }

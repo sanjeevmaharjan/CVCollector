@@ -17,17 +17,11 @@ public interface ICvSearchService {
 
     List<Cv> maxAge(short ageMax);
 
-    List<Cv> getAll();
-
     Cv getById(long id);
 
     List<Cv> findByFilter(CvSearchCriteriaModel cvSearchCriteria);
-    
-    List<Users> findUsersCvByFilter(CvSearchCriteriaModel cvSearchCriteria);
 
-    List<Users> findUsersCv();
-
-    List<Cv> getByIds(List<Long> ids);
+    List<Cv> findUsersCv();
 
     Dashboard getDashboardStats();
 }

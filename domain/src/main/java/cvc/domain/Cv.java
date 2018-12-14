@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@NamedQuery(name = "Cv.countByUser", query = "select count(c)from Cv c join c.User u where u.id = ?1")
-@NamedQuery(name = "Cv.countByUserAndSubmittedTimeBetween", query = "select count(c)from Cv c join c.User u where u.id = ?1 and c.SubmittedTime between ?2 and ?3")
+@NamedQuery(name = "Cv.countByUser", query = "select count(c)from Cv c join c.User u where u.Username = ?1")
+@NamedQuery(name = "Cv.countByUserAndSubmittedTimeBetween", query = "select count(c)from Cv c join c.User u where u.Username = ?1 and c.SubmittedTime between ?2 and ?3")
 public class Cv extends PersistentObject {
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -31,12 +31,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 @NgModule({
   declarations: [
     AppComponent,
-    SpinnerComponent,
     FullComponent,
     NavigationComponent,
     BreadcrumbComponent,
     SidebarComponent,
-    FrontComponent
+    FrontComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,

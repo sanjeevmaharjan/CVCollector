@@ -14,7 +14,6 @@ public abstract class PersistentObject implements Serializable {
 
     public PersistentObject() {}
 
-    @JsonIgnore
     public long getId() {
         return Id;
     }

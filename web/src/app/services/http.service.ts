@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import { apiEndPoint } from '../../environments/environment';
@@ -20,12 +20,6 @@ const loginOptions = {
   })
 };
 
-const getOptions = {
-  headers: new HttpHeaders({
-    'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiY3ZfY29sbGVjdG9yIl0sInVzZXJfbmFtZSI6InNhbmplZXYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdLCJleHAiOjE1NDQ4MDE2NDksImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiLCJST0xFX0NMSUVOVCJdLCJqdGkiOiI0ZmE5YjlmMC1kMWNmLTQxZjgtYjU5MC04NDk2N2E4NWFlZGQiLCJjbGllbnRfaWQiOiJjcm1DbGllbnQxIn0.Pfdoibq-ql9KhsWj9cwxMjowGdq5SiK6eLwslPyvR9EIpO75Pt54g523iF7Iv2pc885Kt6U0wIzNIFc6jx6hj3IosJDu5mM06h7O0MhqfpdpD4o3yc6aSt3sJJoTfOEHU_rYm1OaE37gXvot5rYyYlooKQL1WjCj5-GvDXnok9MiIkLLTrhBTztmbcDxQK8y3upcqudfcqF6wFQRFgkoNVfidJyOQ4vdmARVZGn_EUCRnG6-xvhkNhpMF7gUSmHEDvcdThzts_MsvAkIImWXlQzFwLZn7EeW7Fax9asAvgsYxDEtDrndjQX9GmwFZCMs55Xfq1HqVU4Bl7N_PYx6Cw'
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -35,14 +29,14 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   public getAll<T>(url: string, op: string = ''): Observable<T[]> {
-    return this.http.get<T[]>(this.baseUrl + url, getOptions)
+    return this.http.get<T[]>(this.baseUrl + url)
       .pipe(
         catchError(this.handleError(op, []))
       );
   }
 
   public get<T>(url: string, op: string = ''): Observable< any | T> {
-    return this.http.get<T>(this.baseUrl + url, getOptions)
+    return this.http.get<T>(this.baseUrl + url)
       .pipe(
         catchError(this.handleError(op, []))
       );
@@ -57,8 +51,12 @@ export class HttpService {
 
   public login(user: LoginModel): Observable<any> {
 
+    const httpParams = new HttpParams()
+      .append('username', user.username)
+      .append('password', user.password)
+      .append('grant_type', user.grant_type);
     console.log(loginOptions);
-    return this.http.post(this.baseUrl + '/oauth/token', user, loginOptions)
+    return this.http.post(this.baseUrl + '/oauth/token', httpParams, loginOptions)
       .pipe(
         catchError(this.handleError('login', user))
       );

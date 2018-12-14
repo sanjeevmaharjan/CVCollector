@@ -1,12 +1,14 @@
 <div class="row">
   <div class="col-12">
-    <h4 class="d-block">Card with Image  code icon</h4>
+    <div *ngIf="!cvs">
+      <app-spinner1></app-spinner1>
+    </div>
     <!-- Row -->
     <div class="card-deck flex-row">
       <!-- column -->
-      <div *ngFor="let cv of cvs" class="col-4 flex-wrap">
+      <div *ngFor="let cv of cvs; let k = index" class="col-4 flex-wrap">
         <!-- Card -->
-        <div class="card">
+        <div class="card" (click)="open(cv.id)">
           <!--<img class="card-img-top img-responsive" src="assets/images/big/img1.jpg" alt="Card image cap">-->
           <div class="card-body little-profile text-center">
             <div class="profile-img">

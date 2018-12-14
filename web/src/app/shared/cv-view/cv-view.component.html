@@ -1,5 +1,5 @@
 <!-- Card -->
-<div class="card">
+<div class="card profile">
   <!--<img class="card-img-top img-responsive" src="assets/images/big/img1.jpg" alt="Card image cap">-->
   <div class="card-body text-center row">
     <div class="card-intro little-profile col-4">
@@ -31,12 +31,24 @@
       </div>
 
       <div class="btn-group-vertical col-12" aria-label="Vertical Profile Navigation" role="group">
-        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(1)" [class.active]="tab == 1">Personal Details</button>
-        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(2)" [class.active]="tab == 2">Contact Details</button>
-        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(3)" [class.active]="tab == 3">Education Details</button>
-        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(4)" [class.active]="tab == 4">Professional Details</button>
-        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(5)" [class.active]="tab == 5">Project Details</button>
-        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(6)" [class.active]="tab == 6">Additional Details</button>
+        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(1)" [class.active]="tab == 1">
+          Personal Details
+        </button>
+        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(2)" [class.active]="tab == 2">Contact
+          Details
+        </button>
+        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(3)" [class.active]="tab == 3">
+          Education Details
+        </button>
+        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(4)" [class.active]="tab == 4">
+          Professional Details
+        </button>
+        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(5)" [class.active]="tab == 5">Project
+          Details
+        </button>
+        <button class="btn btn-secondary btn-outline-secondary" (click)="selectTab(6)" [class.active]="tab == 6">
+          Additional Details
+        </button>
       </div>
     </div>
 
@@ -46,6 +58,8 @@
 
           <!-- Personal Tab-->
           <div id="tab-Personal" *ngSwitchDefault>
+            <h2>Personal Details</h2>
+            <hr/>
             <div class="row mt-4">
               <div class="col-auto">
                 <label for="firstName">
@@ -129,6 +143,8 @@
 
           <!-- Contact Tab -->
           <div id="tab-Contact" *ngSwitchCase="2">
+            <h2>Contact Details</h2>
+            <hr/>
             <div class="row">
               <div class="col-auto">
                 <label for="inputCity">
@@ -193,323 +209,331 @@
 
           <!-- Education Tab-->
           <div id="tab-Education" *ngSwitchCase="3">
-                <div class="form-group">
-                  <h3 class="card-title">Institutions</h3>
-                  <h6 class="card-subtitle">List of Schools, Colleges, etc.</h6>
-                  <ngb-accordion #instutionAcc="ngbAccordion" [closeOthers]="true" activeIds="institution-0"
-                                 class="accordion form-group">
-                    <ngb-panel *ngFor="let institution of cv.education.institutions; let i = index"
-                               id="institution-{{i}}">
-                      <ng-template ngbPanelTitle>
-                        <div class="text-left"><strong>Institution:</strong> {{institution.name}}</div>
-                        <div class="text-left"><strong>Degree:</strong> {{institution.degree}}</div>
-                      </ng-template>
-                      <ng-template ngbPanelContent>
-                        <div class="form-group">
-                          <label for="inputInstitutionName-{{i}}">Name</label>
-                          <input type="text" [(ngModel)]="institution.name" name="inputInstitutionName-{{i}}"
-                                 class="form-control" id="inputInstitutionName-{{i}}">
-                        </div>
+            <h2>Education Details</h2>
+            <hr/>
+            <div class="form-group">
+              <h3 class="card-title">Institutions</h3>
+              <h6 class="card-subtitle">List of Schools, Colleges, etc.</h6>
+              <ngb-accordion #instutionAcc="ngbAccordion" [closeOthers]="true" activeIds="institution-0"
+                             class="accordion form-group">
+                <ngb-panel *ngFor="let institution of cv.education.institutions; let i = index"
+                           id="institution-{{i}}">
+                  <ng-template ngbPanelTitle>
+                    <div class="text-left"><strong>Institution:</strong> {{institution.name}}</div>
+                    <div class="text-left"><strong>Degree:</strong> {{institution.degree}}</div>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <div class="form-group">
+                      <label for="inputInstitutionName-{{i}}">Name</label>
+                      <input type="text" [(ngModel)]="institution.name" name="inputInstitutionName-{{i}}"
+                             class="form-control" id="inputInstitutionName-{{i}}">
+                    </div>
 
-                        <div class="form-row">
-                          <div class="form-group col-md-6">
-                            <label for="inputInstitutionDegree-{{i}}">Degree</label>
-                            <input type="text" [(ngModel)]="institution.degree" name="inputInstitutionDegree-{{i}}"
-                                   class="form-control" id="inputInstitutionDegree-{{i}}">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputInstitutionDegree-{{i}}">Degree</label>
+                        <input type="text" [(ngModel)]="institution.degree" name="inputInstitutionDegree-{{i}}"
+                               class="form-control" id="inputInstitutionDegree-{{i}}">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputInstitutionConcentration-{{i}}">Concentration</label>
+                        <input type="text" [(ngModel)]="institution.concentration"
+                               name="inputInstitutionConcentration-{{i}}" class="form-control"
+                               id="inputInstitutionConcentration-{{i}}">
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <!-- Datepicker for start date -->
+                      <div class="form-group col-md-6">
+                        <label for="institution-startDate-{{i}}">Start Date</label>
+                        <form class="form-inline">
+                          <div class="input-group full-width">
+                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                   [minDate]="{year: 1970, month: 1, day: 1}"
+                                   [(ngModel)]="institution.suruDate" name="institution-startDate-{{i}}"
+                                   id="institution-startDate-{{i}}" readonly="readonly" ngbDatepicker
+                                   #institutionStartDate="ngbDatepicker">
+                            <div class="input-group-append" (click)="institutionStartDate.toggle()">
+                              <i class="fa fa-calendar input-group-text"></i>
+                            </div>
                           </div>
-                          <div class="form-group col-md-6">
-                            <label for="inputInstitutionConcentration-{{i}}">Concentration</label>
-                            <input type="text" [(ngModel)]="institution.concentration"
-                                   name="inputInstitutionConcentration-{{i}}" class="form-control"
-                                   id="inputInstitutionConcentration-{{i}}">
+                        </form>
+                      </div>
+                      <!-- Datepicker for start date-->
+
+                      <!-- Datepicker for end date -->
+                      <div class="form-group col-md-6">
+                        <label for="institution-endDate-{{i}}">End Date</label>
+                        <form class="form-inline">
+                          <div class="input-group full-width">
+                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                   [minDate]="{year: 1970, month: 1, day: 1}"
+                                   [(ngModel)]="institution.antimDate" name="institution-endDate-{{i}}"
+                                   id="institution-endDate-{{i}}" readonly="readonly" ngbDatepicker
+                                   #institutionEndDate="ngbDatepicker">
+                            <div class="input-group-append" (click)="institutionEndDate.toggle()">
+                              <i class="fa fa-calendar input-group-text"></i>
+                            </div>
                           </div>
-                        </div>
+                        </form>
+                      </div>
+                      <!-- Datepicker for end date-->
+                    </div>
 
-                        <div class="form-row">
-                          <!-- Datepicker for start date -->
-                          <div class="form-group col-md-6">
-                            <label for="institution-startDate-{{i}}">Start Date</label>
-                            <form class="form-inline">
-                              <div class="input-group full-width">
-                                <input class="form-control" placeholder="yyyy-mm-dd"
-                                       [minDate]="{year: 1970, month: 1, day: 1}"
-                                       [(ngModel)]="institution.suruDate" name="institution-startDate-{{i}}"
-                                       id="institution-startDate-{{i}}" readonly="readonly" ngbDatepicker
-                                       #institutionStartDate="ngbDatepicker">
-                                <div class="input-group-append" (click)="institutionStartDate.toggle()">
-                                  <i class="fa fa-calendar input-group-text"></i>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-                          <!-- Datepicker for start date-->
+                    <div class="form-group">
+                      <label for="institutionAdditionalInfo">Institution Additional Info</label>
+                      <textarea [(ngModel)]="institution.additionalInfo" name="institutionAdditionalInfo"
+                                class="form-control" rows="5" id="institutionAdditionalInfo"></textarea>
+                    </div>
+                  </ng-template>
+                </ngb-panel>
+              </ngb-accordion>
 
-                          <!-- Datepicker for end date -->
-                          <div class="form-group col-md-6">
-                            <label for="institution-endDate-{{i}}">End Date</label>
-                            <form class="form-inline">
-                              <div class="input-group full-width">
-                                <input class="form-control" placeholder="yyyy-mm-dd"
-                                       [minDate]="{year: 1970, month: 1, day: 1}"
-                                       [(ngModel)]="institution.antimDate" name="institution-endDate-{{i}}"
-                                       id="institution-endDate-{{i}}" readonly="readonly" ngbDatepicker
-                                       #institutionEndDate="ngbDatepicker">
-                                <div class="input-group-append" (click)="institutionEndDate.toggle()">
-                                  <i class="fa fa-calendar input-group-text"></i>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-                          <!-- Datepicker for end date-->
-                        </div>
+              <br/>
 
-                        <div class="form-group">
-                          <label for="institutionAdditionalInfo">Institution Additional Info</label>
-                          <textarea [(ngModel)]="institution.additionalInfo" name="institutionAdditionalInfo"
-                                    class="form-control" rows="5" id="institutionAdditionalInfo"></textarea>
-                        </div>
-                      </ng-template>
-                    </ngb-panel>
-                  </ngb-accordion>
+              <button class="btn btn-success btn-circle align-middle"
+                      ngbTooltip="Add Institution" placement="right">
+                <span class="fa fa-plus"></span>
+              </button>
 
-                  <br/>
+            </div>
 
-                  <button class="btn btn-success btn-circle align-middle"
-                          ngbTooltip="Add Institution" placement="right">
-                    <span class="fa fa-plus"></span>
-                  </button>
-
-                </div>
-
-                <div class="form-group">
-                  <label for="educationAdditionalDetails">Education Additional Details</label>
-                  <textarea [(ngModel)]="cv.education.additionalDetails" name="educationAdditionalDetails"
-                            class="form-control" rows="5" id="educationAdditionalDetails"></textarea>
-                </div>
+            <div class="form-group">
+              <label for="educationAdditionalDetails">Education Additional Details</label>
+              <textarea [(ngModel)]="cv.education.additionalDetails" name="educationAdditionalDetails"
+                        class="form-control" rows="5" id="educationAdditionalDetails"></textarea>
+            </div>
           </div>
           <!-- End Contact Tab-->
 
           <!-- Professional Tab-->
           <div id="tab-Professional" *ngSwitchCase="4">
-                <div class="row">
-                  <label for="inputProfessionalSkills">Professional Skills</label>
-                  <input type="text" [(ngModel)]="cv.professional.professionalSkills" name="inputProfessionalSkills"
-                         class="form-control" id="inputProfessionalSkills">
-                </div>
+            <h2>Professional Details</h2>
+            <hr/>
+            <div class="row">
+              <label for="inputProfessionalSkills">Professional Skills</label>
+              <input type="text" [(ngModel)]="cv.professional.professionalSkills" name="inputProfessionalSkills"
+                     class="form-control" id="inputProfessionalSkills">
+            </div>
 
-                <div class="row">
-                  <ngb-accordion #workplaceAcc="ngbAccordion" [closeOthers]="true" activeIds="workplace-0"
-                                 class="accordion form-group">
-                    <ngb-panel *ngFor="let workplace of cv.professional.workPlaces; let i = index" id="workplace-{{i}}">
-                      <ng-template ngbPanelTitle>
-                        <div class="text-left"><strong>Workplace:</strong> {{workplace.name}}</div>
-                        <div class="text-left"><strong>Designation:</strong> {{workplace.designation}}</div>
-                      </ng-template>
-                      <ng-template ngbPanelContent>
-                        <div class="form-group">
-                          <label for="inputWorkPlaceName-{{i}}">Name</label>
-                          <input type="text" [(ngModel)]="workplace.name" name="inputWorkPlaceName-{{i}}"
-                                 class="form-control" id="inputWorkPlaceName-{{i}}">
-                        </div>
+            <div class="row">
+              <ngb-accordion #workplaceAcc="ngbAccordion" [closeOthers]="true" activeIds="workplace-0"
+                             class="accordion form-group">
+                <ngb-panel *ngFor="let workplace of cv.professional.workPlaces; let i = index" id="workplace-{{i}}">
+                  <ng-template ngbPanelTitle>
+                    <div class="text-left"><strong>Workplace:</strong> {{workplace.name}}</div>
+                    <div class="text-left"><strong>Designation:</strong> {{workplace.designation}}</div>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <div class="form-group">
+                      <label for="inputWorkPlaceName-{{i}}">Name</label>
+                      <input type="text" [(ngModel)]="workplace.name" name="inputWorkPlaceName-{{i}}"
+                             class="form-control" id="inputWorkPlaceName-{{i}}">
+                    </div>
 
-                        <div class="form-group">
-                          <label for="inputWorkPlaceDesignation-{{i}}">Designation</label>
-                          <input type="text" [(ngModel)]="workplace.designation" name="inputWorkPlaceDesignation-{{i}}"
-                                 class="form-control" id="inputWorkPlaceDesignation-{{i}}">
-                        </div>
+                    <div class="form-group">
+                      <label for="inputWorkPlaceDesignation-{{i}}">Designation</label>
+                      <input type="text" [(ngModel)]="workplace.designation" name="inputWorkPlaceDesignation-{{i}}"
+                             class="form-control" id="inputWorkPlaceDesignation-{{i}}">
+                    </div>
 
-                        <div class="form-row">
-                          <!-- Datepicker for start date -->
-                          <div class="form-group col-md-6">
-                            <label for="workplace-startDate-{{i}}">Start Date</label>
-                            <form class="form-inline">
-                              <div class="input-group full-width">
-                                <input class="form-control" placeholder="yyyy-mm-dd"
-                                       [minDate]="{year: 1970, month: 1, day: 1}"
-                                       [(ngModel)]="workplace.suruDate" name="workplace-startDate-{{i}}"
-                                       id="workplace-startDate-{{i}}" readonly="readonly" ngbDatepicker
-                                       #workPlaceStartDate="ngbDatepicker">
-                                <div class="input-group-append" (click)="workPlaceStartDate.toggle()">
-                                  <i class="fa fa-calendar input-group-text"></i>
-                                </div>
-                              </div>
-                            </form>
+                    <div class="form-row">
+                      <!-- Datepicker for start date -->
+                      <div class="form-group col-md-6">
+                        <label for="workplace-startDate-{{i}}">Start Date</label>
+                        <form class="form-inline">
+                          <div class="input-group full-width">
+                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                   [minDate]="{year: 1970, month: 1, day: 1}"
+                                   [(ngModel)]="workplace.suruDate" name="workplace-startDate-{{i}}"
+                                   id="workplace-startDate-{{i}}" readonly="readonly" ngbDatepicker
+                                   #workPlaceStartDate="ngbDatepicker">
+                            <div class="input-group-append" (click)="workPlaceStartDate.toggle()">
+                              <i class="fa fa-calendar input-group-text"></i>
+                            </div>
                           </div>
-                          <!-- Datepicker for start date-->
+                        </form>
+                      </div>
+                      <!-- Datepicker for start date-->
 
-                          <!-- Datepicker for end date -->
-                          <div class="form-group col-md-6">
-                            <label for="workplace-endDate-{{i}}">End Date</label>
-                            <form class="form-inline">
-                              <div class="input-group full-width">
-                                <input class="form-control" placeholder="yyyy-mm-dd"
-                                       [minDate]="{year: 1970, month: 1, day: 1}"
-                                       [(ngModel)]="workplace.antimDate" name="workplace-endDate-{{i}}"
-                                       id="workplace-endDate-{{i}}" readonly="readonly" ngbDatepicker
-                                       #workPlaceEndDate="ngbDatepicker">
-                                <div class="input-group-append" (click)="workPlaceEndDate.toggle()">
-                                  <i class="fa fa-calendar input-group-text"></i>
-                                </div>
-                              </div>
-                            </form>
+                      <!-- Datepicker for end date -->
+                      <div class="form-group col-md-6">
+                        <label for="workplace-endDate-{{i}}">End Date</label>
+                        <form class="form-inline">
+                          <div class="input-group full-width">
+                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                   [minDate]="{year: 1970, month: 1, day: 1}"
+                                   [(ngModel)]="workplace.antimDate" name="workplace-endDate-{{i}}"
+                                   id="workplace-endDate-{{i}}" readonly="readonly" ngbDatepicker
+                                   #workPlaceEndDate="ngbDatepicker">
+                            <div class="input-group-append" (click)="workPlaceEndDate.toggle()">
+                              <i class="fa fa-calendar input-group-text"></i>
+                            </div>
                           </div>
-                          <!-- Datepicker for end date-->
-                        </div>
+                        </form>
+                      </div>
+                      <!-- Datepicker for end date-->
+                    </div>
 
-                        <div class="form-group">
-                          <label for="workplaceAdditionalInfo">WorkPlace Additional Info</label>
-                          <textarea [(ngModel)]="workplace.additionalInfo" name="workplaceAdditionalInfo"
-                                    class="form-control" rows="5" id="workplaceAdditionalInfo"></textarea>
-                        </div>
-                      </ng-template>
-                    </ngb-panel>
-                  </ngb-accordion>
+                    <div class="form-group">
+                      <label for="workplaceAdditionalInfo">WorkPlace Additional Info</label>
+                      <textarea [(ngModel)]="workplace.additionalInfo" name="workplaceAdditionalInfo"
+                                class="form-control" rows="5" id="workplaceAdditionalInfo"></textarea>
+                    </div>
+                  </ng-template>
+                </ngb-panel>
+              </ngb-accordion>
 
-                  <br/>
-                </div>
+              <br/>
+            </div>
 
-                <div class="form-group">
-                  <label for="professionalDetailsAdditional">Professional Additional Details</label>
-                  <textarea [(ngModel)]="cv.professional.additionalDetails" name="inputprofessionalDetailsAdditional"
-                            class="form-control" rows="5" id="professionalDetailsAdditional"></textarea>
-                </div>
+            <div class="form-group">
+              <label for="professionalDetailsAdditional">Professional Additional Details</label>
+              <textarea [(ngModel)]="cv.professional.additionalDetails" name="inputprofessionalDetailsAdditional"
+                        class="form-control" rows="5" id="professionalDetailsAdditional"></textarea>
+            </div>
           </div>
           <!-- End Professional Tab-->
 
           <!-- Project Tab-->
           <div id="tab-Project" *ngSwitchCase="5">
-                <div class="form-group">
-                  <ngb-accordion #projectAcc="ngbAccordion" [closeOthers]="true" activeIds="project-0"
-                                 class="accordion form-group">
-                    <ngb-panel *ngFor="let project of cv.project.projects; let i = index" id="project-{{i}}">
-                      <ng-template ngbPanelTitle>
-                        <div class="text-left"><strong>Project:</strong> {{project.title}}</div>
-                        <div class="text-left"><strong>Organizer:</strong> {{project.organizer}}</div>
-                      </ng-template>
-                      <ng-template ngbPanelContent>
-                        <div class="form-group">
-                          <label for="inputProjectTitle-{{i}}">Title</label>
-                          <input type="text" [(ngModel)]="project.title" name="inputProjectTitle-{{i}}"
-                                 class="form-control"
-                                 id="inputProjectTitle-{{i}}">
-                        </div>
+            <h2>Project Details</h2>
+            <hr/>
+            <div class="form-group">
+              <ngb-accordion #projectAcc="ngbAccordion" [closeOthers]="true" activeIds="project-0"
+                             class="accordion form-group">
+                <ngb-panel *ngFor="let project of cv.project.projects; let i = index" id="project-{{i}}">
+                  <ng-template ngbPanelTitle>
+                    <div class="text-left"><strong>Project:</strong> {{project.title}}</div>
+                    <div class="text-left"><strong>Organizer:</strong> {{project.organizer}}</div>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <div class="form-group">
+                      <label for="inputProjectTitle-{{i}}">Title</label>
+                      <input type="text" [(ngModel)]="project.title" name="inputProjectTitle-{{i}}"
+                             class="form-control"
+                             id="inputProjectTitle-{{i}}">
+                    </div>
 
 
-                        <div class="form-group">
-                          <label for="inputProjectOrganizer-{{i}}">Organizer</label>
-                          <input type="text" [(ngModel)]="project.organizer" name="inputProjectOrganizer-{{i}}"
-                                 class="form-control" id="inputProjectOrganizer-{{i}}">
-                        </div>
+                    <div class="form-group">
+                      <label for="inputProjectOrganizer-{{i}}">Organizer</label>
+                      <input type="text" [(ngModel)]="project.organizer" name="inputProjectOrganizer-{{i}}"
+                             class="form-control" id="inputProjectOrganizer-{{i}}">
+                    </div>
 
-                        <div class="form-row">
-                          <!-- Datepicker for start date -->
-                          <div class="form-group col-md-6">
-                            <label for="project-startDate-{{i}}">Start Date</label>
-                            <form class="form-inline">
-                              <div class="input-group full-width">
-                                <input class="form-control" placeholder="yyyy-mm-dd"
-                                       [minDate]="{year: 1970, month: 1, day: 1}"
-                                       [(ngModel)]="project.suruDate" name="project-startDate-{{i}}"
-                                       id="project-startDate-{{i}}" readonly="readonly" ngbDatepicker
-                                       #projectStartDate="ngbDatepicker">
-                                <div class="input-group-append" (click)="projectStartDate.toggle()">
-                                  <i class="fa fa-calendar input-group-text"></i>
-                                </div>
-                              </div>
-                            </form>
+                    <div class="form-row">
+                      <!-- Datepicker for start date -->
+                      <div class="form-group col-md-6">
+                        <label for="project-startDate-{{i}}">Start Date</label>
+                        <form class="form-inline">
+                          <div class="input-group full-width">
+                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                   [minDate]="{year: 1970, month: 1, day: 1}"
+                                   [(ngModel)]="project.suruDate" name="project-startDate-{{i}}"
+                                   id="project-startDate-{{i}}" readonly="readonly" ngbDatepicker
+                                   #projectStartDate="ngbDatepicker">
+                            <div class="input-group-append" (click)="projectStartDate.toggle()">
+                              <i class="fa fa-calendar input-group-text"></i>
+                            </div>
                           </div>
-                          <!-- Datepicker for start date-->
+                        </form>
+                      </div>
+                      <!-- Datepicker for start date-->
 
-                          <!-- Datepicker for end date -->
-                          <div class="form-group col-md-6">
-                            <label for="project-endDate-{{i}}">End Date</label>
-                            <form class="form-inline">
-                              <div class="input-group full-width">
-                                <input class="form-control" placeholder="yyyy-mm-dd"
-                                       [minDate]="{year: 1970, month: 1, day: 1}"
-                                       [(ngModel)]="project.antimDate" name="project-endDate-{{i}}"
-                                       id="project-endDate-{{i}}" readonly="readonly" ngbDatepicker
-                                       #projectEndDate="ngbDatepicker">
-                                <div class="input-group-append" (click)="projectEndDate.toggle()">
-                                  <i class="fa fa-calendar input-group-text"></i>
-                                </div>
-                              </div>
-                            </form>
+                      <!-- Datepicker for end date -->
+                      <div class="form-group col-md-6">
+                        <label for="project-endDate-{{i}}">End Date</label>
+                        <form class="form-inline">
+                          <div class="input-group full-width">
+                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                   [minDate]="{year: 1970, month: 1, day: 1}"
+                                   [(ngModel)]="project.antimDate" name="project-endDate-{{i}}"
+                                   id="project-endDate-{{i}}" readonly="readonly" ngbDatepicker
+                                   #projectEndDate="ngbDatepicker">
+                            <div class="input-group-append" (click)="projectEndDate.toggle()">
+                              <i class="fa fa-calendar input-group-text"></i>
+                            </div>
                           </div>
-                          <!-- Datepicker for end date-->
-                        </div>
+                        </form>
+                      </div>
+                      <!-- Datepicker for end date-->
+                    </div>
 
-                        <div class="form-group">
-                          <label for="projectAdditionalDetails">Project Additional Details</label>
-                          <textarea [(ngModel)]="project.additionalDetails" name="projectAdditionalDetails"
-                                    class="form-control" rows="5" id="projectAdditionalDetails"></textarea>
-                        </div>
-                      </ng-template>
-                    </ngb-panel>
-                  </ngb-accordion>
+                    <div class="form-group">
+                      <label for="projectAdditionalDetails">Project Additional Details</label>
+                      <textarea [(ngModel)]="project.additionalDetails" name="projectAdditionalDetails"
+                                class="form-control" rows="5" id="projectAdditionalDetails"></textarea>
+                    </div>
+                  </ng-template>
+                </ngb-panel>
+              </ngb-accordion>
 
-                  <br/>
+              <br/>
 
-                </div>
+            </div>
 
-                <div class="form-group">
-                  <label for="projectAdditional">Projects Details Additional</label>
-                  <textarea [(ngModel)]="cv.project.additionalDetails" name="projectAdditional" class="form-control"
-                            rows="5" id="projectAdditional"></textarea>
-                </div>
+            <div class="form-group">
+              <label for="projectAdditional">Projects Details Additional</label>
+              <textarea [(ngModel)]="cv.project.additionalDetails" name="projectAdditional" class="form-control"
+                        rows="5" id="projectAdditional"></textarea>
+            </div>
           </div>
           <!-- End Project Tab-->
 
           <!-- Additional Tab-->
           <div id="tab-Additional" *ngSwitchCase="6">
-                <div class="form-row">
-                  <div class="col-12">
-                    <label>Languages</label>
-                  </div>
+            <h2>Additional Details</h2>
+            <hr/>
+            <div class="form-row">
+              <div class="col-12">
+                <label>Languages</label>
+              </div>
 
-                  <div class="form-list form-inline col-12"
-                       *ngFor="let language of cv.additionalInfo.languageProficiencyList; let i = index">
-                    <div class="form-row">
-                      <div class="form-group form-inline">
-                        <div class="input-group mb-2 mr-sm-2">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">
-                              Language
-                            </div>
-                          </div>
-                          <input type="text" [(ngModel)]="language.language" name="inputLanguage-{{i}}"
-                                 class="form-control"
-                                 id="inputLanguage-{{i}}" PLACEHOLDER="Language">
+              <div class="form-list form-inline col-12"
+                   *ngFor="let language of cv.additionalInfo.languageProficiencyList; let i = index">
+                <div class="form-row">
+                  <div class="form-group form-inline">
+                    <div class="input-group mb-2 mr-sm-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          Language
                         </div>
                       </div>
-                      <div class="form-group form-inline">
-                        <div class="input-group mb-2 mr-sm-2">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">
-                              Proficiency
-                            </div>
-                          </div>
-                          <input type="text" [(ngModel)]="language.proficiency" name="inputProficiency-{{i}}"
-                                 class="form-control" id="inputProficiency-{{i}}" PLACEHOLDER="Proficiency">
+                      <input type="text" [(ngModel)]="language.language" name="inputLanguage-{{i}}"
+                             class="form-control"
+                             id="inputLanguage-{{i}}" PLACEHOLDER="Language">
+                    </div>
+                  </div>
+                  <div class="form-group form-inline">
+                    <div class="input-group mb-2 mr-sm-2">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          Proficiency
                         </div>
                       </div>
+                      <input type="text" [(ngModel)]="language.proficiency" name="inputProficiency-{{i}}"
+                             class="form-control" id="inputProficiency-{{i}}" PLACEHOLDER="Proficiency">
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
 
-                <br/>
+            <br/>
 
-                <div class="form-group">
-                  <label for="inputHobbies">Hobbies</label>
-                  <input type="text" [(ngModel)]="cv.additionalInfo.hobbies" name="inputHobbies" class="form-control"
-                         id="inputHobbies">
-                </div>
+            <div class="form-group">
+              <label for="inputHobbies">Hobbies</label>
+              <input type="text" [(ngModel)]="cv.additionalInfo.hobbies" name="inputHobbies" class="form-control"
+                     id="inputHobbies">
+            </div>
 
-                <div class="form-group">
-                  <label for="additionalSummary">Additional Summary</label>
-                  <textarea [(ngModel)]="cv.additionalInfo.notes" name="additionalNotes" class="form-control" rows="5"
-                            id="additionalSummary"></textarea>
-                </div>
+            <div class="form-group">
+              <label for="additionalSummary">Additional Summary</label>
+              <textarea [(ngModel)]="cv.additionalInfo.notes" name="additionalNotes" class="form-control" rows="5"
+                        id="additionalSummary"></textarea>
+            </div>
           </div>
           <!-- End Additional Tab-->
         </div>

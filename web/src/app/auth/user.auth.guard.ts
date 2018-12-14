@@ -3,10 +3,10 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanAc
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
-@Injectable()
+@Injectable({ providedIn: 'root'})
 export class UserAuthGuard implements CanActivateChild {
     canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
-        if (this.auth.getToken()) {
+        if (this.auth.isAuthenticated()) {
             return true;
         }
 
@@ -24,7 +24,7 @@ export class UserAuthGuard implements CanActivateChild {
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<boolean> | Promise<boolean> | boolean {
-        if (this.auth.getToken()) {
+        if (this.auth.isAuthenticated()) {
             return true;
         }
 

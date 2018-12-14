@@ -29,12 +29,14 @@ import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.Recommender;
 import org.apache.mahout.cf.taste.similarity.UserSimilarity;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -70,7 +72,7 @@ public class CvController {
      */
     @GetMapping("/filter/{filter}")
     public List<Cv> getCvs(@PathVariable String filter) {
-        return this.cvSearchService.getAll();
+        return this.cvSearchService.findUsersCv();
     }
 
     /*
@@ -139,7 +141,7 @@ public class CvController {
         return this.cvSearchService.findByFilter(new CvSearchCriteriaModel(filter));
     }
 
-    @GetMapping("/getRankedCvs")
+    /*@GetMapping("/getRankedCvs")
     public List<Cv> getRankedCvs(Principal principal) {
         String name = principal.getName();
 
@@ -173,7 +175,7 @@ public class CvController {
         }
 
         return cvSearchService.getByIds(ids);
-    }
+    }*/
 
     @GetMapping("/getPdf/{id}")
     public ResponseEntity<byte[]> getPdf(@PathVariable String id) {

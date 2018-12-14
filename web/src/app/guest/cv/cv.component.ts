@@ -32,9 +32,7 @@ export class CvComponent implements OnInit {
   currentDate: Date = new Date(Date.now());
 
   constructor(
-    private httpService: HttpService,
-    private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
+    private httpService: HttpService
   ) {
     this.cv = new CvModel();
     this.cv.personal = new PersonalDetailsModel();

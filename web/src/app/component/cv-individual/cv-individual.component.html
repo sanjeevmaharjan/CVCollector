@@ -1,1 +1,7 @@
-<app-cv-view [cv]="cv"></app-cv-view>
+
+<div *ngIf="notFound">
+  <h1>Not Found.</h1>
+</div>
+<div *ngIf="cv?.id">
+  <app-cv-view [cv]="cv"></app-cv-view>
+</div>
