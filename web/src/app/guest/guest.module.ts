@@ -12,7 +12,6 @@ import {PreviewComponent} from './preview/preview.component';
 import {HomeComponent} from './home/home.component';
 import {CvViewComponent} from '../shared/cv-view/cv-view.component';
 import {AgmCoreModule} from '@agm/core';
-import {Browser} from 'selenium-webdriver';
 import {BrowserModule} from '@angular/platform-browser';
 import {MapComponent} from './cv/map/map.component';
 

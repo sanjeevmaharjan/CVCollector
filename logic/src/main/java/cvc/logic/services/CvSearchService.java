@@ -1,5 +1,6 @@
 package cvc.logic.services;
 
+import client.entities.Dashboard;
 import cvc.domain.Cv;
 import cvc.logic.repositories.ICvRepository;
 import cvc.logic.services.interfaces.ICvSearchService;
@@ -10,6 +11,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -69,4 +71,22 @@ public class CvSearchService implements ICvSearchService {
         List<Cv> searchResults = repository.findAll(specs);
         return searchResults;
     }
+
+    @Override
+    public Dashboard getDashboardStats() {
+        final long id = 1;
+        final LocalDate today = LocalDate.now();
+        final LocalDate yesterday = today.minusDays(1);
+        final LocalDate lastWeek = today.minusDays(7);
+
+        long numCvs = repository.countByUser(id);
+        long numCvsToday = repository.countByUserAndSubmittedTimeBetween(id, yesterday, today);
+        long numCvsThisWeek = repository.countByUserAndSubmittedTimeBetween(id, lastWeek, today);
+
+        return new Dashboard().setNumCvs(numCvs)
+                .setSubmittedToday(numCvsToday)
+                .setSubmittedThisWeek(numCvsThisWeek);
+    }
+
+
 }

@@ -1,10 +1,12 @@
 package cvc.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Fetch;
+
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Users extends PersistentObject{
@@ -19,6 +21,12 @@ public class Users extends PersistentObject{
     private List<Roles> Roles;
 
     private boolean IsEnabled;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "User", targetEntity = Cv.class)
+    private Set<Cv> Cvs;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "User", targetEntity = CvSearchCriteria.class)
+    private Set<CvSearchCriteria> CvSearchCriteria;
 
     public Users() {}
 
@@ -69,6 +77,24 @@ public class Users extends PersistentObject{
 
     public void setEnabled(boolean enabled) {
         IsEnabled = enabled;
+    }
+
+    @JsonIgnore
+    public Set<Cv> getCvs() {
+        return Cvs;
+    }
+
+    public void setCvs(Set<Cv> cvs) {
+        Cvs = cvs;
+    }
+
+    @JsonIgnore
+    public Set<cvc.domain.CvSearchCriteria> getCvSearchCriteria() {
+        return CvSearchCriteria;
+    }
+
+    public void setCvSearchCriteria(Set<cvc.domain.CvSearchCriteria> cvSearchCriteria) {
+        CvSearchCriteria = cvSearchCriteria;
     }
 
     //endregion getters and setters

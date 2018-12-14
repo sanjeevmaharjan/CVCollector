@@ -18,7 +18,7 @@ import {Approutes} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {SpinnerComponent} from './shared/spinner.component';
 import {FrontComponent} from './layouts/front/front.component';
-import {LoggerService} from "./services/logger.service";
+import {LoggerService} from './services/logger.service';
 import { TokenInterceptor } from './auth/token.interceptor';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {

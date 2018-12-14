@@ -5,6 +5,7 @@ import cvc.domain.CvSearchCriteria;
 import cvc.logic.specifications.ContactDetailsSpecifications;
 import cvc.logic.specifications.PersonalDetailsSpecifications;
 import enums.Genders;
+import enums.MaritalStatuses;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
@@ -92,6 +93,9 @@ public class CvSearchCriteriaModel {
 
     private boolean isNotNullOrEmpty (List value) {
         return value != null && !value.isEmpty();
+    }
+    private boolean isNotNullOrEmpty (MaritalStatuses value) {
+        return value != null && !value.equals(MaritalStatuses.Unspecified);
     }
 
     // endregion Other functions
