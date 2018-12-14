@@ -4,14 +4,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@NamedQuery(name = "Cv.countByUser", query = "select count(c)from Cv c join c.User u where u.id = ?1")
+@NamedQuery(name = "Cv.countByUserAndSubmittedTimeBetween", query = "select count(c)from Cv c join c.User u where u.id = ?1 and c.SubmittedTime between ?2 and ?3")
 public class Cv extends PersistentObject {
 
-    @OneToOne(optional = false, mappedBy = "Cv", fetch = FetchType.EAGER, targetEntity = Users.class)
-    @JsonIgnore
-    private Users user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Users User;
 
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "personal_id", unique = true, nullable = false)
@@ -45,6 +47,8 @@ public class Cv extends PersistentObject {
 
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "Cv", orphanRemoval = true)
     private List<Award> Awards;
+
+    private LocalDate SubmittedTime;
 
     public Cv() {}
 
@@ -124,19 +128,23 @@ public class Cv extends PersistentObject {
         Awards = awards;
     }
 
-    /**
-     * @return the user
-     */
-    public Users getUser() {
-        return user;
+    public LocalDate getSubmittedTime() {
+        return SubmittedTime;
     }
 
-    /**
-     * @param user the user to set
-     */
+    public void setSubmittedTime(LocalDate submittedTime) {
+        SubmittedTime = submittedTime;
+    }
+
+    @JsonIgnore
+    public Users getUser() {
+        return User;
+    }
+
     public void setUser(Users user) {
-        this.user = user;
+        User = user;
     }
 
     //endregion getters and setters
 }
+

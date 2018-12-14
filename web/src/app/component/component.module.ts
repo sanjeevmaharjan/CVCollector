@@ -22,7 +22,13 @@ import { NgbdtimepickerBasic } from './timepicker/timepicker.component';
 import { NgbdtypeheadBasic } from './typehead/typehead.component';
 import { CardsComponent } from './card/card.component';
 import { ButtonsComponent } from './buttons/buttons.component';
-import { CvComponent } from '../client/cv/cv.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CvTodayComponent } from './cv-today/cv-today.component';
+import { CvWeekComponent } from './cv-week/cv-week.component';
+import { CvIndividualComponent } from './cv-individual/cv-individual.component';
+import { CvListComponent } from './cv-list/cv-list.component';
+import { CvGridComponent } from './cv-grid/cv-grid.component';
+import {CvViewComponent} from '../shared/cv-view/cv-view.component';
 
 @NgModule({
   imports: [
@@ -49,7 +55,13 @@ import { CvComponent } from '../client/cv/cv.component';
     NgbdtypeheadBasic,
     CardsComponent,
     ButtonsComponent,
-    CvComponent
+    DashboardComponent,
+    CvTodayComponent,
+    CvWeekComponent,
+    CvIndividualComponent,
+    CvListComponent,
+    CvGridComponent,
+    CvViewComponent
   ]
 })
 

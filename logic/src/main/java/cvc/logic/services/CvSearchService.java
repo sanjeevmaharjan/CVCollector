@@ -1,9 +1,8 @@
 package cvc.logic.services;
 
+import client.entities.Dashboard;
 import cvc.domain.Cv;
-import cvc.domain.Users;
 import cvc.logic.repositories.ICvRepository;
-import cvc.logic.repositories.IUserRepository;
 import cvc.logic.services.interfaces.ICvSearchService;
 import cvc.logic.model.CvSearchCriteriaModel;
 import cvc.logic.specifications.PersonalDetailsSpecifications;
@@ -12,6 +11,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -19,11 +19,9 @@ import java.util.List;
 public class CvSearchService implements ICvSearchService {
 
     private final ICvRepository repository;
-    private final IUserRepository userRepository;
 
-    public CvSearchService(ICvRepository repository, IUserRepository userRepository) {
+    public CvSearchService(ICvRepository repository) {
         this.repository = repository;
-        this.userRepository = userRepository;
     }
 
     @Override
@@ -48,10 +46,6 @@ public class CvSearchService implements ICvSearchService {
     @Override
     public Cv getById(long id) {
         return repository.findById(id).orElse(null);
-    }
-
-    public List<Cv> getByIds(List<Long> ids) {
-        return repository.findAllById(ids);
     }
 
     @Override
@@ -79,7 +73,20 @@ public class CvSearchService implements ICvSearchService {
     }
 
     @Override
-    public List<Users> findUsersCv() {
-        return userRepository.findAll();
+    public Dashboard getDashboardStats() {
+        final long id = 1;
+        final LocalDate today = LocalDate.now();
+        final LocalDate yesterday = today.minusDays(1);
+        final LocalDate lastWeek = today.minusDays(7);
+
+        long numCvs = repository.countByUser(id);
+        long numCvsToday = repository.countByUserAndSubmittedTimeBetween(id, yesterday, today);
+        long numCvsThisWeek = repository.countByUserAndSubmittedTimeBetween(id, lastWeek, today);
+
+        return new Dashboard().setNumCvs(numCvs)
+                .setSubmittedToday(numCvsToday)
+                .setSubmittedThisWeek(numCvsThisWeek);
     }
+
+
 }

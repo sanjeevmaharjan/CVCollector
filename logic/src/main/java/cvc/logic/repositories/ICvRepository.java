@@ -5,6 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+
 @Repository
 public interface ICvRepository extends JpaRepository<Cv,Long>, JpaSpecificationExecutor<Cv> {
+    Long countByUser(long id);
+    Long countByUserAndSubmittedTimeBetween(long id, LocalDate startDate, LocalDate endDate);
 }

@@ -1,0 +1,45 @@
+<!-- Row -->
+<div class="row">
+  <!--<div class="col-12 m-t-30">
+    <h4 class="m-b-0">Card styles</h4>
+    <p class="text-muted m-t-0 font-12">Cards include various options for customizing their backgrounds, borders, and color.<code>.card-primary info, warning, danger</code></p>
+  </div>-->
+  <div class="col-md-4">
+    <div class="card card-inverse" style="background-color: #333; border-color: #333;">
+      <!--<div class="card-header">
+        <h4 class="m-b-0 text-white">Total</h4>
+      </div>-->
+      <div class="card-body">
+        <h3 class="card-title">{{numCvs}}</h3>
+        <p class="card-text"><strong class="text-white">Total</strong> Cvs received.</p>
+        <a href="#" class="btn btn-outline btn-light">Check</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-inverse card-info">
+      <!--<div class="card-header">
+        <h4 class="m-b-0 text-white">Today</h4>
+      </div>-->
+      <div class="card-body">
+        <h3 class="card-title">{{numCvsToday}}</h3>
+        <p class="card-text">cvs received <strong class="text-white">Today</strong></p>
+        <a href="#" class="btn btn-outline btn-light">Check</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card card-inverse card-success">
+      <!--<div class="card-header">
+        <h4 class="m-b-0 text-white">This Week</h4>
+      </div>-->
+      <div class="card-body">
+        <h3 class="card-title">{{numCvsThisWeek}}</h3>
+        <p class="card-text">cvs received <strong class="text-white">This Week</strong>.</p>
+        <a href="#" class="btn btn-outline btn-light">Check</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Row -->

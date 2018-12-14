@@ -1,10 +1,19 @@
 package cvc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import enums.Genders;
 import enums.MaritalStatuses;
+
+import javax.persistence.*;
 import java.util.List;
 
-public class CvSearchCriteria {
+@Entity
+@NamedQuery(name = "CvSearchCriteria.findByUser", query = "select criteria from CvSearchCriteria criteria join criteria.User u where u.id = ?1")
+public class CvSearchCriteria extends PersistentObject {
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Users User;
+
     // region Personal Details Criteria
     private String Name = null;
 
@@ -16,9 +25,9 @@ public class CvSearchCriteria {
 
     private String Nationality;
 
-    private List<MaritalStatuses> MaritalStatus;
+    private MaritalStatuses MaritalStatus;
 
-    private List<String> CareerTitle;
+    private String CareerTitle;
 
     // endregion Personal Details Criteria
 
@@ -112,20 +121,20 @@ public class CvSearchCriteria {
         Nationality = nationality;
     }
 
-    public List<MaritalStatuses> getMaritalStatus() {
+    public MaritalStatuses getMaritalStatus() {
         return MaritalStatus;
     }
 
-    public void setMaritalStatus(List<MaritalStatuses> maritalStatus) {
+    public void setMaritalStatus(MaritalStatuses maritalStatus) {
         MaritalStatus = maritalStatus;
     }
 
-    public List<String> getCareerTitle() {
+    public String getCareerTitle() {
         return CareerTitle;
     }
 
     public void setCareerTitle(List<String> careerTitle) {
-        CareerTitle = careerTitle;
+        CareerTitle =  String.join(",", careerTitle);
     }
 
     public String getCountry() {
@@ -238,6 +247,15 @@ public class CvSearchCriteria {
 
     public void setRelocationCriteria(boolean relocationCriteria) {
         RelocationCriteria = relocationCriteria;
+    }
+
+    @JsonIgnore
+    public Users getUser() {
+        return User;
+    }
+
+    public void setUser(Users user) {
+        User = user;
     }
 
     // endregion getters and setters

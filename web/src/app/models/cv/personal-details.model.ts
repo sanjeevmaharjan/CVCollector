@@ -5,7 +5,7 @@ export class PersonalDetailsModel {
 
   gender: number;
 
-  dob: Date;
+  dateOfBirth: string;
 
   father: string;
 

@@ -1,5 +1,6 @@
 package cvc.logic.services.interfaces;
 
+import client.entities.Dashboard;
 import cvc.domain.Cv;
 import cvc.domain.Users;
 import cvc.logic.model.CvSearchCriteriaModel;
@@ -28,4 +29,5 @@ public interface ICvSearchService {
 
     List<Cv> getByIds(List<Long> ids);
 
+    Dashboard getDashboardStats();
 }

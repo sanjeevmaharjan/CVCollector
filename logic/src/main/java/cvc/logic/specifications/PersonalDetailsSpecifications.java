@@ -11,6 +11,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public final class PersonalDetailsSpecifications {
@@ -59,14 +60,15 @@ public final class PersonalDetailsSpecifications {
         };
     }
 
-    public static Specification<Cv> theseMaritalStatuses(List<MaritalStatuses> maritalStatus) {
+    public static Specification<Cv> theseMaritalStatuses(MaritalStatuses maritalStatus) {
         return (root, criteriaQuery, criteriaBuilder) -> {
             Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
-            return personal.get(PersonalDetails_.MaritalStatus).in(maritalStatus);
+            return criteriaBuilder.equal(personal.get(PersonalDetails_.MaritalStatus), maritalStatus);
         };
     }
 
-    public static Specification<Cv> theseCareerTitles(List<String> careers) {
+    public static Specification<Cv> theseCareerTitles(String careerstring) {
+        String[] careers = careerstring.split("\\s*,\\s*");
         return (root, criteriaQuery, criteriaBuilder) -> {
             Join<Cv, PersonalDetails> personal = root.join(Cv_.Personal);
             return personal.get(PersonalDetails_.CareerTitle).in(careers);
