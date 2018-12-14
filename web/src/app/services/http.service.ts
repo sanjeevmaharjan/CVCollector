@@ -49,13 +49,14 @@ export class HttpService {
   }
 
   postAsJson<T>(url: string, body: T, op: string = '') {
-    return this.http.post<T>(this.baseUrl + url, body, postOptions)
+        return this.http.post<T>(this.baseUrl + url, body, postOptions)
       .pipe(
         catchError(this.handleError(op, body))
       );
   }
 
   public login(user: LoginModel): Observable<any> {
+
     console.log(loginOptions);
     return this.http.post(this.baseUrl + '/oauth/token', user, loginOptions)
       .pipe(

@@ -3,10 +3,12 @@ package cvc.api.controller;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.primitives.Bytes;
 import cvc.domain.Cv;
 import cvc.domain.CvSearchCriteria;
 import cvc.domain.Users;
 import cvc.logic.CvLogic;
+import cvc.logic.services.PdfService;
 import cvc.logic.services.interfaces.ICvSearchService;
 import cvc.logic.services.interfaces.ICvUpdateService;
 import cvc.logic.model.CvSearchCriteriaModel;
@@ -27,7 +29,10 @@ import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.Recommender;
 import org.apache.mahout.cf.taste.similarity.UserSimilarity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -42,12 +47,14 @@ import java.util.List;
 public class CvController {
     private ICvSearchService cvSearchService;
     private ICvUpdateService cvUpdateService;
+    private PdfService pdfService;
     private CvLogic cvLogic;
     private static CachingRecommender cachingRecommender;
 
-    public CvController(ICvSearchService cvSearchService, ICvUpdateService cvUpdateService) {
+    public CvController(ICvSearchService cvSearchService, ICvUpdateService cvUpdateService, PdfService pdfService) {
         this.cvSearchService = cvSearchService;
         this.cvUpdateService = cvUpdateService;
+        this.pdfService = pdfService;
     }
 
     /*
@@ -139,7 +146,7 @@ public class CvController {
         List<Users> users = cvSearchService.findUsersCv();
         FastByIDMap<PreferenceArray> preferences = new FastByIDMap<PreferenceArray>();
         for (Users user : users) {
-            List<Cv> userCvs;
+            List<Cv> userCvs = new ArrayList<>();
             PreferenceArray userPreferenceArray = new GenericUserPreferenceArray(userCvs.size());
             userPreferenceArray.setUserID(0, user.getId());
             for (int i = 0; i < userCvs.size(); i++) {
@@ -166,6 +173,23 @@ public class CvController {
         }
 
         return cvSearchService.getByIds(ids);
+    }
+
+    @GetMapping("/getPdf/{id}")
+    public ResponseEntity<byte[]> getPdf(@PathVariable String id) {
+        Cv cv = this.cvSearchService.getById(Long.parseLong(id));
+
+        byte[] contents = this.pdfService.createPdf(cv);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType("application/pdf"));
+        // Here you have to set the actual filename of your pdf
+        String filename = "Cv-" + id + ".pdf";
+        headers.setContentDispositionFormData(filename, filename);
+        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+        ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
+
+        return response;
     }
 
     private static List<RecommendedItem> recommend(DataModel dataModel) throws TasteException {

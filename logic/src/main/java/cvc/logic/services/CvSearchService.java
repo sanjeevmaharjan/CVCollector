@@ -20,7 +20,6 @@ public class CvSearchService implements ICvSearchService {
 
     private final ICvRepository repository;
 
-    public CvSearchService(ICvRepository repository) {
         this.repository = repository;
     }
 
@@ -88,5 +87,11 @@ public class CvSearchService implements ICvSearchService {
                 .setSubmittedThisWeek(numCvsThisWeek);
     }
 
+    public List<Users> findUsersCvByFilter(CvSearchCriteriaModel cvSearchCriteria) {
+        return null;
+    }
 
+    @Override
+    public List<Users> findUsersCv() {
+        return userRepository.findAll();    }
 }
