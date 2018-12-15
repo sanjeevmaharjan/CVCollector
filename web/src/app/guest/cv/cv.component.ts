@@ -91,7 +91,7 @@ export class CvComponent implements OnInit {
   public save() {
     console.log(this.cv);
     localStorage.setItem('cv-data', JSON.stringify(this.cv));
-    this.httpService.postAsJson<CvModel>('cv/add', this.cv)
+    this.httpService.postAsJson<CvModel>('/api/cv/add', this.cv)
       .subscribe(msg => console.log(msg));
   }
 }

@@ -183,7 +183,7 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row mt-4">
               <div class="col-12">
                 <label for="contactDetailsAdditional">
                   <small>Contact Details Additional</small>
@@ -198,98 +198,46 @@
           <div id="tab-Education" *ngSwitchCase="3">
             <h2>Education Details</h2>
             <hr/>
-            <div class="form-group">
-              <h3 class="card-title">Institutions</h3>
-              <h6 class="card-subtitle">List of Schools, Colleges, etc.</h6>
-              <ngb-accordion #instutionAcc="ngbAccordion" [closeOthers]="true" activeIds="institution-0"
-                             class="accordion form-group">
-                <ngb-panel *ngFor="let institution of cv.education.institutions; let i = index"
-                           id="institution-{{i}}">
-                  <ng-template ngbPanelTitle>
-                    <div class="text-left"><strong>Institution:</strong> {{institution.name}}</div>
-                    <div class="text-left"><strong>Degree:</strong> {{institution.degree}}</div>
-                  </ng-template>
-                  <ng-template ngbPanelContent>
-                    <div class="form-group">
-                      <label for="inputInstitutionName-{{i}}">Name</label>
-                      <input type="text" [(ngModel)]="institution.name" name="inputInstitutionName-{{i}}"
-                             class="form-control" id="inputInstitutionName-{{i}}">
-                    </div>
+            <div class="row">
+              <div class="col-12">
+                <label for="institutions">
+                  <small>Institutions</small>
+                </label>
+                <div id="institutions" class="text-dark ml-2 mt-2 jumbotron" *ngFor="let institution of cv.education.institutions">
+                  <div class="row">
+                    <label class="col-auto">Name: </label>
+                    <div class="col">{{institution?.name}}</div>
+                  </div>
 
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="inputInstitutionDegree-{{i}}">Degree</label>
-                        <input type="text" [(ngModel)]="institution.degree" name="inputInstitutionDegree-{{i}}"
-                               class="form-control" id="inputInstitutionDegree-{{i}}">
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label for="inputInstitutionConcentration-{{i}}">Concentration</label>
-                        <input type="text" [(ngModel)]="institution.concentration"
-                               name="inputInstitutionConcentration-{{i}}" class="form-control"
-                               id="inputInstitutionConcentration-{{i}}">
-                      </div>
-                    </div>
+                  <div class="row mt-3">
+                    <label class="col-auto">Degree: </label>
+                    <div class="col-auto">{{institution?.degree}}</div>
 
-                    <div class="form-row">
-                      <!-- Datepicker for start date -->
-                      <div class="form-group col-md-6">
-                        <label for="institution-startDate-{{i}}">Start Date</label>
-                        <form class="form-inline">
-                          <div class="input-group full-width">
-                            <input class="form-control" placeholder="yyyy-mm-dd"
-                                   [minDate]="{year: 1970, month: 1, day: 1}"
-                                   [(ngModel)]="institution.suruDate" name="institution-startDate-{{i}}"
-                                   id="institution-startDate-{{i}}" readonly="readonly" ngbDatepicker
-                                   #institutionStartDate="ngbDatepicker">
-                            <div class="input-group-append" (click)="institutionStartDate.toggle()">
-                              <i class="fa fa-calendar input-group-text"></i>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <!-- Datepicker for start date-->
+                    <label class="col-auto ml-5">Concentration: </label>
+                    <div class="col-auto">{{institution?.concentration}}</div>
+                  </div>
 
-                      <!-- Datepicker for end date -->
-                      <div class="form-group col-md-6">
-                        <label for="institution-endDate-{{i}}">End Date</label>
-                        <form class="form-inline">
-                          <div class="input-group full-width">
-                            <input class="form-control" placeholder="yyyy-mm-dd"
-                                   [minDate]="{year: 1970, month: 1, day: 1}"
-                                   [(ngModel)]="institution.antimDate" name="institution-endDate-{{i}}"
-                                   id="institution-endDate-{{i}}" readonly="readonly" ngbDatepicker
-                                   #institutionEndDate="ngbDatepicker">
-                            <div class="input-group-append" (click)="institutionEndDate.toggle()">
-                              <i class="fa fa-calendar input-group-text"></i>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <!-- Datepicker for end date-->
-                    </div>
+                  <div class="row mt-3">
+                    <label class="col-auto">StartDate: </label>
+                    <div class="col-auto">{{institution?.suruDate}}</div>
 
-                    <div class="form-group">
-                      <label for="institutionAdditionalInfo">Institution Additional Info</label>
-                      <textarea [(ngModel)]="institution.additionalInfo" name="institutionAdditionalInfo"
-                                class="form-control" rows="5" id="institutionAdditionalInfo"></textarea>
-                    </div>
-                  </ng-template>
-                </ngb-panel>
-              </ngb-accordion>
+                    <label class="col-auto ml-5">EndDate: </label>
+                    <div class="col-auto">{{institution?.antimDate}}</div>
+                  </div>
 
-              <br/>
-
-              <button class="btn btn-success btn-circle align-middle"
-                      ngbTooltip="Add Institution" placement="right">
-                <span class="fa fa-plus"></span>
-              </button>
-
+                  <div class="row mt-3">
+                    <label class="col-auto">Institution Details: </label>
+                    <div class="col-auto">{{institution?.additionalInfo}}</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="educationAdditionalDetails">Education Additional Details</label>
-              <textarea [(ngModel)]="cv.education.additionalDetails" name="educationAdditionalDetails"
-                        class="form-control" rows="5" id="educationAdditionalDetails"></textarea>
+            <div class="row mt-4">
+              <label class="col-12">
+                <small>Education Additional Details</small>
+              </label>
+              <div class="col-12">{{cv?.education?.additionalDetails}}</div>
             </div>
           </div>
           <!-- End Contact Tab-->
@@ -299,19 +247,19 @@
             <h2>Professional Details</h2>
             <hr/>
             <div class="row">
-              <label for="inputProfessionalSkills">Professional Skills</label>
-              <input type="text" [(ngModel)]="cv.professional.professionalSkills" name="inputProfessionalSkills"
-                     class="form-control" id="inputProfessionalSkills">
+              <div class="col-12">
+                <label for="inputProfessionalSkills">
+                  <small>Professional Skills</small>
+                </label>
+                <div id="inputProfessionalSkills" class="text-dark">{{cv?.professional?.professionalSkills}}</div>
+              </div>
             </div>
 
-            <div class="row">
-              <ngb-accordion #workplaceAcc="ngbAccordion" [closeOthers]="true" activeIds="workplace-0"
-                             class="accordion form-group">
-                <ngb-panel *ngFor="let workplace of cv.professional.workPlaces; let i = index" id="workplace-{{i}}">
-                  <ng-template ngbPanelTitle>
+            <div class="jumbotron text-dark" *ngFor="let workplace of cv.professional.workPlaces; let i = index" >
+                  <div class="row">
                     <div class="text-left"><strong>Workplace:</strong> {{workplace.name}}</div>
                     <div class="text-left"><strong>Designation:</strong> {{workplace.designation}}</div>
-                  </ng-template>
+                  </div>
                   <ng-template ngbPanelContent>
                     <div class="form-group">
                       <label for="inputWorkPlaceName-{{i}}">Name</label>
@@ -369,8 +317,6 @@
                                 class="form-control" rows="5" id="workplaceAdditionalInfo"></textarea>
                     </div>
                   </ng-template>
-                </ngb-panel>
-              </ngb-accordion>
 
               <br/>
             </div>

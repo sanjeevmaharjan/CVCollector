@@ -30,6 +30,13 @@
             <artifactId>google-maps-services</artifactId>
             <version>LATEST</version>
         </dependency>
+        <dependency>
+            <groupId>com.docmosis</groupId>
+            <artifactId>util</artifactId>
+            <scope>system</scope>
+            <version>4.4.0</version>
+            <systemPath>${basedir}/libs/docmosis4.4.0.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>

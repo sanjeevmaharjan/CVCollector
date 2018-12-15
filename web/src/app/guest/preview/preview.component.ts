@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {isNullOrUndefined} from '@swimlane/ngx-datatable/release/utils';
 import {CvModel} from '../../models/cv/cv.model';
+import {NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-preview',
@@ -12,12 +13,19 @@ export class PreviewComponent implements OnInit {
 
   tab = 1;
 
-  constructor() { }
+  constructor(private dateParser: NgbDateParserFormatter) {
+  }
 
   ngOnInit() {
     const cvFromLocal = localStorage.getItem('cv-data');
     if (!isNullOrUndefined(cvFromLocal)) {
-      this.cv = JSON.parse(cvFromLocal);
+      const obj = JSON.parse(cvFromLocal);
+      this.cv = obj;
+      this.cv.personal.dateOfBirth = this.dateParser.format(obj.personal.dateOfBirth);
+      this.cv.education.institutions.forEach((value, index) => {
+        value.suruDate = this.dateParser.format(obj.education.institutions[index].suruDate);
+        value.antimDate = this.dateParser.format(obj.education.institutions[index].antimDate);
+      });
     }
   }
 
