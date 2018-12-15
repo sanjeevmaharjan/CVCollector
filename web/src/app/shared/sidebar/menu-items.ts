@@ -43,6 +43,26 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: '',
+    title: 'Search',
+    icon: '',
+    class: 'nav-small-cap',
+    label: '',
+    labelClass: '',
+    extralink: true,
+    submenu: []
+  },
+  {
+    path: '/component/search',
+    title: 'Search',
+    icon: 'mdi mdi-view-grid',
+    class: '',
+    label: '',
+    labelClass: '',
+    extralink: false,
+    submenu: []
+  },
+  {
+    path: '',
     title: 'UI Components',
     icon: '',
     class: 'nav-small-cap',

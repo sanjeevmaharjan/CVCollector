@@ -1,0 +1,144 @@
+<form xmlns="http://www.w3.org/1999/html">
+  <div class="row">
+
+    <div class="col-12">
+      Personal Details
+      <div class="row">
+      <div class="input-group mb-2 col-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Name</div>
+        </div>
+        <input type="text" class="form-control" name="name" [(ngModel)]="search.name" placeholder="Name">
+      </div>
+
+      <div class="input-group mb-2 col-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Gender</div>
+        </div>
+        <input type="text" class="form-control" name="gender" [(ngModel)]="search.gender" placeholder="Gender">
+      </div>
+
+      <div class="input-group mb-2 col-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Nationality</div>
+        </div>
+        <input type="text" class="form-control" name="nationality" [(ngModel)]="search.nationality"
+               placeholder="Nationality">
+      </div>
+
+      <div class="input-group mb-2 col-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Marital Status</div>
+        </div>
+        <input type="text" class="form-control" name="Marital Status" [(ngModel)]="search.maritalStatus"
+               placeholder="Marital Status">
+      </div>
+
+      <div class="input-group mb-2 col-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Career Title</div>
+        </div>
+        <input type="text" class="form-control" name="Career Title" [(ngModel)]="search.careerTitle"
+               placeholder="Career Title">
+      </div>
+    </div>
+    </div>
+
+    <div class="col-12">
+      Contact Details
+      <div class="row">
+
+
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Country</div>
+          </div>
+          <input type="text" class="form-control" name="Country" [(ngModel)]="search.country" placeholder="Country">
+        </div>
+
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">City</div>
+          </div>
+          <input type="text" class="form-control" name="City" [(ngModel)]="search.city" placeholder="City">
+        </div>
+
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Relocation</div>
+          </div>
+          <input type="text" class="form-control" name=Relocation [(ngModel)]="search.relocationCriteria"
+                 placeholder="Relocation">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12">
+      Academic
+      <div class="row">
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Academic Score Min</div>
+          </div>
+          <input type="text" class="form-control" name="Academic Score Min" [(ngModel)]="search.academicScoreMin"
+                 placeholder="Score Min">
+        </div>
+
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Academic Score Max</div>
+          </div>
+          <input type="text" class="form-control" name="Academic Score Max" [(ngModel)]="search.academicScoreMax"
+                 placeholder="Score Max">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12">
+      Work Experiences
+      <div class="row">
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Job Experience Min</div>
+          </div>
+          <input type="text" class="form-control" name="Job Experience Min" [(ngModel)]="search.jobExperienceMin"
+                 placeholder="Experience Min">
+        </div>
+
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Job Experience Max</div>
+          </div>
+          <input type="text" class="form-control" name="Job Experience Max" [(ngModel)]="search.jobExperienceMax"
+                 placeholder="Experience Max">
+        </div>
+
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Project</div>
+          </div>
+          <input type="text" class="form-control" name="Project" [(ngModel)]="search.project" placeholder="Project">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12">
+
+      <input class="btn btn-primary" type="submit" value="Search">
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+</form>

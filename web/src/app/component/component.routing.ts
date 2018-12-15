@@ -19,6 +19,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {CvListComponent} from './cv-list/cv-list.component';
 import {CvIndividualComponent} from './cv-individual/cv-individual.component';
 import {CvGridComponent} from './cv-grid/cv-grid.component';
+import {SearchComponent} from "./search/search.component";
 
 export const ComponentsRoutes: Routes = [
   {
@@ -157,7 +158,7 @@ export const ComponentsRoutes: Routes = [
         component: CvListComponent,
         data: {
           title: 'Cv List',
-          urls: [{title: 'Cv', url: '/cv'}, {title: 'List'}]
+          urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'CV List'}]
         }
       },
       {
@@ -165,7 +166,7 @@ export const ComponentsRoutes: Routes = [
         component: CvGridComponent,
         data: {
           title: 'Cv List',
-          urls: [{title: 'Cv', url: '/cv'}, {title: 'List'}]
+          urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'CV Grid'}]
         }
       },
       {
@@ -173,7 +174,15 @@ export const ComponentsRoutes: Routes = [
         component: CvIndividualComponent,
         data: {
           title: 'Cv',
-          urls: []
+          urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'CV View'}]
+        }
+      },
+      {
+        path: 'search',
+        component: SearchComponent,
+        data: {
+          title: 'Dashboard',
+          urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'Search'}]
         }
       }
     ]

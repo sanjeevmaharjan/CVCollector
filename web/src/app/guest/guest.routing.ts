@@ -5,6 +5,7 @@ import {PreviewComponent} from "./preview/preview.component";
 import {HomeComponent} from "./home/home.component";
 import {UserAuthGuard} from "../auth/user.auth.guard";
 import {SignupComponent} from "./signup/signup.component";
+import {AboutComponent} from "./about/about.component";
 
 export const GuestRoutes: Routes = [
   {
@@ -44,6 +45,21 @@ export const GuestRoutes: Routes = [
           ]
         }
       },
+
+
+      {
+        path: 'about',
+        component: AboutComponent,
+        data: {
+          title: 'About',
+          urls: [
+            {title: 'Home', url: '/home'},
+            {title: 'Cv'}
+          ]
+        }
+      },
+
+
       {
         path: 'cv/:client',
         component: CvComponent,

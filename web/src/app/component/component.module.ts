@@ -30,6 +30,7 @@ import { CvListComponent } from './cv-list/cv-list.component';
 import { CvGridComponent } from './cv-grid/cv-grid.component';
 import {CvViewComponent} from '../shared/cv-view/cv-view.component';
 import {SpinnerComponent} from "./spinner.component";
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   imports: [
@@ -63,7 +64,8 @@ import {SpinnerComponent} from "./spinner.component";
     CvListComponent,
     CvGridComponent,
     CvViewComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SearchComponent
   ]
 })
 
