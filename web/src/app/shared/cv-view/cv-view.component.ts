@@ -10,7 +10,7 @@ export class CvViewComponent implements OnInit {
 
   @Input() cv: CvModel | null;
 
-  tab = 2;
+  tab = 3;
 
   constructor() { }
 
