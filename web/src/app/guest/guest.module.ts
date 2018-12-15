@@ -10,6 +10,8 @@ import {TextDirective} from '../shared/form-elements/text.directive';
 import {FormsModule} from '@angular/forms';
 import {PreviewComponent} from './preview/preview.component';
 import {HomeComponent} from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   imports: [
@@ -24,7 +26,9 @@ import {HomeComponent} from './home/home.component';
     TextDirective,
     PreviewComponent,
     HomeComponent,
-    CvComponent
+    CvComponent,
+    AboutComponent,
+    ContactComponent
   ]
 })
 export class GuestModule { }

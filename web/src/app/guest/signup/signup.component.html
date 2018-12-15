@@ -1,3 +1,29 @@
-<p>
-  signup works!
-</p>
+<div class="form-group">
+  <label for="company">Company Name</label>
+  <input type="text" [(ngModel)]="company" class="form-control" id="company" name="company" placeholder="Company">
+  <small id="companyHelp" class="form-text text-muted">* Your Company Name</small>
+</div>
+
+<div class="form-group">
+  <label for="email">Email Address</label>
+  <input type="email" [(ngModel)]="email" class="form-control" id="email" name="email" placeholder="Email Address">
+  <small id="emailHelp" class="form-text text-muted">* Your Email</small>
+</div>
+
+<div class="form-group">
+  <label for="username">Username</label>
+  <input type="text" [(ngModel)]="username" class="form-control" id="username" name="username" placeholder="Username">
+  <small id="usernameHelp" class="form-text text-muted">* Your Unique Username</small>
+</div>
+
+<div class="form-group">
+  <label for="password">Password</label>
+  <input type="password" [(ngModel)]="password" class="form-control" id="password" name="password" placeholder="Password">
+  <small id="passwordHelp" class="form-text text-muted">* Your Secret Password</small>
+</div>
+
+<div class="form-group">
+  <button class="btn btn-outline-primary pull-right" (click)="register()">
+    Register <span class="mdi lock-open"></span>
+  </button>
+</div>

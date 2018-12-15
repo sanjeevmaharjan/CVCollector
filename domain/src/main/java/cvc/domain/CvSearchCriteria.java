@@ -103,7 +103,7 @@ public class CvSearchCriteria extends PersistentObject {
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public short getMinAge() {
+    public Short getMinAge() {
         return MinAge;
     }
 
@@ -112,7 +112,7 @@ public class CvSearchCriteria extends PersistentObject {
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public short getMaxAge() {
+    public Short getMaxAge() {
         return MaxAge;
     }
 
@@ -166,7 +166,7 @@ public class CvSearchCriteria extends PersistentObject {
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public float getAcademicScoreMin() {
+    public Float getAcademicScoreMin() {
         return AcademicScoreMin;
     }
 
@@ -175,7 +175,7 @@ public class CvSearchCriteria extends PersistentObject {
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public float getAcademicScoreMax() {
+    public Float getAcademicScoreMax() {
         return AcademicScoreMax;
     }
 
@@ -184,7 +184,7 @@ public class CvSearchCriteria extends PersistentObject {
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public int getJobExperienceMin() {
+    public Integer getJobExperienceMin() {
         return JobExperienceMin;
     }
 
@@ -193,7 +193,7 @@ public class CvSearchCriteria extends PersistentObject {
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public int getJobExperienceMax() {
+    public Integer getJobExperienceMax() {
         return JobExperienceMax;
     }
 
@@ -202,7 +202,7 @@ public class CvSearchCriteria extends PersistentObject {
     }
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public int getProject() {
+    public Integer getProject() {
         return project;
     }
 
@@ -264,7 +264,8 @@ public class CvSearchCriteria extends PersistentObject {
         AdditionalNotes = additionalNotes;
     }
 
-    public boolean isRelocationCriteria() {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public Boolean isRelocationCriteria() {
         return RelocationCriteria;
     }
 

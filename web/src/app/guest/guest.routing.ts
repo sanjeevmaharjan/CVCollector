@@ -4,6 +4,7 @@ import {CvComponent} from "./cv/cv.component";
 import {PreviewComponent} from "./preview/preview.component";
 import {HomeComponent} from "./home/home.component";
 import {UserAuthGuard} from "../auth/user.auth.guard";
+import {SignupComponent} from "./signup/signup.component";
 
 export const GuestRoutes: Routes = [
   {
@@ -28,6 +29,18 @@ export const GuestRoutes: Routes = [
           urls: [
             {title: 'Home', url: '/home'},
             {title: 'Login'}
+          ]
+        }
+      },
+      {
+        path: 'signup',
+        component: SignupComponent,
+        data: {
+          title: 'Signup',
+          canActivate: [!UserAuthGuard],
+          urls: [
+            {title: 'Home', url: '/home'},
+            {title: 'Signup'}
           ]
         }
       },
