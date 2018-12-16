@@ -70,7 +70,7 @@ public class CvController {
      * forwards to getCvs to smart filter by default
      */
     @GetMapping("/")
-    public List<Cv> index(@RequestParam Optional<Integer> page) {
+    public Page<Cv> index(Pageable page) {
 
         return getCvs("smart", page);
     }
@@ -79,33 +79,9 @@ public class CvController {
      * Gets the list of Cv filtered by filter param
      */
     @GetMapping("/filter/{filter}")
-    public List<Cv> getCvs(@PathVariable String filter, @RequestParam Optional<Integer> page) {
-        List<Cv> result = this.cvSearchService.findUsersCv();
-        int numPages = (result.size() / pageSize) + 1;
-
-        if (page.isPresent() && page.get() > numPages) {
-            return null;
-        }
-
-        int fromIndex;
-
-        if (page.isEmpty()) {
-            fromIndex = 0;
-        } else {
-            fromIndex = page.get() * pageSize;
-        }
-
-        int toIndex = ((numPages - fromIndex) > pageSize ? pageSize: numPages - fromIndex) + 1;
-
-        return result.subList(fromIndex, toIndex);
-    }
-
-    @GetMapping("/getNumPages")
-    public long numPages() {
-        List<Cv> result = this.cvSearchService.findUsersCv();
-        int numPages = (result.size() / pageSize) + 1;
-
-        return numPages;
+    public Page<Cv> getCvs(@PathVariable String filter, Pageable pageable) {
+        Page<Cv> result = this.cvSearchService.findUsersCv(pageable);
+        return result;
     }
 
     /*
@@ -144,13 +120,13 @@ public class CvController {
         }
     }
 
-    @GetMapping("/filter/name/{nameStartsWith}")
+/*    @GetMapping("/filter/name/{nameStartsWith}")
     public List<Cv> getCvsByName(@PathVariable String nameStartsWith) {
         return cvSearchService.withName(nameStartsWith);
-    }
+    }*/
 
     @PostMapping(value = "/filter/criteria", consumes = "application/json")
-    public List<Cv> getCvsByFilterObject(@RequestBody String payload) {
+    public Page<Cv> getCvsByFilterObject(@RequestBody String payload, Pageable pageable) {
         System.out.println(payload);
 
         CvSearchCriteria filter = null;
@@ -172,7 +148,7 @@ public class CvController {
             e.printStackTrace();
         }
 
-        return this.cvSearchService.findByFilter(new CvSearchCriteriaModel(filter));
+        return this.cvSearchService.findByFilter(new CvSearchCriteriaModel(filter), pageable);
     }
 
     /*@GetMapping("/getRankedCvs")

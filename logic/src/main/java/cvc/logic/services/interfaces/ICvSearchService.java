@@ -11,19 +11,21 @@ import java.util.List;
 
 public interface ICvSearchService {
 
-    List<Cv> withName(String name);
+/*    List<Cv> withName(String name);
 
     List<Cv> withGender(short gender);
 
     List<Cv> minAge(short ageMin);
 
-    List<Cv> maxAge(short ageMax);
+    List<Cv> maxAge(short ageMax);*/
 
     Cv getById(long id);
 
-    List<Cv> findByFilter(CvSearchCriteriaModel cvSearchCriteria);
+    Page<Cv> findByFilter(CvSearchCriteriaModel cvSearchCriteria, Pageable pageable);
 
-    List<Cv> findUsersCv();
+    Page<Cv> findUsersCv(Pageable pageable);
+
+    Page<Cv> findByLink(Long id, Pageable pageable);
 
     Dashboard getDashboardStats();
 }

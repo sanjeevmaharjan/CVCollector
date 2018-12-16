@@ -54,7 +54,7 @@ export class HttpService {
       );
   }
 
-  postAsJson<T>(url: string, body: T, op: string = '') {
+  postAsJson<T>(url: string, body: T, op: string = ''): any {
         return this.http.post<T>(this.baseUrl + url, body, postOptions)
       .pipe(
         catchError(this.handleError(op, body))

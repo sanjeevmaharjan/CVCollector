@@ -34,10 +34,10 @@ public class CvSearchService implements ICvSearchService {
         this.userRepository  = userRepository;
     }
 
-    @Override
+    /*@Override
     public List<Cv> minAge(short ageMin) {
         Specification<Cv> specs = PersonalDetailsSpecifications.ageGreaterThan(ageMin);
-        List<Cv> searchResults = getCvsWithSpecifications(specs);
+        List<Cv> searchResults = getCvsWithSpecifications(specs, );
         return searchResults;
     }
 
@@ -46,7 +46,7 @@ public class CvSearchService implements ICvSearchService {
         Specification<Cv> specs = PersonalDetailsSpecifications.ageLessThan(ageMax);
         List<Cv> searchResults = getCvsWithSpecifications(specs);
         return searchResults;
-    }
+    }*/
 
     @Override
     public Cv getById(long id) {
@@ -60,36 +60,36 @@ public class CvSearchService implements ICvSearchService {
         return null;
     }
 
-    @Override
+    /*@Override
     public List<Cv> withName(String name) {
         Specification<Cv> specs = PersonalDetailsSpecifications.nameStartsWith(name);
         List<Cv> searchResults = getCvsWithSpecifications(specs);
         return searchResults;
-    }
+    }*/
 
-    @Override
+    /*@Override
     public List<Cv> withGender(short gender) {
         Specification<Cv> specs = PersonalDetailsSpecifications.thisGenderOnly(Genders.fromId(gender));
         List<Cv> searchResults = getCvsWithSpecifications(specs);
         return searchResults;
-    }
+    }*/
 
     @Override
-    public List<Cv> findByFilter(CvSearchCriteriaModel criteriaModel) {
+    public Page<Cv> findByFilter(CvSearchCriteriaModel criteriaModel, Pageable pageable) {
         if (criteriaModel == null) {
-            return findUsersCv();
+            return findUsersCv(pageable);
         }
 
         Specification<Cv> specs = criteriaModel.getSpecs();
-        List<Cv> searchResults = getCvsWithSpecifications(specs);
+        Page<Cv> searchResults = getCvsWithSpecifications(specs, pageable);
         return searchResults;
     }
 
     @Override
-    public List<Cv> findUsersCv() {
+    public Page<Cv> findUsersCv(Pageable pageable) {
         OAuth2Authentication authentication = (OAuth2Authentication) SecurityContextHolder.getContext().getAuthentication();
         Specification<Cv> specification = UserSpecifications.cvOfThisUser(authentication.getName());
-        return this.repository.findAll(specification);
+        return this.repository.findAll(specification, pageable);
     }
 
     @Override
@@ -109,8 +109,13 @@ public class CvSearchService implements ICvSearchService {
                 .setSubmittedThisWeek(numCvsThisWeek);
     }
 
-    private List<Cv> getCvsWithSpecifications(Specification<Cv> specs) {
+    private Page<Cv> getCvsWithSpecifications(Specification<Cv> specs, Pageable pageable) {
         OAuth2Authentication authentication = (OAuth2Authentication) SecurityContextHolder.getContext().getAuthentication();
-        return this.repository.findAll(specs.and(UserSpecifications.cvOfThisUser(authentication.getName())));
+        return this.repository.findAll(specs.and(UserSpecifications.cvOfThisUser(authentication.getName())), pageable);
+    }
+
+    @Override
+    public Page<Cv> findByLink(Long id, Pageable pageable) {
+        return this.repository.findByLink(id, pageable);
     }
 }

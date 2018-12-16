@@ -10,7 +10,10 @@ import cvc.domain.Users;
 import cvc.logic.repositories.ICvSearchCriteriaRepository;
 import cvc.logic.repositories.ILinksRepository;
 import cvc.logic.repositories.IUserRepository;
+import cvc.logic.services.interfaces.ICvSearchService;
 import javassist.NotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -24,11 +27,13 @@ public class UserController {
     private IUserRepository userRepository;
     private ICvSearchCriteriaRepository criteriaRepository;
     private ILinksRepository linksRepository;
+    private ICvSearchService cvSearchService;
 
-    public UserController(IUserRepository userRepository, ICvSearchCriteriaRepository criteriaRepository, ILinksRepository linksRepository) {
+    public UserController(IUserRepository userRepository, ICvSearchCriteriaRepository criteriaRepository, ILinksRepository linksRepository, ICvSearchService cvSearchService) {
         this.userRepository = userRepository;
         this.criteriaRepository = criteriaRepository;
         this.linksRepository = linksRepository;
+        this.cvSearchService = cvSearchService;
     }
 
     @GetMapping("/")
@@ -78,13 +83,13 @@ public class UserController {
     }
 
     @GetMapping("/getLinksCv/{id}")
-    public List<Cv> getLinksCv(@PathVariable Long id, Principal principal) {
+    public Page<Cv> getLinksCv(@PathVariable Long id, Pageable pageable, Principal principal) {
         Links link = this.linksRepository.findById(id).orElse(null);
         if (link == null || !link.getUser().getUsername().equals(principal.getName())) {
             return null;
         }
 
-        return link.getCvs();
+        return this.cvSearchService.findByLink(id, pageable);
     }
 
     @GetMapping("/getSavedCriteria")

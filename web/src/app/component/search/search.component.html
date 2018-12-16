@@ -147,3 +147,49 @@
   </div>
 
 </form>
+<div *ngIf="cvs">
+  <div class="row">
+    <div class="col-12">
+      <div *ngIf="!cvs">
+        <app-spinner1></app-spinner1>
+      </div>
+      <!-- Row -->
+      <div class="card-deck flex-row">
+        <!-- column -->
+        <div *ngFor="let cv of cvs; let k = index" class="col-4 flex-wrap">
+          <!-- Card -->
+          <div class="card" (click)="open(cv.id)">
+            <!--<img class="card-img-top img-responsive" src="assets/images/big/img1.jpg" alt="Card image cap">-->
+            <div class="card-body little-profile text-center">
+              <div class="profile-img">
+                <img src="assets/images/big/img1.jpg" alt="Card image cap">
+              </div>
+              <h4 *ngIf="cv && cv.personal && cv.personal.firstName" class="card-title text-dark" placement="bottom" ngbTooltip="Name">
+                {{cv.personal.firstName}} {{cv.personal.lastName}}
+              </h4>
+              <h6 *ngIf="cv && cv.personal && cv.personal.additionalDetails" class="card-text text-muted" placement="bottom" ngbTooltip="Career Title">
+                {{cv.personal.careerTitle}}
+              </h6>
+              <h6 *ngIf="cv && cv.personal && cv.personal.additionalDetails" class="card-text text-muted" placement="bottom" ngbTooltip="Contact Details">
+                {{cv.contact.phone}}, {{cv.contact.email}}
+              </h6>
+              <div class="text-center row bg-light splitted text-black-50">
+                <div class="col-6" placement="bottom" ngbTooltip="Date Of Birth"><small>{{cv.personal.dateOfBirth}}</small></div>
+                <div class="col-6" placement="bottom" ngbTooltip="Nationality"><small>{{cv.personal.nationality}}</small></div>
+                <div class="col-6" placement="bottom" ngbTooltip="Professional Skills"><small>{{cv.professional.professionalSkills}}</small></div>
+                <div class="col-6" placement="bottom" ngbTooltip="Gender"><small>{{getGender(cv.personal.gender)}}</small></div>
+              </div>
+            </div>
+          </div>
+          <!-- Card -->
+        </div>
+        <!-- column -->
+      </div>
+      <!-- Row -->
+    </div>
+  </div>
+  <!-- End Row -->
+
+  <ngb-pagination [collectionSize]="size" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+</div>
+

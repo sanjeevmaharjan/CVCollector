@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Router} from "@angular/router";
 import {OnChanges} from '@angular/core';
+import {PageCvModel} from "../../models/page-cv.model";
 
 @Component({
   selector: 'app-cv-grid',
@@ -15,8 +16,10 @@ export class CvGridComponent implements OnInit {
 
   cvs: CvModel[];
 
-  size: number = 0;
+  isFirst: boolean;
+  isLast: boolean;
 
+  size: number;
   page: number = 1;
 
   private baseUrl = 'http://localhost:8080';
@@ -26,38 +29,27 @@ export class CvGridComponent implements OnInit {
     private http: HttpClient,
     private router: Router
   ) {
-
-  }
-
-  ngOnInit() {
-    this.httpService.getAll<CvModel>('/api/cv/')
+    this.httpService.get<PageCvModel>('/api/cv/?page=0')
       .subscribe(
         cvs => {
-          this.cvs = cvs;
+          this.cvs = cvs.content;
+          this.size = cvs.totalPages;
           if (!environment.production) {
             console.log(cvs);
           }
         }
       );
-
-    this.httpService.get('/api/cv/getNumPages')
-      .subscribe(
-        num => {
-          console.log(num);
-          this.size = num;
-        }
-      );
   }
 
-  ngOnChanges() {
-
+  ngOnInit() {
   }
 
   getPage(n: number) {
-    this.httpService.getAll<CvModel>('/api/cv/?page=' + n)
+    this.httpService.get<PageCvModel>('/api/cv/?page=' + (n - 1))
       .subscribe(
         cvs => {
-          this.cvs = cvs;
+          this.cvs = cvs.content;
+          this.size = cvs.totalPages;
           if (!environment.production) {
             console.log(cvs);
           }

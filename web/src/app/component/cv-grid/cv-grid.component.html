@@ -4,7 +4,7 @@
       <app-spinner1></app-spinner1>
     </div>
     <!-- Row -->
-    <div class="card-deck flex-row">
+    <div class="card-deck flex-row" *ngIf="cvs">
       <!-- column -->
       <div *ngFor="let cv of cvs; let k = index" class="col-4 flex-wrap">
         <!-- Card -->
@@ -40,4 +40,4 @@
 </div>
 <!-- End Row -->
 
-<ngb-pagination [collectionSize]="size" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+<ngb-pagination [collectionSize]="size" [(page)]="page" (pageChange)="getPage(page-1)" aria-label="Default pagination"></ngb-pagination>
