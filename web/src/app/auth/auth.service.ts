@@ -55,7 +55,7 @@ export class AuthService {
 
           const returnUrl = localStorage.getItem('returnUrl');
           localStorage.removeItem('returnUrl');
-          const goto = returnUrl ? returnUrl : '/home';
+          const goto = returnUrl ? returnUrl : '/component/dashboard';
 
           this.router.navigate([goto]);
         }

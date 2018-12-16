@@ -78,10 +78,18 @@ public abstract class OrganizationBase extends PersistentObject implements Seria
     }
 
     public void setSuruDate(client.entities.Date startDate) {
+        if (startDate.toString().equals("0-0-0")) {
+            StartDate = null;
+            return;
+        }
         StartDate = LocalDate.parse(startDate.toString());
     }
 
     public void setAntimDate(client.entities.Date endDate) {
+        if (endDate.toString().equals("0-0-0")) {
+            StartDate = null;
+            return;
+        }
         EndDate = LocalDate.parse(endDate.toString());
     }
 

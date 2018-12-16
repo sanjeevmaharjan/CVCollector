@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {isNullOrUndefined} from '@swimlane/ngx-datatable/release/utils';
 import {CvModel} from '../../models/cv/cv.model';
 import {NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import {HttpService} from "../../services/http.service";
 
 @Component({
   selector: 'app-preview',
@@ -13,7 +14,7 @@ export class PreviewComponent implements OnInit {
 
   tab = 1;
 
-  constructor(private dateParser: NgbDateParserFormatter) {
+  constructor(private dateParser: NgbDateParserFormatter, private httpService: HttpService) {
   }
 
   ngOnInit() {
@@ -44,6 +45,18 @@ export class PreviewComponent implements OnInit {
 
   selectTab(id: number): void {
     this.tab = id;
+  }
+
+  print(): void {
+    this.httpService.get(
+      '/api/cv/getPdf/' + this.cv.links).subscribe(
+      (response) => {
+        const mediaType = 'application/pdf';
+        const blob = new Blob([response._body], {type: mediaType});
+        const filename = 'test.pdf';
+        const url = window.URL.createObjectURL(blob);
+        window.open(url);
+      });
   }
 
 }

@@ -1,9 +1,6 @@
 package cvc.logic.specifications;
 
-import cvc.domain.Cv;
-import cvc.domain.Cv_;
-import cvc.domain.Users;
-import cvc.domain.Users_;
+import cvc.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.Join;
@@ -18,7 +15,8 @@ public final class UserSpecifications {
 
     public static Specification<Cv> cvOfThisUser(String username) {
         return (root, query, criteriaBuilder) -> {
-            Join<Cv, Users> join = root.join(Cv_.User);
+            Join<Cv, Links> joinLinks = root.join(Cv_.Links);
+            Join<Links, Users> join = joinLinks.join(Links_.User);
 
             return criteriaBuilder.equal(join.get(Users_.Username), username);
         };

@@ -3,7 +3,9 @@ package cvc.logic.model;
 import cvc.domain.Cv;
 import cvc.domain.CvSearchCriteria;
 import cvc.logic.specifications.ContactDetailsSpecifications;
+import cvc.logic.specifications.EducationDetailsSpecifications;
 import cvc.logic.specifications.PersonalDetailsSpecifications;
+import cvc.logic.specifications.WorkDetailsSpecifications;
 import enums.Genders;
 import enums.MaritalStatuses;
 import org.springframework.data.jpa.domain.Specification;
@@ -63,8 +65,32 @@ public class CvSearchCriteriaModel {
         }
         // endregion Personal Details Specs
 
+        if (isNotNullOrEmpty(cvSearchCriteria.getCountry())) {
+            AddSpec(ContactDetailsSpecifications.thisCountry(cvSearchCriteria.getCountry()));
+        }
+
+        if (isNotNullOrEmpty(cvSearchCriteria.getCity())) {
+            AddSpec(ContactDetailsSpecifications.thisCity(cvSearchCriteria.getCity()));
+        }
+
         if (cvSearchCriteria.isRelocationCriteria()) {
             AddSpec(ContactDetailsSpecifications.canRelocateOnly());
+        }
+
+        if (isNotNullOrEmpty(cvSearchCriteria.getAcademicScoreMin())) {
+            AddSpec(EducationDetailsSpecifications.MinScore(cvSearchCriteria.getAcademicScoreMin()));
+        }
+
+        if (isNotNullOrEmpty(cvSearchCriteria.getAcademicScoreMax())) {
+            AddSpec(EducationDetailsSpecifications.MaxScore(cvSearchCriteria.getAcademicScoreMax()));
+        }
+
+        if (isNotNullOrEmpty(cvSearchCriteria.getJobExperienceMin())){
+            AddSpec(WorkDetailsSpecifications.minJobExp(cvSearchCriteria.getJobExperienceMin()));
+        }
+
+        if (isNotNullOrEmpty(cvSearchCriteria.getJobExperienceMax())){
+            AddSpec(WorkDetailsSpecifications.maxJobExp(cvSearchCriteria.getJobExperienceMax()));
         }
 
         return specs;
@@ -96,6 +122,14 @@ public class CvSearchCriteriaModel {
     }
     private boolean isNotNullOrEmpty (MaritalStatuses value) {
         return value != null && !value.equals(MaritalStatuses.Unspecified);
+    }
+
+    private boolean isNotNullOrEmpty (Float value) {
+        return value != null;
+    }
+
+    private boolean isNotNullOrEmpty (Integer value) {
+        return value != null;
     }
 
     // endregion Other functions

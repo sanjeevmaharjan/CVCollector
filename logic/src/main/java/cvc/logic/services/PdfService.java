@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import com.docmosis.util.Configuration;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Service
 public class PdfService {
@@ -40,6 +43,7 @@ public class PdfService {
     }
 
     public byte[] createPdf(Cv cv) {
+        byte[] pdf = null;
 
         try {
 
@@ -63,6 +67,10 @@ public class PdfService {
 
                 System.out.println("\nCreated: " + outputFile.getCanonicalPath());
             }
+
+
+            Path pdfPath = Paths.get("temp/cv.pdf");
+            pdf = Files.readAllBytes(pdfPath);
         } catch (Exception e){
             System.err.println("\nPlease check the following: " + e.getMessage());
         } finally {
@@ -70,8 +78,6 @@ public class PdfService {
             SystemManager.release();
         }
 
-
-
-        return null;
+        return pdf;
     }
 }

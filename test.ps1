@@ -3,8 +3,8 @@ $endpoint = 'http://localhost:8080'
 $uri = "${endpoint}/oauth/token"
 
 # client credentials
-$client = "crmClient1"
-$clientSecret = "crmSuperSecret"
+$client = "sanjeev"
+$clientSecret = "Admin"
 
 # user credentials
 $user = "sanjeev"
@@ -25,17 +25,24 @@ $Headers = @{
 }
 
 # invoke /oauth/token
-$authresponse = Invoke-RestMethod -Method OPTIONS -Uri "$($uri)" -Headers $Headers -Body $body
+$authresponse = Invoke-RestMethod -Method POST -Uri "$($uri)" -Headers $Headers -Body $body
 
 
 
 # get values
-$uri = "${endpoint}/api/cv/"
+$uri = "${endpoint}/api/cv/filter/criteria"
 $token = $authresponse.access_token
 $auth = "Bearer $token"
 $Headers = @{
     Authorization = $auth
 }
-$response = Invoke-RestMethod -Method Get -Uri "$($uri)" -Headers $Headers
 
-echo $response.Count
+try {
+    $response = Invoke-RestMethod -Method POST -Uri "$($uri)" -Headers $Headers
+}
+catch {
+     Write-Error $Error
+}
+
+
+echo $response
