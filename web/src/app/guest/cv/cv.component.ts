@@ -1,9 +1,15 @@
 import {Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
-import {NgbAccordion, NgbAccordionConfig, NgbPanelChangeEvent, NgbTabChangeEvent} from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbAccordion,
+  NgbAccordionConfig,
+  NgbDateParserFormatter,
+  NgbPanelChangeEvent,
+  NgbTabChangeEvent
+} from '@ng-bootstrap/ng-bootstrap';
 // import {AgmCoreModule, MapsAPILoader} from "@agm/core";
 // import { } from 'googlemaps';
 import {FormControl} from '@angular/forms';
-import { CvModel } from '../../models/cv/cv.model';
+import {CvModel} from '../../models/cv/cv.model';
 import {PersonalDetailsModel} from '../../models/cv/personal-details.model';
 import {ContactDetailsModel} from '../../models/cv/contact-details.model';
 import {EducationDetailsModel} from '../../models/cv/education-details.model';
@@ -18,6 +24,8 @@ import {LanguageProficiencyModel} from '../../models/cv/language-proficiency.mod
 import {HttpService} from '../../services/http.service';
 import {isNullOrUndefined} from '@swimlane/ngx-datatable/release/utils';
 import {MapsAPILoader} from '@agm/core';
+import {ActivatedRoute} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-cv',
@@ -27,13 +35,24 @@ import {MapsAPILoader} from '@agm/core';
 export class CvComponent implements OnInit {
   cv: CvModel;
 
+  isLinkValid: boolean;
+
   minDate: Date = new Date(1);
+  private link: number;
 
   currentDate: Date = new Date(Date.now());
 
   constructor(
-    private httpService: HttpService
+    private httpService: HttpService,
+    route: ActivatedRoute,
+    private toastr: ToastrService,
+    private dateParser: NgbDateParserFormatter
   ) {
+
+    const link = route.snapshot.params['link'];
+
+    this.link = typeof link === 'string' ? parseInt(link, 10) : this.link;
+
     this.cv = new CvModel();
     this.cv.personal = new PersonalDetailsModel();
     this.cv.contact = new ContactDetailsModel();
@@ -55,7 +74,9 @@ export class CvComponent implements OnInit {
   ngOnInit() {
     const cvFromLocal = localStorage.getItem('cv-data');
     if (!isNullOrUndefined(cvFromLocal)) {
-      this.cv = JSON.parse(cvFromLocal);
+      const cv = JSON.parse(cvFromLocal);
+      this.cv = cv;
+      this.cv.links = this.link;
     }
   }
 
@@ -88,10 +109,30 @@ export class CvComponent implements OnInit {
     this.cv.additionalInfo.languageProficiencyList.push(new LanguageProficiencyModel());
   }
 
-  public save() {
+  public autoSave(): void {
+    this.toastr.success('AutoSaved!');
+    this.cv.links = this.link;
     console.log(this.cv);
     localStorage.setItem('cv-data', JSON.stringify(this.cv));
-    this.httpService.postAsJson<CvModel>('/api/cv/add', this.cv)
+  }
+
+  public save() {
+    console.log(this.cv);
+    const cvFromLocal = localStorage.getItem('cv-data');
+    this.cv.links = this.link;
+
+    if (!isNullOrUndefined(cvFromLocal)) {
+      const cv = JSON.parse(cvFromLocal);
+
+      this.cv.personal.dateOfBirth = this.dateParser.format(cv.personal.dateOfBirth);
+      this.cv.education.institutions.forEach((value, index) => {
+        value.suruDate = this.dateParser.format(cv.education.institutions[index].suruDate);
+        value.antimDate = this.dateParser.format(cv.education.institutions[index].antimDate);
+      });
+    }
+
+    localStorage.setItem('cv-data', JSON.stringify(this.cv));
+    this.httpService.postAsJson<CvModel>('/api/cv/add/' + this.link, this.cv)
       .subscribe(msg => console.log(msg));
   }
 }

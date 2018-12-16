@@ -8,12 +8,16 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@NamedQuery(name = "Cv.countByUser", query = "select count(c)from Cv c join c.User u where u.Username = ?1")
-@NamedQuery(name = "Cv.countByUserAndSubmittedTimeBetween", query = "select count(c)from Cv c join c.User u where u.Username = ?1 and c.SubmittedTime between ?2 and ?3")
+@NamedQuery(name = "Cv.countByUser", query = "select count(c)from Cv c join c.Links l join l.User u where u.Username = ?1")
+@NamedQuery(name = "Cv.countByLinks", query = "select count(c)from Cv c join c.Links l where l.Id = ?1")
+@NamedQuery(name = "Cv.countByUserAndSubmittedTimeBetween", query = "select count(c)from Cv c join c.Links l join l.User u where u.Username = ?1 and c.SubmittedTime between ?2 and ?3")
 public class Cv extends PersistentObject {
 
+    /*@ManyToOne(fetch = FetchType.LAZY)
+    private Users User;*/
+
     @ManyToOne(fetch = FetchType.LAZY)
-    private Users User;
+    private Links Links;
 
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "personal_id", unique = true, nullable = false)
@@ -136,13 +140,22 @@ public class Cv extends PersistentObject {
         SubmittedTime = submittedTime;
     }
 
-    @JsonIgnore
+    /*@JsonIgnore
     public Users getUser() {
         return User;
     }
 
     public void setUser(Users user) {
         User = user;
+    }*/
+
+    @JsonIgnore
+    public cvc.domain.Links getLinks() {
+        return Links;
+    }
+
+    public void setLinks(cvc.domain.Links links) {
+        Links = links;
     }
 
     //endregion getters and setters

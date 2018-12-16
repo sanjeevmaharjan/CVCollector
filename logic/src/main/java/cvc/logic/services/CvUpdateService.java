@@ -5,6 +5,8 @@ import cvc.logic.repositories.ICvRepository;
 import cvc.logic.services.interfaces.ICvUpdateService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 public class CvUpdateService implements ICvUpdateService {
 
@@ -16,6 +18,7 @@ public class CvUpdateService implements ICvUpdateService {
 
     @Override
     public void save(Cv cv) {
+        cv.setSubmittedTime(LocalDate.now());
         repository.save(cv);
     }
 

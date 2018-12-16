@@ -10,5 +10,6 @@ import java.time.LocalDate;
 @Repository
 public interface ICvRepository extends JpaRepository<Cv,Long>, JpaSpecificationExecutor<Cv> {
     Long countByUser(String username);
+    Long countByLinks(Integer id);
     Long countByUserAndSubmittedTimeBetween(String username, LocalDate startDate, LocalDate endDate);
 }

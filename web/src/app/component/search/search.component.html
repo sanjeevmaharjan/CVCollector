@@ -1,47 +1,61 @@
-<form xmlns="http://www.w3.org/1999/html">
+<form (submit)="getSearch($event)">
   <div class="row">
 
     <div class="col-12">
       Personal Details
       <div class="row">
-      <div class="input-group mb-2 col-3">
-        <div class="input-group-prepend">
-          <div class="input-group-text">Name</div>
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Name</div>
+          </div>
+          <input type="text" class="form-control" name="name" [(ngModel)]="search.name" placeholder="Name">
         </div>
-        <input type="text" class="form-control" name="name" [(ngModel)]="search.name" placeholder="Name">
-      </div>
 
-      <div class="input-group mb-2 col-3">
-        <div class="input-group-prepend">
-          <div class="input-group-text">Gender</div>
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Gender</div>
+          </div>
+          <input type="text" class="form-control" name="gender" [(ngModel)]="search.gender" placeholder="Gender">
         </div>
-        <input type="text" class="form-control" name="gender" [(ngModel)]="search.gender" placeholder="Gender">
-      </div>
 
-      <div class="input-group mb-2 col-3">
-        <div class="input-group-prepend">
-          <div class="input-group-text">Nationality</div>
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Minimum Age</div>
+          </div>
+          <input type="text" class="form-control" name="minAge" [(ngModel)]="search.minAge" placeholder="Min. Age">
         </div>
-        <input type="text" class="form-control" name="nationality" [(ngModel)]="search.nationality"
-               placeholder="Nationality">
-      </div>
 
-      <div class="input-group mb-2 col-3">
-        <div class="input-group-prepend">
-          <div class="input-group-text">Marital Status</div>
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Maximum Age</div>
+          </div>
+          <input type="text" class="form-control" name="maxAge" [(ngModel)]="search.maxAge" placeholder="Max. Age">
         </div>
-        <input type="text" class="form-control" name="Marital Status" [(ngModel)]="search.maritalStatus"
-               placeholder="Marital Status">
-      </div>
 
-      <div class="input-group mb-2 col-3">
-        <div class="input-group-prepend">
-          <div class="input-group-text">Career Title</div>
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Nationality</div>
+          </div>
+          <input type="text" class="form-control" name="nationality" [(ngModel)]="search.nationality"
+                 placeholder="Nationality">
         </div>
-        <input type="text" class="form-control" name="Career Title" [(ngModel)]="search.careerTitle"
-               placeholder="Career Title">
+
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Marital Status</div>
+          </div>
+          <input type="text" class="form-control" name="Marital Status" [(ngModel)]="search.maritalStatus"
+                 placeholder="Marital Status">
+        </div>
+
+        <div class="input-group mb-2 col-3">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Career Title</div>
+          </div>
+          <input type="text" class="form-control" name="Career Title" [(ngModel)]="search.careerTitle"
+                 placeholder="Career Title">
+        </div>
       </div>
-    </div>
     </div>
 
     <div class="col-12">
@@ -129,16 +143,7 @@
 
       <input class="btn btn-primary" type="submit" value="Search">
 
-
-
-
-
-
-
-
-
-
-      </div>
     </div>
+  </div>
 
 </form>

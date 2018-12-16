@@ -50,7 +50,7 @@ public class CvSearchService implements ICvSearchService {
     public Cv getById(long id) {
         OAuth2Authentication authentication = (OAuth2Authentication) SecurityContextHolder.getContext().getAuthentication();
         Cv cv = repository.findById(id).orElse(null);
-        Users cvUser = cv.getUser();
+        Users cvUser = cv.getLinks().getUser();
         if (cv != null && cvUser != null && cvUser.getUsername().equals(authentication.getName())) {
             return cv;
         }

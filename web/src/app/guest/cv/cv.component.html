@@ -13,13 +13,13 @@
               <div class="form-group col-md-6">
                 <label for="firstName">First Name</label>
                 <input type="text" [(ngModel)]="cv.personal.firstName" class="form-control" id="firstName"
-                       name="firstName" placeholder="First Name">
+                       name="firstName" placeholder="First Name" (focus)="autoSave()">
                 <small id="firstNameHelp" class="form-text text-muted">* Your First Name</small>
               </div>
               <div class="form-group col-md-6">
                 <label for="lastName">Last Name</label>
                 <input type="text" [(ngModel)]="cv.personal.lastName" class="form-control" id="lastName" name="lastName"
-                       placeholder="Last Name">
+                       placeholder="Last Name" (focus)="autoSave()">
                 <small id="lastNameHelp" class="form-text text-muted">* Your Last Name</small>
               </div>
             </div>
@@ -27,7 +27,7 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="gender">Gender</label>
-                <select [(ngModel)]="cv.personal.gender" class="form-control custom-select" id="gender" name="gender">
+                <select [(ngModel)]="cv.personal.gender" class="form-control custom-select" id="gender" name="gender" (focus)="autoSave()">
                   <option value="1">Male</option>
                   <option value="2">Female</option>
                   <option value="3">Other</option>
@@ -41,7 +41,7 @@
                   <div class="input-group full-width">
                     <input class="form-control" placeholder="yyyy-mm-dd"
                            [(ngModel)]="cv.personal.dateOfBirth" [minDate]="minDate" [maxDate]="currentDate" name="dob" id="dob"
-                           readonly="readonly" ngbDatepicker #d="ngbDatepicker">
+                           readonly="readonly" ngbDatepicker #d="ngbDatepicker" (focus)="autoSave()">
                     <div class="input-group-append" (click)="d.toggle()">
                       <i class="fa fa-calendar input-group-text"></i>
                     </div>
@@ -53,7 +53,7 @@
               <div class="form-group col-md-4">
                 <label for="nationality">Nationality</label>
                 <input type="text" [(ngModel)]="cv.personal.nationality" class="form-control" id="nationality"
-                       name="nationality" placeholder="">
+                       name="nationality" placeholder="" (focus)="autoSave()">
               </div>
 
             </div>
@@ -62,13 +62,13 @@
               <div class="form-group col-md-6">
                 <label for="fatherName">Father's Name</label>
                 <input type="text" [(ngModel)]="cv.personal.father" class="form-control" id="fatherName"
-                       name="fatherName" placeholder="Father's Name">
+                       name="fatherName" placeholder="Father's Name" (focus)="autoSave()">
                 <small id="fatherNameHelp" class="form-text text-muted">* Your Father's Name</small>
               </div>
               <div class="form-group col-md-6">
                 <label for="lastName">Mother's Name</label>
                 <input type="text" [(ngModel)]="cv.personal.mother" class="form-control" id="motherName"
-                       name="motherName" placeholder="Mother's Name">
+                       name="motherName" placeholder="Mother's Name" (focus)="autoSave()">
                 <small id="motherNameHelp" class="form-text text-muted">* Your Last Name</small>
               </div>
             </div>
@@ -77,13 +77,13 @@
               <div class="form-group col-md-8">
                 <label for="careerTitle">Career Title</label>
                 <input type="text" [(ngModel)]="cv.personal.careerTitle" class="form-control" id="careerTitle"
-                       name="careerTitle" placeholder="Career Title">
+                       name="careerTitle" placeholder="Career Title" (focus)="autoSave()">
               </div>
 
               <div class="form-group col-md-4">
                 <label for="maritalStatus">Marital Status</label>
                 <select [(ngModel)]="cv.personal.maritalStatus" class="form-control custom-select" id="maritalStatus"
-                        name="maritalStatus">
+                        name="maritalStatus" (focus)="autoSave()">
                   <option value="1">Married</option>
                   <option value="2">Unmarried</option>
                 </select>
@@ -94,7 +94,7 @@
             <div class="form-group">
               <label for="personalAdditional">Personal Details Additional</label>
               <textarea [(ngModel)]="cv.personal.additionalDetails" class="form-control" rows="5"
-                        id="personalAdditional" name="personalAdditional"></textarea>
+                        id="personalAdditional" name="personalAdditional" (focus)="autoSave()"></textarea>
             </div>
           </form>
 
@@ -116,11 +116,11 @@
               <div class="form-group col-md-8">
                 <label for="inputCity">Address</label>
                 <input type="text" [(ngModel)]="cv.contact.address" name="inputCity" class="form-control"
-                       id="inputCity">
+                       id="inputCity" (focus)="autoSave()">
               </div>
               <div class="form-group col-md-4">
                 <label for="inputZip">Zip</label>
-                <input type="text" [(ngModel)]="cv.contact.zip" name="inputZip" class="form-control" id="inputZip">
+                <input type="number" [(ngModel)]="cv.contact.zip" name="inputZip" class="form-control" id="inputZip" (focus)="autoSave()">
               </div>
             </div>
             <div class="form-row">

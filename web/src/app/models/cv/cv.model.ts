@@ -9,6 +9,8 @@ import {AwardsModel} from './awards.model';
 export class CvModel {
   id: number;
 
+  links: number;
+
   personal: PersonalDetailsModel;
 
   contact: ContactDetailsModel;

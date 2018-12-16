@@ -8,6 +8,7 @@ import cvc.domain.Cv;
 import cvc.domain.CvSearchCriteria;
 import cvc.domain.Users;
 import cvc.logic.CvLogic;
+import cvc.logic.repositories.ILinksRepository;
 import cvc.logic.services.PdfService;
 import cvc.logic.services.interfaces.ICvSearchService;
 import cvc.logic.services.interfaces.ICvUpdateService;
@@ -50,13 +51,15 @@ public class CvController {
     private ICvSearchService cvSearchService;
     private ICvUpdateService cvUpdateService;
     private PdfService pdfService;
+    private ILinksRepository linksRepository;
     private CvLogic cvLogic;
     private static CachingRecommender cachingRecommender;
 
-    public CvController(ICvSearchService cvSearchService, ICvUpdateService cvUpdateService, PdfService pdfService) {
+    public CvController(ICvSearchService cvSearchService, ICvUpdateService cvUpdateService, PdfService pdfService, ILinksRepository linksRepository) {
         this.cvSearchService = cvSearchService;
         this.cvUpdateService = cvUpdateService;
         this.pdfService = pdfService;
+        this.linksRepository = linksRepository;
     }
 
     /*
@@ -86,13 +89,14 @@ public class CvController {
     /*
      * Inserts the new Cv
      */
-    @PostMapping(value = "/add", consumes = "application/json")
-    public void addCv(@RequestBody String payload) {
+    @PostMapping(value = "/add/{id}", consumes = "application/json")
+    public void addCv(@PathVariable long id, @RequestBody String payload) {
         // System.out.println(payload);
 
         try {
             ObjectMapper mapper = new ObjectMapper();
             Cv cv = mapper.readValue(payload, Cv.class);
+            cv.setLinks(linksRepository.findById(id).orElse(null));
             System.out.println(cv);
             this.cvUpdateService.save(cv);
         }

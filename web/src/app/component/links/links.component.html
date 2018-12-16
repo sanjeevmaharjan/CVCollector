@@ -1,0 +1,10 @@
+<div class="card-deck">
+  <div class="col-4 mb-4" *ngFor="let link of links">
+    <div class="card" (click)="viewLink(link?.id)">
+      <div class="card-body">
+        <h2>{{link.purpose}}</h2>
+        <h6>{{link.cvCount}}</h6>
+      </div>
+    </div>
+  </div>
+</div>

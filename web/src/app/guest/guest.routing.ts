@@ -1,11 +1,11 @@
-import {Routes} from "@angular/router";
-import {LoginComponent} from "./login/login.component";
-import {CvComponent} from "./cv/cv.component";
-import {PreviewComponent} from "./preview/preview.component";
-import {HomeComponent} from "./home/home.component";
-import {UserAuthGuard} from "../auth/user.auth.guard";
-import {SignupComponent} from "./signup/signup.component";
-import {AboutComponent} from "./about/about.component";
+import {Routes} from '@angular/router';
+import {LoginComponent} from './login/login.component';
+import {CvComponent} from './cv/cv.component';
+import {PreviewComponent} from './preview/preview.component';
+import {HomeComponent} from './home/home.component';
+import {UserAuthGuard} from '../auth/user.auth.guard';
+import {SignupComponent} from './signup/signup.component';
+import {AboutComponent} from './about/about.component';
 
 export const GuestRoutes: Routes = [
   {
@@ -61,7 +61,7 @@ export const GuestRoutes: Routes = [
 
 
       {
-        path: 'cv/:client',
+        path: 'cv/:link',
         component: CvComponent,
         data: {
           title: 'Cv',

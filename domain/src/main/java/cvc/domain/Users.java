@@ -22,11 +22,14 @@ public class Users extends PersistentObject{
 
     private boolean IsEnabled;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "User", targetEntity = Cv.class)
-    private Set<Cv> Cvs;
+    /*@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "User", targetEntity = Cv.class)
+    private Set<Cv> Cvs;*/
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "User", targetEntity = CvSearchCriteria.class)
     private Set<CvSearchCriteria> CvSearchCriteria;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "User", targetEntity = Links.class)
+    private Set<Links> Links;
 
     public Users() {}
 
@@ -79,14 +82,14 @@ public class Users extends PersistentObject{
         IsEnabled = enabled;
     }
 
-    @JsonIgnore
+/*    @JsonIgnore
     public Set<Cv> getCvs() {
         return Cvs;
     }
 
     public void setCvs(Set<Cv> cvs) {
         Cvs = cvs;
-    }
+    }*/
 
     @JsonIgnore
     public Set<cvc.domain.CvSearchCriteria> getCvSearchCriteria() {
@@ -95,6 +98,14 @@ public class Users extends PersistentObject{
 
     public void setCvSearchCriteria(Set<cvc.domain.CvSearchCriteria> cvSearchCriteria) {
         CvSearchCriteria = cvSearchCriteria;
+    }
+
+    public Set<cvc.domain.Links> getLinks() {
+        return Links;
+    }
+
+    public void setLinks(Set<cvc.domain.Links> links) {
+        Links = links;
     }
 
     //endregion getters and setters

@@ -20,6 +20,8 @@ import {CvListComponent} from './cv-list/cv-list.component';
 import {CvIndividualComponent} from './cv-individual/cv-individual.component';
 import {CvGridComponent} from './cv-grid/cv-grid.component';
 import {SearchComponent} from "./search/search.component";
+import {LinksComponent} from "./links/links.component";
+import {ViewLinkComponent} from "./view-link/view-link.component";
 
 export const ComponentsRoutes: Routes = [
   {
@@ -158,15 +160,15 @@ export const ComponentsRoutes: Routes = [
         component: CvListComponent,
         data: {
           title: 'Cv List',
-          urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'CV List'}]
+          urls: [{title: 'Dashboard', url: '/component/dashboard'}, {title: 'CV List'}]
         }
       },
       {
         path: 'gridCv',
         component: CvGridComponent,
         data: {
-          title: 'Cv List',
-          urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'CV Grid'}]
+          title: 'Cv Grid',
+          urls: [{title: 'Dashboard', url: '/component/dashboard'}, {title: 'CV Grid'}]
         }
       },
       {
@@ -174,15 +176,31 @@ export const ComponentsRoutes: Routes = [
         component: CvIndividualComponent,
         data: {
           title: 'Cv',
-          urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'CV View'}]
+          urls: [{title: 'Dashboard', url: '/component/dashboard'}, {title: 'CV View'}]
         }
       },
       {
         path: 'search',
         component: SearchComponent,
         data: {
-          title: 'Dashboard',
-          urls: [{title: 'Dashboard', url: '/dashboard'}, {title: 'Search'}]
+          title: 'Search',
+          urls: [{title: 'Dashboard', url: '/component/dashboard'}, {title: 'Search'}]
+        }
+      },
+      {
+        path: 'links',
+        component: LinksComponent,
+        data: {
+          title: 'Links',
+          urls: [{title: 'Dashboard', url: '/component/dashboard'}, {title: 'Links'}]
+        }
+      },
+      {
+        path: 'viewLink/:id',
+        component: ViewLinkComponent,
+        data: {
+          title: 'Links',
+          urls: [{title: 'Dashboard', url: '/component/dashboard'}, {title: 'Links', url: '/links'}, {title: 'View Link'}]
         }
       }
     ]
