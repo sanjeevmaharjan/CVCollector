@@ -51,7 +51,7 @@ public class PdfService {
 
             dpb.addJavaObject(cv, "cv");
 
-            File templateFile = new File("cv templates/ResumeTemplate 1.doc");
+            File templateFile = new File("cv templates/ResumeTemplate 2.docx");
             File outputFile = new File("temp/cv.pdf");
 
             if (!templateFile.canRead()) {
