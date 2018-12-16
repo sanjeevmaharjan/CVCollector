@@ -22,6 +22,7 @@ import {CvGridComponent} from './cv-grid/cv-grid.component';
 import {SearchComponent} from "./search/search.component";
 import {LinksComponent} from "./links/links.component";
 import {ViewLinkComponent} from "./view-link/view-link.component";
+import {CreateLinkComponent} from "./create-link/create-link.component";
 
 export const ComponentsRoutes: Routes = [
   {
@@ -198,6 +199,14 @@ export const ComponentsRoutes: Routes = [
       {
         path: 'viewLink/:id',
         component: ViewLinkComponent,
+        data: {
+          title: 'Links',
+          urls: [{title: 'Dashboard', url: '/component/dashboard'}, {title: 'Links', url: '/links'}, {title: 'View Link'}]
+        }
+      },
+      {
+        path: 'createLink',
+        component: CreateLinkComponent,
         data: {
           title: 'Links',
           urls: [{title: 'Dashboard', url: '/component/dashboard'}, {title: 'Links', url: '/links'}, {title: 'View Link'}]

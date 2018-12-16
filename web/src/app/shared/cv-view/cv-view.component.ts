@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CvModel} from '../../models/cv/cv.model';
 import {HttpService} from "../../services/http.service";
 import {HttpHeaders} from "@angular/common/http";
+import saveAs from 'file-saver';
 
 @Component({
   selector: 'app-cv-view',
@@ -37,14 +38,15 @@ export class CvViewComponent implements OnInit {
 
   print(): void {
 
-    this.httpService.get(
-      '/api/cv/getPdf/' + this.cv.links).subscribe(
-      (response) => {
+    this.httpService.getPdf(this.cv.links).subscribe(
+      (response, ) => {
         const mediaType = 'application/pdf';
-        const blob = new Blob([response._body], {type: mediaType});
+        console.log(response);
+        const blob = new Blob([response], {type: mediaType});
         const filename = 'test.pdf';
-        const url = window.URL.createObjectURL(blob);
-        window.open(url);
+        saveAs(blob, filename);
+        /*const url = window.URL.createObjectURL(blob);
+        window.open(url);*/
       });
   }
 

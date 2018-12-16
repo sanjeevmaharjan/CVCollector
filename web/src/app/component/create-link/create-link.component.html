@@ -1,0 +1,10 @@
+<div class="form-group">
+  <label for="purpose">Purpose</label>
+  <input type="text" [(ngModel)]="link.purpose" class="form-control" id="purpose" name="purpose" placeholder="Purpose">
+  <small id="usernameHelp" class="form-text text-muted">Name of the list</small>
+</div>
+<div class="form-group">
+  <button class="btn btn-outline-primary pull-right" (click)="add()">
+    Create Link <span class="mdi lock-open"></span>
+  </button>
+</div>

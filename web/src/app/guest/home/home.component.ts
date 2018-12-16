@@ -8,12 +8,14 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  linkId: number;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   cv() {
-    this.router.navigate(['cv']);
+    this.router.navigate(['/cv/' + this.linkId]);
   }
 }

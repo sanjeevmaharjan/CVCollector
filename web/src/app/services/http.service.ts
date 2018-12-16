@@ -19,6 +19,12 @@ const getOptions = {
   })
 }
 
+const pdfOptions = {
+  headers: new HttpHeaders({
+    'Authorization': 'Basic Y3JtQ2xpZW50MTpjcm1TdXBlclNlY3JldA=='
+  })
+}
+
 const loginOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded',
@@ -84,5 +90,9 @@ export class HttpService {
 
   public log(msg: string) {
     console.log(Date() + msg);
+  }
+
+  public getPdf(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + '/getPdf/' + id, pdfOptions);
   }
 }

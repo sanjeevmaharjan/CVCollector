@@ -1,6 +1,7 @@
 package cvc.api.controller;
 
 import cvc.domain.Cv;
+import cvc.logic.repositories.ICvRepository;
 import cvc.logic.services.PdfService;
 import cvc.logic.services.interfaces.ICvSearchService;
 import org.springframework.http.HttpHeaders;
@@ -16,17 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path = "/getPdf", produces = MediaType.APPLICATION_PDF_VALUE)
 public class PdfController {
 
-    private ICvSearchService cvSearchService;
+    private ICvRepository cvRepository;
     private PdfService pdfService;
 
-    public PdfController(ICvSearchService cvSearchService, PdfService pdfService) {
-        this.cvSearchService = cvSearchService;
+    public PdfController(ICvRepository cvRepository, PdfService pdfService) {
+        this.cvRepository = cvRepository;
         this.pdfService = pdfService;
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<byte[]> getPdf(@PathVariable String id) {
-        Cv cv = this.cvSearchService.getById(Long.parseLong(id));
+        Cv cv = this.cvRepository.findById(Long.parseLong(id)).orElse(null);
 
         byte[] contents = this.pdfService.createPdf(cv);
 

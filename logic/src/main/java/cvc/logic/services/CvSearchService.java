@@ -10,6 +10,8 @@ import cvc.logic.model.CvSearchCriteriaModel;
 import cvc.logic.specifications.PersonalDetailsSpecifications;
 import cvc.logic.specifications.UserSpecifications;
 import enums.Genders;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
@@ -86,7 +88,8 @@ public class CvSearchService implements ICvSearchService {
     @Override
     public List<Cv> findUsersCv() {
         OAuth2Authentication authentication = (OAuth2Authentication) SecurityContextHolder.getContext().getAuthentication();
-        return this.repository.findAll(UserSpecifications.cvOfThisUser(authentication.getName()));
+        Specification<Cv> specification = UserSpecifications.cvOfThisUser(authentication.getName());
+        return this.repository.findAll(specification);
     }
 
     @Override

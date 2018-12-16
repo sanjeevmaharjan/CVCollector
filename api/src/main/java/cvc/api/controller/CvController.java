@@ -30,6 +30,8 @@ import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.Recommender;
 import org.apache.mahout.cf.taste.similarity.UserSimilarity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -44,6 +46,7 @@ import java.io.IOException;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/cv", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -54,6 +57,7 @@ public class CvController {
     private ILinksRepository linksRepository;
     private CvLogic cvLogic;
     private static CachingRecommender cachingRecommender;
+    private final int pageSize = 20;
 
     public CvController(ICvSearchService cvSearchService, ICvUpdateService cvUpdateService, PdfService pdfService, ILinksRepository linksRepository) {
         this.cvSearchService = cvSearchService;
@@ -66,16 +70,42 @@ public class CvController {
      * forwards to getCvs to smart filter by default
      */
     @GetMapping("/")
-    public List<Cv> index() {
-        return getCvs("smart");
+    public List<Cv> index(@RequestParam Optional<Integer> page) {
+
+        return getCvs("smart", page);
     }
 
     /*
      * Gets the list of Cv filtered by filter param
      */
     @GetMapping("/filter/{filter}")
-    public List<Cv> getCvs(@PathVariable String filter) {
-        return this.cvSearchService.findUsersCv();
+    public List<Cv> getCvs(@PathVariable String filter, @RequestParam Optional<Integer> page) {
+        List<Cv> result = this.cvSearchService.findUsersCv();
+        int numPages = (result.size() / pageSize) + 1;
+
+        if (page.isPresent() && page.get() > numPages) {
+            return null;
+        }
+
+        int fromIndex;
+
+        if (page.isEmpty()) {
+            fromIndex = 0;
+        } else {
+            fromIndex = page.get() * pageSize;
+        }
+
+        int toIndex = ((numPages - fromIndex) > pageSize ? pageSize: numPages - fromIndex) + 1;
+
+        return result.subList(fromIndex, toIndex);
+    }
+
+    @GetMapping("/getNumPages")
+    public long numPages() {
+        List<Cv> result = this.cvSearchService.findUsersCv();
+        int numPages = (result.size() / pageSize) + 1;
+
+        return numPages;
     }
 
     /*

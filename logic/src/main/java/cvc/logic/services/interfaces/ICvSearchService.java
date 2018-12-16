@@ -4,6 +4,8 @@ import client.entities.Dashboard;
 import cvc.domain.Cv;
 import cvc.domain.Users;
 import cvc.logic.model.CvSearchCriteriaModel;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 

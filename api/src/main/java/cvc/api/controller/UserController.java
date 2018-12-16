@@ -1,5 +1,8 @@
 package cvc.api.controller;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import cvc.domain.Cv;
 import cvc.domain.CvSearchCriteria;
 import cvc.domain.Links;
@@ -10,6 +13,7 @@ import cvc.logic.repositories.IUserRepository;
 import javassist.NotFoundException;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
@@ -37,11 +41,40 @@ public class UserController {
         return linksRepository.findByUser(principal.getName());
     }
 
-    public void addLinks(Principal principal) {
-        Links link = new Links();
-        Users user = userRepository.findByUsername(principal.getName()).orElse(null);
-        link.setUser(user);
-        return linksRepository.save(link);
+    @PostMapping("/addLink")
+    public long addLinks(@RequestBody String payload, Principal principal) {
+        // System.out.println(payload);
+
+        long id = 0;
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            Links link = mapper.readValue(payload, Links.class);
+            Users user = userRepository.byUsername(principal.getName()).orElse(null);
+
+            if (user != null) {
+                user.getLinks().add(link);
+                link.setUser(user);
+            }
+            Links newLink = this.linksRepository.save(link);
+
+            id = newLink.getId();
+
+        }
+        catch (JsonMappingException e) {
+            e.printStackTrace();
+        }
+        catch (JsonParseException e) {
+            e.printStackTrace();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return id;
     }
 
     @GetMapping("/getLinksCv/{id}")

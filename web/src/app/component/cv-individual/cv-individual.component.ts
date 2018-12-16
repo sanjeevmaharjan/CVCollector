@@ -21,6 +21,7 @@ export class CvIndividualComponent implements OnInit {
     this.httpService.get<CvModel>('/api/cv/' + id).subscribe(cv => {
       if (cv && cv.id > 0) {
         this.cv = cv;
+        this.cv.links = id;
       } else {
         this.notFound = true;
       }

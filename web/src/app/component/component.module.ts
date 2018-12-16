@@ -33,6 +33,7 @@ import {SpinnerComponent} from "./spinner.component";
 import { SearchComponent } from './search/search.component';
 import { LinksComponent } from './links/links.component';
 import { ViewLinkComponent } from './view-link/view-link.component';
+import { CreateLinkComponent } from './create-link/create-link.component';
 
 @NgModule({
   imports: [
@@ -69,7 +70,8 @@ import { ViewLinkComponent } from './view-link/view-link.component';
     SpinnerComponent,
     SearchComponent,
     LinksComponent,
-    ViewLinkComponent
+    ViewLinkComponent,
+    CreateLinkComponent
   ]
 })
 
