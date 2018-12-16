@@ -13,6 +13,12 @@ const postOptions = {
   })
 };
 
+const getOptions = {
+  headers: new HttpHeaders({
+    'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiY3ZfY29sbGVjdG9yIl0sInVzZXJfbmFtZSI6InNhbmplZXYiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdLCJleHAiOjE1NDQ5NzYxOTEsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiLCJST0xFX0NMSUVOVCJdLCJqdGkiOiI2ZmM0MjhkZC0xN2RlLTRjMDktOGM5Ni05Y2RlNjMzZTc4YzciLCJjbGllbnRfaWQiOiJjcm1DbGllbnQxIn0.hFjgvG4Aypfom6ANRTSY0iUYbBqBs8L-hO31NZIfqkAHlz2dfxKWrL_7jBfySCFUH57nL08JAp19Bnm0MyF1JEIyx4Yjj94-UbHkPdtw6JllnTrIUsfOWktTx2MCmzHe2vnA9jkx6iEASy57lwpd__f0EUQiEjXPQWNYrdgVOjeUmwnRFsrGuyvKlZ87KW54kGOsavM4Qpl48utFNxQE4ItV87Hqbu6iHQX_Ku8I57T_31Oi0b_puKoNRTppG9rrFf5firc3r_xwUKC27dfey6F5rXNNJJjHXaaHZVbkq55iPuZgEfHxBdkc8j9y_LsrulbbLVSMT6cxPqgWszGPxA'
+  })
+}
+
 const loginOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded',

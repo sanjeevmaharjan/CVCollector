@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CvModel} from '../../models/cv/cv.model';
+import {HttpService} from "../../services/http.service";
+import {HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-cv-view',
@@ -12,7 +14,7 @@ export class CvViewComponent implements OnInit {
 
   tab = 3;
 
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {}
 
@@ -31,6 +33,19 @@ export class CvViewComponent implements OnInit {
 
   selectTab(id: number): void {
     this.tab = id;
+  }
+
+  print(): void {
+
+    this.httpService.get(
+      '/api/cv/getPdf/' + this.cv.links).subscribe(
+      (response) => {
+        const mediaType = 'application/pdf';
+        const blob = new Blob([response._body], {type: mediaType});
+        const filename = 'test.pdf';
+        const url = window.URL.createObjectURL(blob);
+        window.open(url);
+      });
   }
 
 }

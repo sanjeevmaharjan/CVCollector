@@ -3,8 +3,8 @@ $endpoint = 'http://localhost:8080'
 $uri = "${endpoint}/oauth/token"
 
 # client credentials
-$client = "crmClient1"
-$clientSecret = "crmSuperSecret"
+$client = "sanjeev"
+$clientSecret = "Admin"
 
 # user credentials
 $user = "sanjeev"

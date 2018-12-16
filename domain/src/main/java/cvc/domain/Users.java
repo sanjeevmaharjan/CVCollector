@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@NamedQuery(name = "Cv.findByUsername", query = "select count(c)from Users u where u.Username = ?1")
 public class Users extends PersistentObject{
     private String Name;
 

@@ -37,6 +37,13 @@ public class UserController {
         return linksRepository.findByUser(principal.getName());
     }
 
+    public void addLinks(Principal principal) {
+        Links link = new Links();
+        Users user = userRepository.findByUsername(principal.getName()).orElse(null);
+        link.setUser(user);
+        return linksRepository.save(link);
+    }
+
     @GetMapping("/getLinksCv/{id}")
     public List<Cv> getLinksCv(@PathVariable Long id, Principal principal) {
         Links link = this.linksRepository.findById(id).orElse(null);
