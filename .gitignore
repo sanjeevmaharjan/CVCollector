@@ -2,6 +2,8 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 web/node_modules
+temp/
+templatestore/
 
 ### STS ###
 .apt_generated
